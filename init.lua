@@ -585,7 +585,7 @@ farming.register_plant = function(name, def)
 
 -- add to farming.registered_plants
 farming.registered_plants[mname .. ":" .. pname] = {
-	name = mname .. ":" .. pname,
+	crop = mname .. ":" .. pname,
 	seed = mname .. ":seed_" .. pname,
 	steps = def.steps,
 	minlight = def.minlight,
