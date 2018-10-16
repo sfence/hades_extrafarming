@@ -62,5 +62,12 @@ if minetest.get_modpath("lucky_block") then
 			{"farming:wheat_8", "farming:chili_8"},
 			{"farming:cotton_8", "farming:cucumber_4"},
 		}},
+		{"nod", "default:chest", 0, {
+			{name = "farming:seed_wheat", max = 15},
+			{name = "farming:seed_barley", max = 15},
+			{name = "farming:seed_barley", max = 15},
+			{name = "farming:seed_hemp", max = 15},
+			{name = "farming:soil_wet", max = 10},
+		}},
 	})
 end
