@@ -185,4 +185,14 @@ minetest.after(0, function()
 		},
 		replacements = {{fluid_return, "bucket:bucket_empty"}}
 	})
+
+	minetest.register_craft({
+		type = "shapeless",
+		output = "farming:porridge",
+		recipe = {
+			"group:food_oats", "group:food_oats", "group:food_oats",
+			"group:food_oats", "group:food_bowl", fluid
+		},
+		replacements = {{fluid_return, "bucket:bucket_empty"}}
+	})
 end)
