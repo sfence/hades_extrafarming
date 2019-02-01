@@ -402,15 +402,19 @@ minetest.register_tool("farming:scythe_mithril", {
 		-- add dropped items
 		for _, dropped_item in pairs(drops) do
 
-			local obj = minetest.add_item(pos, dropped_item)
+			if dropped_item ~= "farming:trellis"
+			and dropped_item ~= "farming:beanpole" then
 
-			if obj then
+				local obj = minetest.add_item(pos, dropped_item)
 
-				obj:set_velocity({
-					x = math.random(-10, 10) / 9,
-					y = 3,
-					z = math.random(-10, 10) / 9,
-				})
+				if obj then
+
+					obj:set_velocity({
+						x = math.random(-10, 10) / 9,
+						y = 3,
+						z = math.random(-10, 10) / 9,
+					})
+				end
 			end
 		end
 
