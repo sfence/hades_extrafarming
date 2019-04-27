@@ -32,5 +32,5 @@ farming.beetroot = 0.001
 farming.grains = true -- true or false only
 farming.rarety = 0.002
 
--- rarety of crops on map, default is 0.002 (higher number = more crops)
+-- default rarety of crops on map (higher number = more crops)
 farming.rarety = 0.002
