@@ -322,7 +322,7 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 	end
 
 	local growth
-	local light_pos = {x = pos.x, y = pos.y, z = pos.z} --  was y + 1
+	local light_pos = {x = pos.x, y = pos.y, z = pos.z}
 	local lambda = elapsed / STAGE_LENGTH_AVG
 
 	if lambda < 0.1 then
