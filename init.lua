@@ -329,7 +329,7 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 		return true
 	end
 
-	local MIN_LIGHT = minetest.registered_nodes[node_name].minlight or 13
+	local MIN_LIGHT = minetest.registered_nodes[node_name].minlight or 12
 	local MAX_LIGHT = minetest.registered_nodes[node_name].maxlight or 15
 	--print ("---", MIN_LIGHT, MAX_LIGHT)
 
@@ -497,7 +497,7 @@ farming.register_plant = function(name, def)
 	-- Check def
 	def.description = def.description or S("Seed")
 	def.inventory_image = def.inventory_image or "unknown_item.png"
-	def.minlight = def.minlight or 13
+	def.minlight = def.minlight or 12
 	def.maxlight = def.maxlight or 15
 
 	-- Register seed
