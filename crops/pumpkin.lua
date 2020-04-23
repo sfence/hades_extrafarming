@@ -203,7 +203,7 @@ minetest.register_node("farming:pumpkin_8", {
 		"farming_pumpkin_side.png"
 	},
 	groups = {
-		food_pumpkin = 1, choppy = 1, oddly_breakable_by_hand = 1,
+		food_pumpkin = 1, choppy = 2, oddly_breakable_by_hand = 1,
 		flammable = 2, plant = 1
 	},
 	drop = "farming:pumpkin_8",
