@@ -66,14 +66,14 @@ minetest.override_item("farming:rice", {
 })
 
 minetest.register_craftitem("farming:rice_bread", {
-	description = "Rice Bread",
+	description = S("Rice Bread"),
 	inventory_image = "farming_rice_bread.png",
 	on_use = minetest.item_eat(5),
 	groups = {food_rice_bread = 1, flammable = 2},
 })
 
 minetest.register_craftitem("farming:rice_flour", {
-	description = "Rice Flour",
+	description = S("Rice Flour"),
 	inventory_image = "farming_rice_flour.png",
 	groups = {food_rice_flour = 1, flammable = 1},
 })

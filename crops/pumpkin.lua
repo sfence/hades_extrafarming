@@ -88,6 +88,7 @@ minetest.register_craft({
 
 --- wooden scarecrow base
 minetest.register_node("farming:scarecrow_bottom", {
+	description = S("Scarecrow Bottom"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "facedir",
