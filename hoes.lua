@@ -321,7 +321,7 @@ end
 
 -- hoe bomb item
 minetest.register_craftitem("farming:hoe_bomb", {
-	description = S("Hoe Bomb (use or throw on grassy areas to hoe land"),
+	description = S("Hoe Bomb (use or throw on grassy areas to hoe land)"),
 	inventory_image = "farming_hoe_bomb.png",
 	groups = {flammable = 2, not_in_creative_inventory = 1},
 	on_use = function(itemstack, user, pointed_thing)
