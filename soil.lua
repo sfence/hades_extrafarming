@@ -89,6 +89,7 @@ minetest.register_node("farming:soil_wet", {
 })
 
 -- savanna soil
+if minetest.registered_nodes["default:dry_dirt"] then
 minetest.register_node("farming:dry_soil", {
 	description = S("Savanna Soil"),
 	tiles = {
@@ -118,6 +119,7 @@ minetest.register_node("farming:dry_soil_wet", {
 		wet = "farming:dry_soil_wet"
 	}
 })
+end
 
 -- sand is not soil, change existing sand-soil to use dry soil
 minetest.register_alias("farming:desert_sand_soil", "farming:dry_soil")
