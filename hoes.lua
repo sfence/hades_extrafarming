@@ -256,7 +256,7 @@ minetest.register_entity("farming:hoebomb_entity", {
 	visual = "sprite",
 	visual_size = {x = 1.0, y = 1.0},
 	textures = {"farming_hoe_bomb.png"},
-	collisionbox = {0,0,0,0,0,0},
+	collisionbox = {-0.1,-0.1,-0.1,0.1,0.1,0.1},
 	lastpos = {},
 	player = "",
 
