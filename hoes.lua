@@ -499,12 +499,16 @@ if minetest.get_modpath("moreores") then
 	-- Toolranks support
 	if tr then
 
+		local desc = S("%s Hoe"):format(S("Silver"))
+
 		minetest.override_item("moreores:hoe_silver", {
-			original_description = S("%s Hoe"):format(S("Silver")),
-			description = toolranks.create_description("Silver Hoe")})
+			original_description = desc,
+			description = toolranks.create_description(desc)})
+
+		desc = S("%s Hoe"):format(S("Mithril"))
 
 		minetest.override_item("moreores:hoe_mithril", {
-			original_description = S("%s Hoe"):format(S("Mithril")),
-			description = toolranks.create_description("Mithril Hoe")})
+			original_description = desc,
+			description = toolranks.create_description(desc)})
 	end
 end
