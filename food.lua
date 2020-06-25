@@ -242,7 +242,6 @@ minetest.register_craft({
 minetest.register_craftitem("farming:cactus_juice", {
 	description = S("Cactus Juice"),
 	inventory_image = "farming_cactus_juice.png",
---	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
 	groups = {vessel = 1},
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
@@ -267,4 +266,55 @@ minetest.register_craft({
 	replacements = {
 		{"group:food_juicer", "farming:juicer"},
 	},
+})
+
+-- Pasta
+
+minetest.register_craftitem("farming:pasta", {
+	description = S("Pasta"),
+	inventory_image = "farming_pasta.png",
+	groups = {food_pasta = 1},
+})
+
+if minetest.get_modpath("mobs_animal") or minetest.get_modpath("xanadu")then
+minetest.register_craft({
+	output = "farming:pasta",
+	type = "shapeless",
+	recipe = {
+		"group:food_flour", "group:food_mixing_bowl",
+		"group:food_butter"
+	},
+	replacements = {{"group:food_mixing_bowl", "farming:mixing_bowl"}}
+})
+else
+minetest.register_craft({
+	output = "farming:pasta",
+	type = "shapeless",
+	recipe = {
+		"group:food_flour", "group:food_mixing_bowl",
+		"group:food_oil"
+	},
+	replacements = {
+		{"group:food_mixing_bowl", "farming:mixing_bowl"},
+		{"group:food_oil", "vessels:glass_bottle"},
+	}
+})
+end
+
+-- Spaghetti
+
+minetest.register_craftitem("farming:spaghetti", {
+	description = S("Spaghetti"),
+	inventory_image = "farming_spaghetti.png",
+	on_use = minetest.item_eat(8),
+})
+
+minetest.register_craft({
+	output = "farming:spaghetti",
+	type = "shapeless",
+	recipe = {
+		"group:food_pasta", "group:food_saucepan",
+		"group:food_tomato", "group:food_garlic_clove", "group:food_garlic_clove"
+	},
+	replacements = {{"group:food_saucepan", "farming:saucepan"}}
 })
