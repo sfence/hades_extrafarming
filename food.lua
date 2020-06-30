@@ -242,7 +242,7 @@ minetest.register_craft({
 minetest.register_craftitem("farming:cactus_juice", {
 	description = S("Cactus Juice"),
 	inventory_image = "farming_cactus_juice.png",
-	groups = {vessel = 1},
+	groups = {vessel = 1, drink = 1},
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
 			if math.random(1, 5) == 1 then

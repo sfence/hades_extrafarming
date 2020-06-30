@@ -22,7 +22,7 @@ minetest.register_craftitem("farming:carrot_juice", {
 	description = S("Carrot Juice"),
 	inventory_image = "farming_carrot_juice.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {vessel = 1},
+	groups = {vessel = 1, drink = 1},
 })
 
 minetest.register_craft({
