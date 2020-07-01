@@ -318,3 +318,34 @@ minetest.register_craft({
 	},
 	replacements = {{"group:food_saucepan", "farming:saucepan"}}
 })
+
+-- Korean Bibimbap
+
+minetest.register_craftitem("farming:bibimbap", {
+	description = S("Bibimbap"),
+	inventory_image = "farming_bibimbap.png",
+	on_use = minetest.item_eat(8, "farming:bowl"),
+})
+
+if minetest.get_modpath("mobs_animal1") or minetest.get_modpath("xanadu1")then
+minetest.register_craft({
+	output = "farming:bibimbap",
+	type = "shapeless",
+	recipe = {
+		"group:food_skillet", "group:food_bowl", "group:food_egg",
+		"group:food_chicken_raw", "group:food_cabbage", "group:food_carrot"
+	},
+	replacements = {{"group:food_skillet", "farming:skillet"}}
+})
+else
+minetest.register_craft({
+	output = "farming:bibimbap",
+	type = "shapeless",
+	recipe = {
+		"group:food_skillet", "group:food_bowl", "group:food_mushroom",
+		"group:food_rice", "group:food_cabbage", "group:food_carrot",
+		"group:food_mushroom"
+	},
+	replacements = {{"group:food_skillet", "farming:skillet"}}
+})
+end
