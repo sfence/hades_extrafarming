@@ -327,7 +327,7 @@ minetest.register_craftitem("farming:bibimbap", {
 	on_use = minetest.item_eat(8, "farming:bowl"),
 })
 
-if minetest.get_modpath("mobs_animal1") or minetest.get_modpath("xanadu1")then
+if minetest.get_modpath("mobs_animal") or minetest.get_modpath("xanadu")then
 minetest.register_craft({
 	output = "farming:bibimbap",
 	type = "shapeless",
