@@ -9,15 +9,13 @@ minetest.register_craftitem("farming:cabbage", {
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:cabbage_1")
 	end,
-	on_use = minetest.item_eat(1),
+	on_use = minetest.item_eat(1)
 })
 
-local crop_def = {
+local def = {
 	drawtype = "plantlike",
 	tiles = {"farming_cabbage_1.png"},
 	paramtype = "light",
---	paramtype2 = "meshoptions",
---	place_param2 = 3,
 	sunlight_propagates = true,
 	waving = 1,
 	walkable = false,
@@ -32,34 +30,34 @@ local crop_def = {
 }
 
 -- stage 1
-minetest.register_node("farming:cabbage_1", table.copy(crop_def))
+minetest.register_node("farming:cabbage_1", table.copy(def))
 
 -- stage 2
-crop_def.tiles = {"farming_cabbage_2.png"}
-minetest.register_node("farming:cabbage_2", table.copy(crop_def))
+def.tiles = {"farming_cabbage_2.png"}
+minetest.register_node("farming:cabbage_2", table.copy(def))
 
 -- stage 3
-crop_def.tiles = {"farming_cabbage_3.png"}
-minetest.register_node("farming:cabbage_3", table.copy(crop_def))
+def.tiles = {"farming_cabbage_3.png"}
+minetest.register_node("farming:cabbage_3", table.copy(def))
 
 -- stage 4
-crop_def.tiles = {"farming_cabbage_4.png"}
-minetest.register_node("farming:cabbage_4", table.copy(crop_def))
+def.tiles = {"farming_cabbage_4.png"}
+minetest.register_node("farming:cabbage_4", table.copy(def))
 
 -- stage 5
-crop_def.tiles = {"farming_cabbage_5.png"}
-minetest.register_node("farming:cabbage_5", table.copy(crop_def))
+def.tiles = {"farming_cabbage_5.png"}
+minetest.register_node("farming:cabbage_5", table.copy(def))
 
 -- stage 6
-crop_def.tiles = {"farming_cabbage_6.png"}
-crop_def.groups.growing = 0
-crop_def.drop = {
+def.tiles = {"farming_cabbage_6.png"}
+def.groups.growing = nil
+def.drop = {
 	max_items = 2, items = {
 		{items = {"farming:cabbage"}, rarity = 1},
-		{items = {"farming:cabbage"}, rarity = 4},
+		{items = {"farming:cabbage"}, rarity = 5}
 	}
 }
-minetest.register_node("farming:cabbage_6", table.copy(crop_def))
+minetest.register_node("farming:cabbage_6", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:cabbage"] = {
