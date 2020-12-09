@@ -7,13 +7,15 @@
 
 farming = {
 	mod = "redo",
-	version = "20200702",
+	version = "20201209",
 	path = minetest.get_modpath("farming"),
 	select = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 	},
-	registered_plants = {}
+	registered_plants = {},
+	min_light = 12,
+	max_light = 15
 }
 
 
@@ -332,9 +334,8 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 		return true
 	end
 
-	local MIN_LIGHT = minetest.registered_nodes[node_name].minlight or 12
-	local MAX_LIGHT = minetest.registered_nodes[node_name].maxlight or 15
-	--print ("---", MIN_LIGHT, MAX_LIGHT)
+	local MIN_LIGHT = minetest.registered_nodes[node_name].minlight or farming.min_light
+	local MAX_LIGHT = minetest.registered_nodes[node_name].maxlight or farming.max_light
 
 	if max_growth == 1 or lambda < 2.0 then
 
