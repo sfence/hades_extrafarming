@@ -142,3 +142,9 @@ Created by VanessaE and edited by SpaghettiToastBook (CC0):
 
 Created by mDiyo (Natura), modified by TenPlus1 (License: CC BY-SA 3.0):
   farming_barley.png
+
+Created by Felfa
+   farming_blackberry*.png
+   farming_lettuce*.png
+   farming_burger.png
+   farming_berry_smoothie.png
