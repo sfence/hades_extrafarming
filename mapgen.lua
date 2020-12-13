@@ -126,7 +126,7 @@ minetest.register_decoration({
 	},
 	y_min = 5,
 	y_max = 35,
-	decoration = {"farming:pepper_5"},
+	decoration = {"farming:pepper_5", "farming:pepper_6", "farming:pepper_7"},
 	spawn_by = "group:tree",
 	num_spawn_by = 1
 })
