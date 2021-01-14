@@ -2,17 +2,17 @@
 local S = farming.intllib
 
 -- pineapple top
-minetest.register_craftitem("farming:pineapple_top", {
+minetest.register_craftitem("hades_extrafarming:pineapple_top", {
 	description = S("Pineapple Top"),
 	inventory_image = "farming_pineapple_top.png",
 	groups = {seed = 2, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pineapple_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pineapple_1")
 	end
 })
 
 -- pineapple
-minetest.register_node("farming:pineapple", {
+minetest.register_node("hades_extrafarming:pineapple", {
 	description = S("Pineapple"),
 	drawtype = "plantlike",
 	tiles = {"farming_pineapple.png"},
@@ -29,7 +29,7 @@ minetest.register_node("farming:pineapple", {
 })
 
 -- pineapple
-minetest.register_craftitem("farming:pineapple_ring", {
+minetest.register_craftitem("hades_extrafarming:pineapple_ring", {
 	description = S("Pineapple Ring"),
 	inventory_image = "farming_pineapple_ring.png",
 	groups = {food_pineapple_ring = 1, flammable = 2},
@@ -37,14 +37,14 @@ minetest.register_craftitem("farming:pineapple_ring", {
 })
 
 minetest.register_craft( {
-	output = "farming:pineapple_ring 5",
+	output = "hades_extrafarming:pineapple_ring 5",
 	type = "shapeless",
 	recipe = {"group:food_pineapple"},
-	replacements = {{"farming:pineapple", "farming:pineapple_top"}}
+	replacements = {{"hades_extrafarming:pineapple", "hades_extrafarming:pineapple_top"}}
 })
 
 -- pineapple juice
-minetest.register_craftitem("farming:pineapple_juice", {
+minetest.register_craftitem("hades_extrafarming:pineapple_juice", {
 	description = S("Pineapple Juice"),
 	inventory_image = "farming_pineapple_juice.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
@@ -52,26 +52,26 @@ minetest.register_craftitem("farming:pineapple_juice", {
 })
 
 minetest.register_craft({
-	output = "farming:pineapple_juice",
+	output = "hades_extrafarming:pineapple_juice",
 	type = "shapeless",
 	recipe = {
 		"vessels:drinking_glass", "group:food_pineapple_ring",
 		"group:food_pineapple_ring", "group:food_pineapple_ring",
-		"farming:juicer"},
+		"hades_extrafarming:juicer"},
 	replacements = {
-		{"group:food_juicer", "farming:juicer"}
+		{"group:food_juicer", "hades_extrafarming:juicer"}
 	}
 })
 
 minetest.register_craft({
-	output = "farming:pineapple_juice 2",
+	output = "hades_extrafarming:pineapple_juice 2",
 	type = "shapeless",
 	recipe = {
 		"vessels:drinking_glass", "vessels:drinking_glass",
-		"group:food_pineapple", "farming:juicer"
+		"group:food_pineapple", "hades_extrafarming:juicer"
 	},
 	replacements = {
-		{"group:food_juicer", "farming:juicer"}
+		{"group:food_juicer", "hades_extrafarming:juicer"}
 	}
 })
 
@@ -90,51 +90,51 @@ local def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 -- stage 1
-minetest.register_node("farming:pineapple_1", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_1", table.copy(def))
 
 -- stage 2
 def.tiles = {"farming_pineapple_2.png"}
-minetest.register_node("farming:pineapple_2", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_2", table.copy(def))
 
 -- stage 3
 def.tiles = {"farming_pineapple_3.png"}
-minetest.register_node("farming:pineapple_3", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_3", table.copy(def))
 
 -- stage 4
 def.tiles = {"farming_pineapple_4.png"}
-minetest.register_node("farming:pineapple_4", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_4", table.copy(def))
 
 -- stage 5
 def.tiles = {"farming_pineapple_5.png"}
-minetest.register_node("farming:pineapple_5", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_5", table.copy(def))
 
 -- stage 6
 def.tiles = {"farming_pineapple_6.png"}
-minetest.register_node("farming:pineapple_6", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_6", table.copy(def))
 
 -- stage 7
 def.tiles = {"farming_pineapple_7.png"}
-minetest.register_node("farming:pineapple_7", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_7", table.copy(def))
 
 -- stage 8 (final)
 def.tiles = {"farming_pineapple_8.png"}
 def.groups.growing = nil
 def.drop = {
 	items = {
-		{items = {"farming:pineapple"}, rarity = 1},
-		{items = {"farming:pineapple"}, rarity = 10}
+		{items = {"hades_extrafarming:pineapple"}, rarity = 1},
+		{items = {"hades_extrafarming:pineapple"}, rarity = 10}
 	}
 }
-minetest.register_node("farming:pineapple_8", table.copy(def))
+minetest.register_node("hades_extrafarming:pineapple_8", table.copy(def))
 
 -- add to registered_plants
-farming.registered_plants["farming:pineapple"] = {
-	crop = "farming:pineapple",
-	seed = "farming:pineapple_top",
+farming.registered_plants["hades_extrafarming:pineapple"] = {
+	crop = "hades_extrafarming:pineapple",
+	seed = "hades_extrafarming:pineapple_top",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8

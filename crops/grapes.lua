@@ -34,7 +34,7 @@ local function place_grapes(itemstack, placer, pointed_thing, plantname)
 	end
 
 	-- check if pointing at trellis
-	if under.name ~= "farming:trellis" then
+	if under.name ~= "hades_extrafarming:trellis" then
 		return
 	end
 
@@ -53,7 +53,7 @@ local function place_grapes(itemstack, placer, pointed_thing, plantname)
 			minetest.after(0.20,
 				farming.refill_plant,
 				placer,
-				"farming:grapes",
+				"hades_extrafarming:grapes",
 				placer:get_wield_index()
 			)
 		end
@@ -63,13 +63,13 @@ local function place_grapes(itemstack, placer, pointed_thing, plantname)
 end
 
 -- grapes
-minetest.register_craftitem("farming:grapes", {
+minetest.register_craftitem("hades_extrafarming:grapes", {
 	description = S("Grapes"),
 	inventory_image = "farming_grapes.png",
 	on_use = minetest.item_eat(2),
 	groups = {seed = 2, food_grapes = 1, flammable = 3},
 	on_place = function(itemstack, placer, pointed_thing)
-		return place_grapes(itemstack, placer, pointed_thing, "farming:grapes_1")
+		return place_grapes(itemstack, placer, pointed_thing, "hades_extrafarming:grapes_1")
 	end
 })
 
@@ -77,12 +77,12 @@ minetest.register_craftitem("farming:grapes", {
 minetest.register_craft({
 	output = "dye:violet",
 	recipe = {
-		{"farming:grapes"}
+		{"hades_extrafarming:grapes"}
 	}
 })
 
 -- trellis
-minetest.register_node("farming:trellis", {
+minetest.register_node("hades_extrafarming:trellis", {
 	description = S("Trellis (place on soil before planting grapes)"),
 	drawtype = "plantlike",
 	tiles = {"farming_trellis.png"},
@@ -92,10 +92,10 @@ minetest.register_node("farming:trellis", {
 	walkable = false,
 	buildable_to = true,
 	sunlight_propagates = true,
-	drop = "farming:trellis",
+	drop = "hades_extrafarming:trellis",
 	selection_box = farming.select,
 	groups = {snappy = 3, flammable = 2, attached_node = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 
 	on_place = function(itemstack, placer, pointed_thing)
 
@@ -142,7 +142,7 @@ minetest.register_node("farming:trellis", {
 			return
 		end
 
-		minetest.set_node(pointed_thing.above, {name = "farming:trellis"})
+		minetest.set_node(pointed_thing.above, {name = "hades_extrafarming:trellis"})
 
 		if not farming.is_creative(placer:get_player_name()) then
 			itemstack:take_item()
@@ -153,7 +153,7 @@ minetest.register_node("farming:trellis", {
 })
 
 minetest.register_craft({
-	output = "farming:trellis",
+	output = "hades_extrafarming:trellis",
 	recipe = {
 		{"default:stick", "default:stick", "default:stick"},
 		{"default:stick", "default:stick", "default:stick"},
@@ -163,7 +163,7 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:trellis",
+	recipe = "hades_extrafarming:trellis",
 	burntime = 15
 })
 
@@ -178,7 +178,7 @@ local def = {
 	sunlight_propagates = true,
 	drop = {
 		items = {
-			{items = {"farming:trellis"}, rarity = 1},
+			{items = {"hades_extrafarming:trellis"}, rarity = 1},
 		}
 	},
 	selection_box = farming.select,
@@ -186,60 +186,60 @@ local def = {
 		snappy = 3, flammable = 3, not_in_creative_inventory = 1,
 		attached_node = 1, growing = 1, plant = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 -- stage 1
-minetest.register_node("farming:grapes_1", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_1", table.copy(def))
 
 -- stage2
 def.tiles = {"farming_grapes_2.png"}
-minetest.register_node("farming:grapes_2", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_2", table.copy(def))
 
 -- stage 3
 def.tiles = {"farming_grapes_3.png"}
-minetest.register_node("farming:grapes_3", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_3", table.copy(def))
 
 -- stage 4
 def.tiles = {"farming_grapes_4.png"}
-minetest.register_node("farming:grapes_4", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_4", table.copy(def))
 
 -- stage 5
 def.tiles = {"farming_grapes_5.png"}
-minetest.register_node("farming:grapes_5", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_5", table.copy(def))
 
 -- stage 6
 def.tiles = {"farming_grapes_6.png"}
-minetest.register_node("farming:grapes_6", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_6", table.copy(def))
 
 -- stage 7
 def.tiles = {"farming_grapes_7.png"}
-minetest.register_node("farming:grapes_7", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_7", table.copy(def))
 
 -- stage 8 (final)
 def.tiles = {"farming_grapes_8.png"}
 def.groups.growing = nil
 def.drop = {
 	items = {
-		{items = {"farming:trellis"}, rarity = 1},
-		{items = {"farming:grapes 3"}, rarity = 1},
-		{items = {"farming:grapes 1"}, rarity = 2},
-		{items = {"farming:grapes 1"}, rarity = 3}
+		{items = {"hades_extrafarming:trellis"}, rarity = 1},
+		{items = {"hades_extrafarming:grapes 3"}, rarity = 1},
+		{items = {"hades_extrafarming:grapes 1"}, rarity = 2},
+		{items = {"hades_extrafarming:grapes 1"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:grapes_8", table.copy(def))
+minetest.register_node("hades_extrafarming:grapes_8", table.copy(def))
 
 -- add to registered_plants
-farming.registered_plants["farming:grapes"] = {
-	crop = "farming:grapes",
-	seed = "farming:grapes",
+farming.registered_plants["hades_extrafarming:grapes"] = {
+	crop = "hades_extrafarming:grapes",
+	seed = "hades_extrafarming:grapes",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
 }
 
 -- wild grape vine (this is what you find on the map)
-minetest.register_node("farming:grapebush", {
+minetest.register_node("hades_extrafarming:grapebush", {
 	drawtype = "plantlike",
 	tiles = {"farming_grapebush.png"},
 	paramtype = "light",
@@ -249,9 +249,9 @@ minetest.register_node("farming:grapebush", {
 	sunlight_propagates = true,
 	drop = {
 		items = {
-			{items = {"farming:grapes 1"}, rarity = 1},
-			{items = {"farming:grapes 1"}, rarity = 2},
-			{items = {"farming:grapes 1"}, rarity = 3}
+			{items = {"hades_extrafarming:grapes 1"}, rarity = 1},
+			{items = {"hades_extrafarming:grapes 1"}, rarity = 2},
+			{items = {"hades_extrafarming:grapes 1"}, rarity = 3}
 		}
 	},
 	selection_box = farming.select,
@@ -259,5 +259,5 @@ minetest.register_node("farming:grapebush", {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 })

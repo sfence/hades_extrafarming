@@ -3,7 +3,8 @@ local S = farming.intllib
 
 --= Sugar
 
-minetest.register_craftitem("farming:sugar", {
+--[[
+minetest.register_craftitem("hades_extrafarming:sugar", {
 	description = S("Sugar"),
 	inventory_image = "farming_sugar.png",
 	groups = {food_sugar = 1, flammable = 3}
@@ -12,14 +13,15 @@ minetest.register_craftitem("farming:sugar", {
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 3,
-	output = "farming:sugar 2",
+	output = "hades_extrafarming:sugar 2",
 	recipe = "default:papyrus"
 })
+--]]
 
 
 --= Salt
 
-minetest.register_node("farming:salt", {
+minetest.register_node("hades_extrafarming:salt", {
 	description = S("Salt"),
 	inventory_image = "farming_salt.png",
 	wield_image = "farming_salt.png",
@@ -29,7 +31,7 @@ minetest.register_node("farming:salt", {
 	tiles = {"farming_salt.png"},
 	groups = {food_salt = 1, vessel = 1, dig_immediate = 3,
 			attached_node = 1},
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
@@ -39,14 +41,14 @@ minetest.register_node("farming:salt", {
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
-	output = "farming:salt",
+	output = "hades_extrafarming:salt",
 	recipe = "bucket:bucket_water",
 	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
 })
 
 --= Rose Water
 
-minetest.register_node("farming:rose_water", {
+minetest.register_node("hades_extrafarming:rose_water", {
 	description = S("Rose Water"),
 	inventory_image = "farming_rose_water.png",
 	wield_image = "farming_rose_water.png",
@@ -56,7 +58,7 @@ minetest.register_node("farming:rose_water", {
 	tiles = {"farming_rose_water.png"},
 	groups = {food_rose_water = 1, vessel = 1, dig_immediate = 3,
 			attached_node = 1},
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
@@ -64,7 +66,7 @@ minetest.register_node("farming:rose_water", {
 })
 
 minetest.register_craft({
-	output = "farming:rose_water",
+	output = "hades_extrafarming:rose_water",
 	recipe = {
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
@@ -72,13 +74,13 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:water_bucket", "bucket:bucket_empty"},
-		{"group:food_pot", "farming:pot"}
+		{"group:food_pot", "hades_extrafarming:pot"}
 	}
 })
 
 if minetest.get_modpath("bucket_wooden") then
 	minetest.register_craft({
-		output = "farming:rose_water",
+		output = "hades_extrafarming:rose_water",
 		recipe = {
 			{"flowers:rose", "flowers:rose", "flowers:rose"},
 			{"flowers:rose", "flowers:rose", "flowers:rose"},
@@ -86,14 +88,14 @@ if minetest.get_modpath("bucket_wooden") then
 		},
 		replacements = {
 			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},
-			{"group:food_pot", "farming:pot"}
+			{"group:food_pot", "hades_extrafarming:pot"}
 		}
 	})
 end
 
 --= Turkish Delight
 
-minetest.register_craftitem("farming:turkish_delight", {
+minetest.register_craftitem("hades_extrafarming:turkish_delight", {
 	description = S("Turkish Delight"),
 	inventory_image = "farming_turkish_delight.png",
 	groups = {flammable = 3},
@@ -101,21 +103,21 @@ minetest.register_craftitem("farming:turkish_delight", {
 })
 
 minetest.register_craft({
-	output = "farming:turkish_delight 4",
+	output = "hades_extrafarming:turkish_delight 4",
 	recipe = {
 		{"group:food_gelatin", "group:food_sugar", "group:food_gelatin"},
 		{"group:food_sugar", "group:food_rose_water", "group:food_sugar"},
 		{"group:food_cornstarch", "group:food_sugar", "dye:pink"}
 	},
 	replacements = {
-		{"group:food_cornstarch", "farming:bowl"},
+		{"group:food_cornstarch", "hades_extrafarming:bowl"},
 		{"group:food_rose_water", "vessels:glass_bottle"}
 	}
 })
 
 --= Garlic Bread
 
-minetest.register_craftitem("farming:garlic_bread", {
+minetest.register_craftitem("hades_extrafarming:garlic_bread", {
 	description = S("Garlic Bread"),
 	inventory_image = "farming_garlic_bread.png",
 	groups = {flammable = 3},
@@ -124,20 +126,20 @@ minetest.register_craftitem("farming:garlic_bread", {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:garlic_bread",
+	output = "hades_extrafarming:garlic_bread",
 	recipe = {"group:food_toast", "group:food_garlic_clove", "group:food_garlic_clove"}
 })
 
 --= Donuts (thanks to Bockwurst for making the donut images)
 
-minetest.register_craftitem("farming:donut", {
+minetest.register_craftitem("hades_extrafarming:donut", {
 	description = S("Donut"),
 	inventory_image = "farming_donut.png",
 	on_use = minetest.item_eat(4)
 })
 
 minetest.register_craft({
-	output = "farming:donut 3",
+	output = "hades_extrafarming:donut 3",
 	recipe = {
 		{"", "group:food_wheat", ""},
 		{"group:food_wheat", "group:food_sugar", "group:food_wheat"},
@@ -145,58 +147,58 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craftitem("farming:donut_chocolate", {
+minetest.register_craftitem("hades_extrafarming:donut_chocolate", {
 	description = S("Chocolate Donut"),
 	inventory_image = "farming_donut_chocolate.png",
 	on_use = minetest.item_eat(6)
 })
 
 minetest.register_craft({
-	output = "farming:donut_chocolate",
+	output = "hades_extrafarming:donut_chocolate",
 	recipe = {
 		{"group:food_cocoa"},
-		{"farming:donut"}
+		{"hades_extrafarming:donut"}
 	}
 })
 
-minetest.register_craftitem("farming:donut_apple", {
+minetest.register_craftitem("hades_extrafarming:donut_apple", {
 	description = S("Apple Donut"),
 	inventory_image = "farming_donut_apple.png",
 	on_use = minetest.item_eat(6)
 })
 
 minetest.register_craft({
-	output = "farming:donut_apple",
+	output = "hades_extrafarming:donut_apple",
 	recipe = {
-		{"default:apple"},
-		{"farming:donut"}
+		{"hades_trees:apple"},
+		{"hades_extrafarming:donut"}
 	}
 })
 
 --= Porridge Oats
 
-minetest.register_craftitem("farming:porridge", {
+minetest.register_craftitem("hades_extrafarming:porridge", {
 	description = S("Porridge"),
 	inventory_image = "farming_porridge.png",
-	on_use = minetest.item_eat(6, "farming:bowl")
+	on_use = minetest.item_eat(6, "hades_extrafarming:bowl")
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:porridge",
+	output = "hades_extrafarming:porridge",
 	recipe = {
 		"group:food_oats", "group:food_oats", "group:food_oats",
 		"group:food_oats", "group:food_bowl", "group:food_milk_glass"
 	},
 	replacements = {
 		{"mobs:glass_milk", "vessels:drinking_glass"},
-		{"farming:soy_milk", "vessels:drinking_glass"}
+		{"hades_extrafarming:soy_milk", "vessels:drinking_glass"}
 	}
 })
 
 --= Jaffa Cake
 
-minetest.register_craftitem("farming:jaffa_cake", {
+minetest.register_craftitem("hades_extrafarming:jaffa_cake", {
 	description = S("Jaffa Cake"),
 	inventory_image = "farming_jaffa_cake.png",
 	on_use = minetest.item_eat(6)
@@ -204,39 +206,39 @@ minetest.register_craftitem("farming:jaffa_cake", {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:jaffa_cake",
+	output = "hades_extrafarming:jaffa_cake",
 	recipe = {
-		"farming:baking_tray", "group:food_egg", "group:food_sugar",
+		"hades_extrafarming:baking_tray", "group:food_egg", "group:food_sugar",
 		"group:food_flour", "group:food_cocoa", "group:food_orange",
 		"group:food_milk"
 	},
 	replacements = {
-		{"farming:baking_tray", "farming:baking_tray"},
+		{"hades_extrafarming:baking_tray", "hades_extrafarming:baking_tray"},
 		{"mobs:bucket_milk", "bucket:bucket_empty"}
 	}
 })
 
 -- Apple Pie
 
-minetest.register_craftitem("farming:apple_pie", {
+minetest.register_craftitem("hades_extrafarming:apple_pie", {
 	description = S("Apple Pie"),
 	inventory_image = "farming_apple_pie.png",
 	on_use = minetest.item_eat(6)
 })
 
 minetest.register_craft({
-	output = "farming:apple_pie",
+	output = "hades_extrafarming:apple_pie",
 	type = "shapeless",
 	recipe = {
 		"group:food_flour", "group:food_sugar",
 		"group:food_apple", "group:food_baking_tray"
 	},
-	replacements = {{"group:food_baking_tray", "farming:baking_tray"}}
+	replacements = {{"group:food_baking_tray", "hades_extrafarming:baking_tray"}}
 })
 
 -- Cactus Juice
 
-minetest.register_craftitem("farming:cactus_juice", {
+minetest.register_craftitem("hades_extrafarming:cactus_juice", {
 	description = S("Cactus Juice"),
 	inventory_image = "farming_cactus_juice.png",
 	groups = {vessel = 1, drink = 1},
@@ -254,20 +256,20 @@ minetest.register_craftitem("farming:cactus_juice", {
 })
 
 minetest.register_craft({
-	output = "farming:cactus_juice 2",
+	output = "hades_extrafarming:cactus_juice 2",
 	type = "shapeless",
 	recipe = {
 		"vessels:drinking_glass", "vessels:drinking_glass",
-		"default:cactus", "farming:juicer"
+		"hades_core:cactus", "hades_extrafarming:juicer"
 	},
 	replacements = {
-		{"group:food_juicer", "farming:juicer"}
+		{"group:food_juicer", "hades_extrafarming:juicer"}
 	}
 })
 
 -- Pasta
 
-minetest.register_craftitem("farming:pasta", {
+minetest.register_craftitem("hades_extrafarming:pasta", {
 	description = S("Pasta"),
 	inventory_image = "farming_pasta.png",
 	groups = {food_pasta = 1}
@@ -275,24 +277,24 @@ minetest.register_craftitem("farming:pasta", {
 
 if minetest.get_modpath("mobs_animal") or minetest.get_modpath("xanadu")then
 minetest.register_craft({
-	output = "farming:pasta",
+	output = "hades_extrafarming:pasta",
 	type = "shapeless",
 	recipe = {
 		"group:food_flour", "group:food_mixing_bowl",
 		"group:food_butter"
 	},
-	replacements = {{"group:food_mixing_bowl", "farming:mixing_bowl"}}
+	replacements = {{"group:food_mixing_bowl", "hades_extrafarming:mixing_bowl"}}
 })
 else
 minetest.register_craft({
-	output = "farming:pasta",
+	output = "hades_extrafarming:pasta",
 	type = "shapeless",
 	recipe = {
 		"group:food_flour", "group:food_mixing_bowl",
 		"group:food_oil"
 	},
 	replacements = {
-		{"group:food_mixing_bowl", "farming:mixing_bowl"},
+		{"group:food_mixing_bowl", "hades_extrafarming:mixing_bowl"},
 		{"group:food_oil", "vessels:glass_bottle"}
 	}
 })
@@ -300,57 +302,57 @@ end
 
 -- Spaghetti
 
-minetest.register_craftitem("farming:spaghetti", {
+minetest.register_craftitem("hades_extrafarming:spaghetti", {
 	description = S("Spaghetti"),
 	inventory_image = "farming_spaghetti.png",
 	on_use = minetest.item_eat(8)
 })
 
 minetest.register_craft({
-	output = "farming:spaghetti",
+	output = "hades_extrafarming:spaghetti",
 	type = "shapeless",
 	recipe = {
 		"group:food_pasta", "group:food_saucepan",
 		"group:food_tomato", "group:food_garlic_clove", "group:food_garlic_clove"
 	},
-	replacements = {{"group:food_saucepan", "farming:saucepan"}}
+	replacements = {{"group:food_saucepan", "hades_extrafarming:saucepan"}}
 })
 
 -- Korean Bibimbap
 
-minetest.register_craftitem("farming:bibimbap", {
+minetest.register_craftitem("hades_extrafarming:bibimbap", {
 	description = S("Bibimbap"),
 	inventory_image = "farming_bibimbap.png",
-	on_use = minetest.item_eat(8, "farming:bowl")
+	on_use = minetest.item_eat(8, "hades_extrafarming:bowl")
 })
 
 if minetest.get_modpath("mobs_animal") or minetest.get_modpath("xanadu")then
 minetest.register_craft({
-	output = "farming:bibimbap",
+	output = "hades_extrafarming:bibimbap",
 	type = "shapeless",
 	recipe = {
 		"group:food_skillet", "group:food_bowl", "group:food_egg", "group:food_rice",
 		"group:food_chicken_raw", "group:food_cabbage", "group:food_carrot",
 		"group:food_chili_pepper"
 	},
-	replacements = {{"group:food_skillet", "farming:skillet"}}
+	replacements = {{"group:food_skillet", "hades_extrafarming:skillet"}}
 })
 else
 minetest.register_craft({
-	output = "farming:bibimbap",
+	output = "hades_extrafarming:bibimbap",
 	type = "shapeless",
 	recipe = {
 		"group:food_skillet", "group:food_bowl", "group:food_mushroom",
 		"group:food_rice", "group:food_cabbage", "group:food_carrot",
 		"group:food_mushroom", "group:food_chili_pepper"
 	},
-	replacements = {{"group:food_skillet", "farming:skillet"}}
+	replacements = {{"group:food_skillet", "hades_extrafarming:skillet"}}
 })
 end
 
 -- Burger
 
-minetest.register_craftitem("farming:burger", {
+minetest.register_craftitem("hades_extrafarming:burger", {
 	description = S("Burger"),
 	inventory_image = "farming_burger.png",
 	on_use = minetest.item_eat(16),
@@ -358,9 +360,9 @@ minetest.register_craftitem("farming:burger", {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:burger",
+	output = "hades_extrafarming:burger",
 	recipe = {
-		"farming:bread", "group:food_meat", "group:food_cheese",
+		"hades_extrafarming:bread", "group:food_meat", "group:food_cheese",
 		"group:food_tomato", "group:food_cucumber", "group:food_onion",
 		"group:food_lettuce"
 	}
@@ -368,14 +370,14 @@ minetest.register_craft({
 
 -- Salad
 
-minetest.register_craftitem("farming:salad", {
+minetest.register_craftitem("hades_extrafarming:salad", {
 	description = S("Salad"),
 	inventory_image = "farming_salad.png",
-	on_use = minetest.item_eat(8, "farming:bowl")
+	on_use = minetest.item_eat(8, "hades_extrafarming:bowl")
 })
 
 minetest.register_craft({
-	output = "farming:salad",
+	output = "hades_extrafarming:salad",
 	type = "shapeless",
 	recipe = {
 		"group:food_bowl", "group:food_tomato", "group:food_cucumber",
@@ -385,7 +387,7 @@ minetest.register_craft({
 
 -- Triple Berry Smoothie
 
-minetest.register_craftitem("farming:smoothie_berry", {
+minetest.register_craftitem("hades_extrafarming:smoothie_berry", {
 	description = S("Triple Berry Smoothie"),
 	inventory_image = "farming_berry_smoothie.png",
 	on_use = minetest.item_eat(6, "vessels:drinking_glass"),
@@ -393,7 +395,7 @@ minetest.register_craftitem("farming:smoothie_berry", {
 })
 
 minetest.register_craft({
-	output = "farming:smoothie_berry",
+	output = "hades_extrafarming:smoothie_berry",
 	type = "shapeless",
 	recipe = {
 		"group:food_raspberries", "group:food_blackberries",

@@ -139,7 +139,7 @@ end
 
 -- Define Hoes
 
-farming.register_hoe(":farming:hoe_wood", {
+farming.register_hoe(":hades_extrafarming:hoe_wood", {
 	description = S("Wooden Hoe"),
 	inventory_image = "farming_tool_woodhoe.png",
 	max_uses = 30,
@@ -148,39 +148,39 @@ farming.register_hoe(":farming:hoe_wood", {
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:hoe_wood",
+	recipe = "hades_extrafarming:hoe_wood",
 	burntime = 5
 })
 
-farming.register_hoe(":farming:hoe_stone", {
+farming.register_hoe(":hades_extrafarming:hoe_stone", {
 	description = S("Stone Hoe"),
 	inventory_image = "farming_tool_stonehoe.png",
 	max_uses = 90,
 	material = "group:stone"
 })
 
-farming.register_hoe(":farming:hoe_steel", {
+farming.register_hoe(":hades_extrafarming:hoe_steel", {
 	description = S("Steel Hoe"),
 	inventory_image = "farming_tool_steelhoe.png",
 	max_uses = 200,
 	material = "default:steel_ingot"
 })
 
-farming.register_hoe(":farming:hoe_bronze", {
+farming.register_hoe(":hades_extrafarming:hoe_bronze", {
 	description = S("Bronze Hoe"),
 	inventory_image = "farming_tool_bronzehoe.png",
 	max_uses = 500,
 	groups = {not_in_creative_inventory = 1}
 })
 
-farming.register_hoe(":farming:hoe_mese", {
+farming.register_hoe(":hades_extrafarming:hoe_mese", {
 	description = S("Mese Hoe"),
 	inventory_image = "farming_tool_mesehoe.png",
 	max_uses = 350,
 	groups = {not_in_creative_inventory = 1},
 })
 
-farming.register_hoe(":farming:hoe_diamond", {
+farming.register_hoe(":hades_extrafarming:hoe_diamond", {
 	description = S("Diamond Hoe"),
 	inventory_image = "farming_tool_diamondhoe.png",
 	max_uses = 500,
@@ -190,27 +190,27 @@ farming.register_hoe(":farming:hoe_diamond", {
 -- Toolranks support
 if tr then
 
-minetest.override_item("farming:hoe_wood", {
+minetest.override_item("hades_extrafarming:hoe_wood", {
 	original_description = "Wood Hoe",
 	description = toolranks.create_description("Wood Hoe")})
 
-minetest.override_item("farming:hoe_stone", {
+minetest.override_item("hades_extrafarming:hoe_stone", {
 	original_description = "Stone Hoe",
 	description = toolranks.create_description("Stone Hoe")})
 
-minetest.override_item("farming:hoe_steel", {
+minetest.override_item("hades_extrafarming:hoe_steel", {
 	original_description = "Steel Hoe",
 	description = toolranks.create_description("Steel Hoe")})
 
-minetest.override_item("farming:hoe_bronze", {
+minetest.override_item("hades_extrafarming:hoe_bronze", {
 	original_description = "Bronze Hoe",
 	description = toolranks.create_description("Bronze Hoe")})
 
-minetest.override_item("farming:hoe_mese", {
+minetest.override_item("hades_extrafarming:hoe_mese", {
 	original_description = "Mese Hoe",
 	description = toolranks.create_description("Mese Hoe")})
 
-minetest.override_item("farming:hoe_diamond", {
+minetest.override_item("hades_extrafarming:hoe_diamond", {
 	original_description = "Diamond Hoe",
 	description = toolranks.create_description("Diamond Hoe")})
 end
@@ -245,13 +245,13 @@ local function hoe_area(pos, player)
 		{"group:soil"})
 
 	for n = 1, #res do
-		minetest.swap_node(res[n], {name = "farming:soil"})
+		minetest.swap_node(res[n], {name = "hades_extrafarming:soil"})
 	end
 end
 
 
 -- throwable hoe bomb
-minetest.register_entity("farming:hoebomb_entity", {
+minetest.register_entity("hades_extrafarming:hoebomb_entity", {
 	physical = true,
 	visual = "sprite",
 	visual_size = {x = 1.0, y = 1.0},
@@ -309,7 +309,7 @@ local function throw_potion(itemstack, player)
 		x = playerpos.x,
 		y = playerpos.y + 1.5,
 		z = playerpos.z
-	}, "farming:hoebomb_entity")
+	}, "hades_extrafarming:hoebomb_entity")
 
 	local dir = player:get_look_dir()
 	local velocity = 20
@@ -331,7 +331,7 @@ end
 
 
 -- hoe bomb item
-minetest.register_craftitem("farming:hoe_bomb", {
+minetest.register_craftitem("hades_extrafarming:hoe_bomb", {
 	description = S("Hoe Bomb (use or throw on grassy areas to hoe land)"),
 	inventory_image = "farming_hoe_bomb.png",
 	groups = {flammable = 2, not_in_creative_inventory = 1},
@@ -354,13 +354,13 @@ minetest.register_craftitem("farming:hoe_bomb", {
 
 -- Mithril Scythe (special item)
 
-farming.scythe_not_drops = {"farming:trellis", "farming:beanpole"}
+farming.scythe_not_drops = {"hades_extrafarming:trellis", "hades_extrafarming:beanpole"}
 
 farming.add_to_scythe_not_drops = function(item)
 	table.insert(farming.scythe_not_drops, item)
 end
 
-minetest.register_tool("farming:scythe_mithril", {
+minetest.register_tool("hades_extrafarming:scythe_mithril", {
 	description = S("Mithril Scythe (Right-click to harvest and replant crops)"),
 	inventory_image = "farming_scythe_mithril.png",
 	sound = {breaks = "default_tool_breaks"},
@@ -474,7 +474,7 @@ minetest.register_tool("farming:scythe_mithril", {
 if minetest.get_modpath("moreores") then
 
 	minetest.register_craft({
-		output = "farming:scythe_mithril",
+		output = "hades_extrafarming:scythe_mithril",
 		recipe = {
 			{"", "moreores:mithril_ingot", "moreores:mithril_ingot"},
 			{"moreores:mithril_ingot", "", "group:stick"},

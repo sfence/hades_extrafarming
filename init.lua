@@ -8,7 +8,7 @@
 farming = {
 	mod = "redo",
 	version = "20201213",
-	path = minetest.get_modpath("farming"),
+	path = minetest.get_modpath(minetest.get_current_modname()),
 	select = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
@@ -527,11 +527,17 @@ farming.register_plant = function(name, def)
 				pointed_thing, mname .. ":" .. pname .. "_1")
 		end,
 	})
-
+  
+  -- tile_prefix for Hades Revisited
+  local tile_prefix = mname;
+  if (tile_prefix==minetest.get_current_modname()) then
+    tile_prefix = "farming";
+  end
+  
 	-- Register harvest
 	minetest.register_craftitem(":" .. mname .. ":" .. pname, {
 		description = pname:gsub("^%l", string.upper),
-		inventory_image = mname .. "_" .. pname .. ".png",
+		inventory_image = tile_prefix .. "_" .. pname .. ".png",
 		groups = def.groups or {flammable = 2},
 	})
 
@@ -568,11 +574,11 @@ farming.register_plant = function(name, def)
 		if i < def.steps then
 			next_plant = mname .. ":" .. pname .. "_" .. (i + 1)
 		end
-
+    
 		minetest.register_node(node_name, {
 			drawtype = "plantlike",
 			waving = 1,
-			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
+			tiles = {tile_prefix .. "_" .. pname .. "_" .. i .. ".png"},
 			paramtype = "light",
 			paramtype2 = def.paramtype2,
 			place_param2 = def.place_param2,
@@ -582,7 +588,7 @@ farming.register_plant = function(name, def)
 			drop = drop,
 			selection_box = farming.select,
 			groups = g,
-			sounds = default.node_sound_leaves_defaults(),
+			sounds = hades_sounds.node_sound_leaves_defaults(),
 			minlight = def.minlight,
 			maxlight = def.maxlight,
 			next_plant = next_plant
@@ -654,14 +660,14 @@ end
 
 
 -- important items
-dofile(farming.path.."/soil.lua")
-dofile(farming.path.."/hoes.lua")
-dofile(farming.path.."/grass.lua")
+--dofile(farming.path.."/soil.lua") -- use soil in hades_farming
+--dofile(farming.path.."/hoes.lua") -- use hoes fron Hades Revisited
+--dofile(farming.path.."/grass.lua") -- not change Hades Revisited grass
 dofile(farming.path.."/utensils.lua")
 
 -- default crops
-dofile(farming.path.."/crops/wheat.lua")
-dofile(farming.path.."/crops/cotton.lua")
+--dofile(farming.path.."/crops/wheat.lua") -- wheat in hades farming
+--dofile(farming.path.."/crops/cotton.lua") -- cotton in hades farming
 
 
 -- helper function
@@ -674,8 +680,8 @@ end
 
 -- add additional crops and food (if enabled)
 ddoo("carrot.lua", farming.carrot)
-ddoo("potato.lua", farming.potato)
-ddoo("tomato.lua", farming.tomato)
+--ddoo("potato.lua", farming.potato) -- potato in hades farming
+--ddoo("tomato.lua", farming.tomato) -- tomato in hades farming
 ddoo("cucumber.lua", farming.cucumber)
 ddoo("corn.lua", farming.corn)
 ddoo("coffee.lua", farming.coffee)
@@ -705,6 +711,6 @@ ddoo("vanilla.lua", farming.vanilla)
 ddoo("lettuce.lua", farming.lettuce)
 
 dofile(farming.path .. "/food.lua")
-dofile(farming.path .. "/mapgen.lua")
+--dofile(farming.path .. "/mapgen.lua") -- not aviable via mapgen, decorations
 dofile(farming.path .. "/compatibility.lua") -- Farming Plus compatibility
 dofile(farming.path .. "/lucky_block.lua")

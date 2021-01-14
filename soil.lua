@@ -5,61 +5,61 @@ local S = farming.intllib
 minetest.override_item("default:dirt", {
 	soil = {
 		base = "default:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 minetest.override_item("default:dirt_with_grass", {
 	soil = {
 		base = "default:dirt_with_grass",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 minetest.override_item("default:dirt_with_dry_grass", {
 	soil = {
 		base = "default:dirt_with_dry_grass",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 minetest.override_item("default:dirt_with_rainforest_litter", {
 	soil = {
 		base = "default:dirt_with_rainforest_litter",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 minetest.override_item("default:dirt_with_coniferous_litter", {
 	soil = {
 		base = "default:dirt_with_coniferous_litter",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 minetest.override_item("default:dry_dirt", {
 	soil = {
 		base = "default:dry_dirt",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "hades_extrafarming:dry_soil",
+		wet = "hades_extrafarming:dry_soil_wet"
 	}
 })
 
 minetest.override_item("default:dry_dirt_with_dry_grass", {
 	soil = {
 		base = "default:dry_dirt_with_dry_grass",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "hades_extrafarming:dry_soil",
+		wet = "hades_extrafarming:dry_soil_wet"
 	}
 })
 
 -- normal soil
-minetest.register_node("farming:soil", {
+minetest.register_node("hades_extrafarming:soil", {
 	description = S("Soil"),
 	tiles = {"default_dirt.png^farming_soil.png", "default_dirt.png"},
 	drop = "default:dirt",
@@ -67,13 +67,13 @@ minetest.register_node("farming:soil", {
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 -- wet soil
-minetest.register_node("farming:soil_wet", {
+minetest.register_node("hades_extrafarming:soil_wet", {
 	description = S("Wet Soil"),
 	tiles = {
 		"default_dirt.png^farming_soil_wet.png",
@@ -83,14 +83,14 @@ minetest.register_node("farming:soil_wet", {
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_extrafarming:soil",
+		wet = "hades_extrafarming:soil_wet"
 	}
 })
 
 -- savanna soil
 if minetest.registered_nodes["default:dry_dirt"] then
-minetest.register_node("farming:dry_soil", {
+minetest.register_node("hades_extrafarming:dry_soil", {
 	description = S("Savanna Soil"),
 	tiles = {
 		"default_dry_dirt.png^farming_soil.png",
@@ -100,12 +100,12 @@ minetest.register_node("farming:dry_soil", {
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dry_dirt",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "hades_extrafarming:dry_soil",
+		wet = "hades_extrafarming:dry_soil_wet"
 	}
 })
 
-minetest.register_node("farming:dry_soil_wet", {
+minetest.register_node("hades_extrafarming:dry_soil_wet", {
 	description = S("Wet Savanna Soil"),
 	tiles = {
 		"default_dry_dirt.png^farming_soil_wet.png",
@@ -115,15 +115,15 @@ minetest.register_node("farming:dry_soil_wet", {
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dry_dirt",
-		dry = "farming:dry_soil",
-		wet = "farming:dry_soil_wet"
+		dry = "hades_extrafarming:dry_soil",
+		wet = "hades_extrafarming:dry_soil_wet"
 	}
 })
 end
 
 -- sand is not soil, change existing sand-soil to use dry soil
-minetest.register_alias("farming:desert_sand_soil", "farming:dry_soil")
-minetest.register_alias("farming:desert_sand_soil_wet", "farming:dry_soil_wet")
+minetest.register_alias("hades_extrafarming:desert_sand_soil", "hades_extrafarming:dry_soil")
+minetest.register_alias("hades_extrafarming:desert_sand_soil_wet", "hades_extrafarming:dry_soil_wet")
 
 -- if water near soil then change to wet soil
 minetest.register_abm({

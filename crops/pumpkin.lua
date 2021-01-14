@@ -6,33 +6,33 @@
 local S = farming.intllib
 
 -- pumpkin slice
-minetest.register_craftitem("farming:pumpkin_slice", {
+minetest.register_craftitem("hades_extrafarming:pumpkin_slice", {
 	description = S("Pumpkin Slice"),
 	inventory_image = "farming_pumpkin_slice.png",
 	groups = {seed = 2, food_pumpkin_slice = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pumpkin_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pumpkin_1")
 	end,
 	on_use = minetest.item_eat(2)
 })
 
 minetest.register_craft({
-	output = "farming:pumpkin",
+	output = "hades_extrafarming:pumpkin",
 	recipe = {
-		{"farming:pumpkin_slice", "farming:pumpkin_slice"},
-		{"farming:pumpkin_slice", "farming:pumpkin_slice"}
+		{"hades_extrafarming:pumpkin_slice", "hades_extrafarming:pumpkin_slice"},
+		{"hades_extrafarming:pumpkin_slice", "hades_extrafarming:pumpkin_slice"}
 	}
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:pumpkin_slice 4",
-	recipe = {"farming:pumpkin", "farming:cutting_board"},
-	replacements = {{"farming:cutting_board", "farming:cutting_board"}}
+	output = "hades_extrafarming:pumpkin_slice 4",
+	recipe = {"hades_extrafarming:pumpkin", "hades_extrafarming:cutting_board"},
+	replacements = {{"hades_extrafarming:cutting_board", "hades_extrafarming:cutting_board"}}
 })
 
 -- jack 'o lantern
-minetest.register_node("farming:jackolantern", {
+minetest.register_node("hades_extrafarming:jackolantern", {
 	description = S("Jack 'O Lantern (punch to turn on and off)"),
 	tiles = {
 		"farming_pumpkin_top.png", "farming_pumpkin_top.png",
@@ -41,39 +41,39 @@ minetest.register_node("farming:jackolantern", {
 	},
 	paramtype2 = "facedir",
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_punch = function(pos, node, puncher)
 		local name = puncher:get_player_name() or ""
 		if minetest.is_protected(pos, name) then return end
-		node.name = "farming:jackolantern_on"
+		node.name = "hades_extrafarming:jackolantern_on"
 		minetest.swap_node(pos, node)
 	end
 })
 
-minetest.register_node("farming:jackolantern_on", {
+minetest.register_node("hades_extrafarming:jackolantern_on", {
 	tiles = {
 		"farming_pumpkin_top.png", "farming_pumpkin_top.png",
 		"farming_pumpkin_side.png", "farming_pumpkin_side.png",
 		"farming_pumpkin_side.png", "farming_pumpkin_face_on.png"
 	},
-	light_source = default.LIGHT_MAX - 1,
+	light_source = minetest.LIGHT_MAX - 1,
 	paramtype2 = "facedir",
 	groups = {
 		choppy = 1, oddly_breakable_by_hand = 1, flammable = 2,
 		not_in_creative_inventory = 1
 	},
-	sounds = default.node_sound_wood_defaults(),
-	drop = "farming:jackolantern",
+	sounds = hades_sounds.node_sound_wood_defaults(),
+	drop = "hades_extrafarming:jackolantern",
 	on_punch = function(pos, node, puncher)
 		local name = puncher:get_player_name() or ""
 		if minetest.is_protected(pos, name) then return end
-		node.name = "farming:jackolantern"
+		node.name = "hades_extrafarming:jackolantern"
 		minetest.swap_node(pos, node)
 	end
 })
 
 minetest.register_craft({
-	output = "farming:jackolantern",
+	output = "hades_extrafarming:jackolantern",
 	recipe = {
 		{"default:torch"},
 		{"group:food_pumpkin"}
@@ -81,7 +81,7 @@ minetest.register_craft({
 })
 
 --- wooden scarecrow base
-minetest.register_node("farming:scarecrow_bottom", {
+minetest.register_node("hades_extrafarming:scarecrow_bottom", {
 	description = S("Scarecrow Bottom"),
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -99,7 +99,7 @@ minetest.register_node("farming:scarecrow_bottom", {
 })
 
 minetest.register_craft({
-	output = "farming:scarecrow_bottom",
+	output = "hades_extrafarming:scarecrow_bottom",
 	recipe = {
 		{"", "group:stick", ""},
 		{"group:stick", "group:stick", "group:stick"},
@@ -108,28 +108,28 @@ minetest.register_craft({
 })
 
 -- pumpkin bread
-minetest.register_craftitem("farming:pumpkin_bread", {
+minetest.register_craftitem("hades_extrafarming:pumpkin_bread", {
 	description = S("Pumpkin Bread"),
 	inventory_image = "farming_pumpkin_bread.png",
 	on_use = minetest.item_eat(8),
 	groups = {food_bread = 1, flammable = 2}
 })
 
-minetest.register_craftitem("farming:pumpkin_dough", {
+minetest.register_craftitem("hades_extrafarming:pumpkin_dough", {
 	description = S("Pumpkin Dough"),
 	inventory_image = "farming_pumpkin_dough.png"
 })
 
 minetest.register_craft({
-	output = "farming:pumpkin_dough",
+	output = "hades_extrafarming:pumpkin_dough",
 	type = "shapeless",
 	recipe = {"group:food_flour", "group:food_pumpkin_slice", "group:food_pumpkin_slice"}
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "farming:pumpkin_bread",
-	recipe = "farming:pumpkin_dough",
+	output = "hades_extrafarming:pumpkin_bread",
+	recipe = "hades_extrafarming:pumpkin_dough",
 	cooktime = 10
 })
 
@@ -148,38 +148,38 @@ local def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 -- stage 1
-minetest.register_node("farming:pumpkin_1", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_1", table.copy(def))
 
 -- stage 2
 def.tiles = {"farming_pumpkin_2.png"}
-minetest.register_node("farming:pumpkin_2", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_2", table.copy(def))
 
 -- stage 3
 def.tiles = {"farming_pumpkin_3.png"}
-minetest.register_node("farming:pumpkin_3", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_3", table.copy(def))
 
 -- stage 4
 def.tiles = {"farming_pumpkin_4.png"}
-minetest.register_node("farming:pumpkin_4", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_4", table.copy(def))
 
 -- stage 5
 def.tiles = {"farming_pumpkin_5.png"}
-minetest.register_node("farming:pumpkin_5", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_5", table.copy(def))
 
 -- stage 6
 def.tiles = {"farming_pumpkin_6.png"}
-minetest.register_node("farming:pumpkin_6", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_6", table.copy(def))
 
 -- stage 7
 def.tiles = {"farming_pumpkin_7.png"}
-minetest.register_node("farming:pumpkin_7", table.copy(def))
+minetest.register_node("hades_extrafarming:pumpkin_7", table.copy(def))
 
 -- stage 8 (final)
-minetest.register_node("farming:pumpkin_8", {
+minetest.register_node("hades_extrafarming:pumpkin_8", {
 	description = S("Pumpkin"),
 	tiles = {
 		"farming_pumpkin_top.png",
@@ -190,16 +190,16 @@ minetest.register_node("farming:pumpkin_8", {
 		food_pumpkin = 1, choppy = 2, oddly_breakable_by_hand = 1,
 		flammable = 2, plant = 1
 	},
-	drop = "farming:pumpkin_8",
-	sounds = default.node_sound_wood_defaults()
+	drop = "hades_extrafarming:pumpkin_8",
+	sounds = hades_sounds.node_sound_wood_defaults()
 })
 
-minetest.register_alias("farming:pumpkin", "farming:pumpkin_8")
+minetest.register_alias("hades_extrafarming:pumpkin", "hades_extrafarming:pumpkin_8")
 
 -- add to registered_plants
-farming.registered_plants["farming:pumpkin"] = {
-	crop = "farming:pumpkin",
-	seed = "farming:pumpkin_slice",
+farming.registered_plants["hades_extrafarming:pumpkin"] = {
+	crop = "hades_extrafarming:pumpkin",
+	seed = "hades_extrafarming:pumpkin_slice",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8

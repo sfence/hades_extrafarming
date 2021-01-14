@@ -54,7 +54,7 @@ local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 			minetest.after(0.20,
 				farming.refill_plant,
 				placer,
-				"farming:cocoa_beans",
+				"hades_extrafarming:cocoa_beans",
 				placer:get_wield_index()
 			)
 		end
@@ -64,72 +64,72 @@ local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 end
 
 -- cocoa beans
-minetest.register_craftitem("farming:cocoa_beans", {
+minetest.register_craftitem("hades_extrafarming:cocoa_beans", {
 	description = S("Cocoa Beans"),
 	inventory_image = "farming_cocoa_beans.png",
 	groups = {seed = 2, food_cocoa = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
-		return place_cocoa(itemstack, placer, pointed_thing, "farming:cocoa_1")
+		return place_cocoa(itemstack, placer, pointed_thing, "hades_extrafarming:cocoa_1")
 	end
 })
 
 minetest.register_craft( {
 	output = "dye:brown 2",
 	recipe = {
-		{ "farming:cocoa_beans" }
+		{ "hades_extrafarming:cocoa_beans" }
 	}
 })
 
 -- chocolate cookie
-minetest.register_craftitem("farming:cookie", {
+minetest.register_craftitem("hades_extrafarming:cookie", {
 	description = S("Cookie"),
 	inventory_image = "farming_cookie.png",
 	on_use = minetest.item_eat(2)
 })
 
 minetest.register_craft( {
-	output = "farming:cookie 8",
+	output = "hades_extrafarming:cookie 8",
 	recipe = {
 		{"group:food_wheat", "group:food_cocoa", "group:food_wheat" }
 	}
 })
 
 -- bar of dark chocolate (thanks to Ice Pandora for her deviantart.com chocolate tutorial)
-minetest.register_craftitem("farming:chocolate_dark", {
+minetest.register_craftitem("hades_extrafarming:chocolate_dark", {
 	description = S("Bar of Dark Chocolate"),
 	inventory_image = "farming_chocolate_dark.png",
 	on_use = minetest.item_eat(3)
 })
 
 minetest.register_craft( {
-	output = "farming:chocolate_dark",
+	output = "hades_extrafarming:chocolate_dark",
 	recipe = {
 		{"group:food_cocoa", "group:food_cocoa", "group:food_cocoa"}
 	}
 })
 
 -- chocolate block
-minetest.register_node("farming:chocolate_block", {
+minetest.register_node("hades_extrafarming:chocolate_block", {
 	description = S("Chocolate Block"),
 	tiles = {"farming_chocolate_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 2, oddly_breakable_by_hand = 2},
-	sounds = default.node_sound_stone_defaults()
+	sounds = hades_sounds.node_sound_stone_defaults()
 })
 
 minetest.register_craft({
-	output = "farming:chocolate_block",
+	output = "hades_extrafarming:chocolate_block",
 	recipe = {
-		{"farming:chocolate_dark", "farming:chocolate_dark", "farming:chocolate_dark"},
-		{"farming:chocolate_dark", "farming:chocolate_dark", "farming:chocolate_dark"},
-		{"farming:chocolate_dark", "farming:chocolate_dark", "farming:chocolate_dark"}
+		{"hades_extrafarming:chocolate_dark", "hades_extrafarming:chocolate_dark", "hades_extrafarming:chocolate_dark"},
+		{"hades_extrafarming:chocolate_dark", "hades_extrafarming:chocolate_dark", "hades_extrafarming:chocolate_dark"},
+		{"hades_extrafarming:chocolate_dark", "hades_extrafarming:chocolate_dark", "hades_extrafarming:chocolate_dark"}
 	}
 })
 
 minetest.register_craft({
-	output = "farming:chocolate_dark 9",
+	output = "hades_extrafarming:chocolate_dark 9",
 	recipe = {
-		{"farming:chocolate_block"}
+		{"hades_extrafarming:chocolate_block"}
 	}
 })
 
@@ -141,7 +141,7 @@ local def = {
 	walkable = false,
 	drop = {
 		items = {
-			{items = {"farming:cocoa_beans 1"}, rarity = 2},
+			{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 2},
 		}
 	},
 	selection_box = {
@@ -152,7 +152,7 @@ local def = {
 		snappy = 3, flammable = 2, plant = 1, growing = 1,
 		not_in_creative_inventory = 1, leafdecay = 1, leafdecay_drop = 1
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	growth_check = function(pos, node_name)
 		if minetest.find_node_near(pos, 1, {"default:jungletree"}) then
 			return false
@@ -162,20 +162,20 @@ local def = {
 }
 
 -- stage 1
-minetest.register_node("farming:cocoa_1", table.copy(def))
+minetest.register_node("hades_extrafarming:cocoa_1", table.copy(def))
 
 -- stage 2
 def.tiles = {"farming_cocoa_2.png"}
-minetest.register_node("farming:cocoa_2", table.copy(def))
+minetest.register_node("hades_extrafarming:cocoa_2", table.copy(def))
 
 -- stage3
 def.tiles = {"farming_cocoa_3.png"}
 def.drop = {
 	items = {
-		{items = {"farming:cocoa_beans 1"}, rarity = 1}
+		{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 1}
 	}
 }
-minetest.register_node("farming:cocoa_3", table.copy(def))
+minetest.register_node("hades_extrafarming:cocoa_3", table.copy(def))
 
 -- stage 4 (final)
 def.tiles = {"farming_cocoa_4.png"}
@@ -183,17 +183,17 @@ def.groups.growing = nil
 def.growth_check = nil
 def.drop = {
 	items = {
-		{items = {"farming:cocoa_beans 2"}, rarity = 1},
-		{items = {"farming:cocoa_beans 1"}, rarity = 2},
-		{items = {"farming:cocoa_beans 1"}, rarity = 4}
+		{items = {"hades_extrafarming:cocoa_beans 2"}, rarity = 1},
+		{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 2},
+		{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 4}
 	}
 }
-minetest.register_node("farming:cocoa_4", table.copy(def))
+minetest.register_node("hades_extrafarming:cocoa_4", table.copy(def))
 
 -- add to registered_plants
-farming.registered_plants["farming:cocoa_beans"] = {
-	crop = "farming:cocoa",
-	seed = "farming:cocoa_beans",
+farming.registered_plants["hades_extrafarming:cocoa_beans"] = {
+	crop = "hades_extrafarming:cocoa",
+	seed = "hades_extrafarming:cocoa_beans",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4
@@ -231,7 +231,7 @@ minetest.register_on_generated(function(minp, maxp)
 --print ("Cocoa Pod added at " .. minetest.pos_to_string(pos))
 
 				minetest.swap_node(pos, {
-					name = "farming:cocoa_" .. tostring(math.random(4))
+					name = "hades_extrafarming:cocoa_" .. tostring(math.random(4))
 				})
 			end
 		end

@@ -8,33 +8,33 @@
 local S = farming.intllib
 
 -- onion
-minetest.register_craftitem("farming:onion", {
+minetest.register_craftitem("hades_extrafarming:onion", {
 	description = S("Onion"),
 	inventory_image = "crops_onion.png",
 	groups = {seed = 2, food_onion = 1, flammable = 3},
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "farming:onion_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:onion_1")
 	end,
 	on_use = minetest.item_eat(1)
 })
 
 -- onion soup
-minetest.register_craftitem("farming:onion_soup", {
+minetest.register_craftitem("hades_extrafarming:onion_soup", {
 	description = S("Onion Soup"),
 	inventory_image = "farming_onion_soup.png",
 	groups = {flammable = 2},
-	on_use = minetest.item_eat(6, "farming:bowl")
+	on_use = minetest.item_eat(6, "hades_extrafarming:bowl")
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:onion_soup",
+	output = "hades_extrafarming:onion_soup",
 	recipe = {
 		"group:food_onion", "group:food_onion", "group:food_pot",
 		"group:food_onion", "group:food_onion",
 		"group:food_onion", "group:food_onion", "group:food_bowl"
 	},
-	replacements = {{"farming:pot", "farming:pot"}}
+	replacements = {{"hades_extrafarming:pot", "hades_extrafarming:pot"}}
 })
 
 -- crop definition
@@ -54,42 +54,42 @@ local def = {
 		snappy = 3, flammable = 3, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 -- stage 1
-minetest.register_node("farming:onion_1", table.copy(def))
+minetest.register_node("hades_extrafarming:onion_1", table.copy(def))
 
 -- stage 2
 def.tiles = {"crops_onion_plant_2.png"}
-minetest.register_node("farming:onion_2", table.copy(def))
+minetest.register_node("hades_extrafarming:onion_2", table.copy(def))
 
 -- stage 3
 def.tiles = {"crops_onion_plant_3.png"}
-minetest.register_node("farming:onion_3", table.copy(def))
+minetest.register_node("hades_extrafarming:onion_3", table.copy(def))
 
 -- stage 4
 def.tiles = {"crops_onion_plant_4.png"}
-minetest.register_node("farming:onion_4", table.copy(def))
+minetest.register_node("hades_extrafarming:onion_4", table.copy(def))
 
 -- stage 5
 def.tiles = {"crops_onion_plant_5.png"}
 def.groups.growing = nil
 def.drop = {
 	max_items = 5, items = {
-		{items = {"farming:onion"}, rarity = 1},
-		{items = {"farming:onion"}, rarity = 1},
-		{items = {"farming:onion"}, rarity = 2},
-		{items = {"farming:onion"}, rarity = 2},
-		{items = {"farming:onion"}, rarity = 5},
+		{items = {"hades_extrafarming:onion"}, rarity = 1},
+		{items = {"hades_extrafarming:onion"}, rarity = 1},
+		{items = {"hades_extrafarming:onion"}, rarity = 2},
+		{items = {"hades_extrafarming:onion"}, rarity = 2},
+		{items = {"hades_extrafarming:onion"}, rarity = 5},
 	}
 }
-minetest.register_node("farming:onion_5", table.copy(def))
+minetest.register_node("hades_extrafarming:onion_5", table.copy(def))
 
 -- add to registered_plants
-farming.registered_plants["farming:onion"] = {
-	crop = "farming:onion",
-	seed = "farming:onion",
+farming.registered_plants["hades_extrafarming:onion"] = {
+	crop = "hades_extrafarming:onion",
+	seed = "hades_extrafarming:onion",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 5
