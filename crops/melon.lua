@@ -1,14 +1,35 @@
 
 local S = farming.intllib
 
+-- melon seed
+minetest.register_node("hades_extrafarming:seed_melon", {
+	description = S("Melon Seed"),
+	tiles = {"crops_melon_seed.png"},
+	inventory_image = "crops_melon_seed.png",
+	wield_image = "crops_melon_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 4},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:melon_1")
+	end
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_melon",
+	recipe = {"group:food_melon_slice"}
+})
+
 -- melon
 minetest.register_craftitem("hades_extrafarming:melon_slice", {
 	description = S("Melon Slice"),
 	inventory_image = "farming_melon_slice.png",
-	groups = {seed = 2, food_melon_slice = 1, flammable = 3},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:melon_1")
-	end,
+	groups = {food_melon_slice = 1, flammable = 3},
 	on_use = minetest.item_eat(2)
 })
 

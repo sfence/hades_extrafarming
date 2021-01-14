@@ -5,14 +5,35 @@
 
 local S = farming.intllib
 
+-- pumpkin seed
+minetest.register_node("hades_extrafarming:seed_pumpkin", {
+	description = S("Pumpkin Seed"),
+	tiles = {"crops_pumpkin_seed.png"},
+	inventory_image = "crops_pumpkin_seed.png",
+	wield_image = "crops_pumpkin_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 4},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pumpkin_1")
+	end
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_pumpkin",
+	recipe = {"group:food_pumpkin_slice"}
+})
+
 -- pumpkin slice
 minetest.register_craftitem("hades_extrafarming:pumpkin_slice", {
 	description = S("Pumpkin Slice"),
 	inventory_image = "farming_pumpkin_slice.png",
-	groups = {seed = 2, food_pumpkin_slice = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pumpkin_1")
-	end,
+	groups = {food_pumpkin_slice = 1, flammable = 2},
 	on_use = minetest.item_eat(2)
 })
 

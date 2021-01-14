@@ -155,3 +155,10 @@ Created by Felfa (CC0)
    farming_burger.png
    farming_soy*.png
    farming_vanilla*.png
+
+Created by Auke Kok (License: CC BY-SA 3.0)
+   crops_corn_base_seed.png
+   crops_green_bean_seed.png
+   crops_melon_seed.png
+   crops_pumpkin_seed.png
+

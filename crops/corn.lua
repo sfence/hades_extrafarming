@@ -6,14 +6,35 @@
 
 local S = farming.intllib
 
+-- corn seeds
+minetest.register_node("hades_extrafarming:seed_corn", {
+	description = S("Corn Seeds"),
+	tiles = {"crops_corn_base_seed.png"},
+	inventory_image = "crops_corn_base_seed.png",
+	wield_image = "crops_corn_base_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 4},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:corn_1")
+	end
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_corn",
+	recipe = {"group:food_corn"}
+})
+
 -- corn
 minetest.register_craftitem("hades_extrafarming:corn", {
 	description = S("Corn"),
 	inventory_image = "farming_corn.png",
-	groups = {seed = 2, food_corn = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:corn_1")
-	end,
+	groups = {food_corn = 1, flammable = 2},
 	on_use = minetest.item_eat(3)
 })
 
@@ -152,7 +173,7 @@ minetest.register_node("hades_extrafarming:corn_8", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:corn"] = {
 	crop = "hades_extrafarming:corn",
-	seed = "hades_extrafarming:corn",
+	seed = "hades_extrafarming:seed_corn",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
