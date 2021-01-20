@@ -33,7 +33,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:pumpkin_slice", {
 	description = S("Pumpkin Slice"),
 	inventory_image = "farming_pumpkin_slice.png",
-	groups = {food_pumpkin_slice = 1, flammable = 2},
+	groups = {food_pumpkin_slice = 1, flammable = 2, food = 2, eatable = 2},
 	on_use = minetest.item_eat(2)
 })
 
@@ -133,7 +133,7 @@ minetest.register_craftitem("hades_extrafarming:pumpkin_bread", {
 	description = S("Pumpkin Bread"),
 	inventory_image = "farming_pumpkin_bread.png",
 	on_use = minetest.item_eat(8),
-	groups = {food_bread = 1, flammable = 2}
+	groups = {food_bread = 1, flammable = 2, food = 2, eatable = 8}
 })
 
 minetest.register_craftitem("hades_extrafarming:pumpkin_dough", {

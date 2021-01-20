@@ -1,15 +1,36 @@
 
 local S = farming.intllib
 
+-- blueberries seed
+minetest.register_node("hades_extrafarming:seed_blueberry", {
+	description = S("Blueberries Seed"),
+	tiles = {"farming_blueberry_seed.png"},
+	inventory_image = "farming_blueberry_seed.png",
+	wield_image = "farming_blueberry_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:blueberry_1")
+	end,
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_blueberries",
+	recipe = {"group:food_blueberry"}
+})
+
 -- blueberries
 minetest.register_craftitem("hades_extrafarming:blueberries", {
 	description = S("Wild Blueberries"),
 	inventory_image = "farming_blueberries.png",
-	groups = {seed = 2, food_blueberries = 1, food_blueberry = 1,
-			food_berry = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:blueberry_1")
-	end,
+	groups = {food_blueberries = 1, food_blueberry = 1,
+			food_berry = 1, flammable = 2, food = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
@@ -87,7 +108,7 @@ minetest.register_node("hades_extrafarming:blueberry_4", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:blueberries"] = {
 	crop = "hades_extrafarming:blueberry",
-	seed = "hades_extrafarming:blueberries",
+	seed = "hades_extrafarming:seed_blueberries",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4

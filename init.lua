@@ -666,7 +666,7 @@ end
 dofile(farming.path.."/utensils.lua")
 
 -- default crops
---dofile(farming.path.."/crops/wheat.lua") -- wheat in hades farming
+dofile(farming.path.."/crops/wheat.lua") -- wheat in hades farming
 --dofile(farming.path.."/crops/cotton.lua") -- cotton in hades farming
 
 
@@ -687,7 +687,7 @@ ddoo("corn.lua", farming.corn)
 ddoo("coffee.lua", farming.coffee)
 ddoo("melon.lua", farming.melon)
 ddoo("pumpkin.lua", farming.pumpkin)
-ddoo("cocoa.lua", farming.cocoa)
+--ddoo("cocoa.lua", farming.cocoa) -- cocoa tree in hades trees
 ddoo("raspberry.lua", farming.raspberry)
 ddoo("blueberry.lua", farming.blueberry)
 ddoo("rhubarb.lua", farming.rhubarb)
@@ -714,3 +714,6 @@ dofile(farming.path .. "/food.lua")
 --dofile(farming.path .. "/mapgen.lua") -- not aviable via mapgen, decorations
 dofile(farming.path .. "/compatibility.lua") -- Farming Plus compatibility
 dofile(farming.path .. "/lucky_block.lua")
+
+dofile(farming.path .. "/hades.lua") -- hades compatibility
+

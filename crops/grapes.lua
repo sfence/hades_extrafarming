@@ -62,15 +62,30 @@ local function place_grapes(itemstack, placer, pointed_thing, plantname)
 	return itemstack
 end
 
+-- grapes seed
+minetest.register_node("hades_extrafarming:seed_grapes", {
+	description = S("Grapes Seed"),
+	tiles = {"farming_grapes_seed.png"},
+	inventory_image = "farming_grapes_seed.png",
+	wield_image = "farming_grapes_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return place_grapes(itemstack, placer, pointed_thing, "hades_extrafarming:grapes_1")
+	end,
+})
+
 -- grapes
 minetest.register_craftitem("hades_extrafarming:grapes", {
 	description = S("Grapes"),
 	inventory_image = "farming_grapes.png",
 	on_use = minetest.item_eat(2),
-	groups = {seed = 2, food_grapes = 1, flammable = 3},
-	on_place = function(itemstack, placer, pointed_thing)
-		return place_grapes(itemstack, placer, pointed_thing, "hades_extrafarming:grapes_1")
-	end
+	groups = {food_grapes = 1, flammable = 3, food = 2, eatable = 2},
 })
 
 -- grapes can be used for violet dye
@@ -222,9 +237,9 @@ def.groups.growing = nil
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:trellis"}, rarity = 1},
-		{items = {"hades_extrafarming:grapes 3"}, rarity = 1},
+		{items = {"hades_extrafarming:grapes 3", "hades_extrafarming:seed_grapes"}, rarity = 1},
 		{items = {"hades_extrafarming:grapes 1"}, rarity = 2},
-		{items = {"hades_extrafarming:grapes 1"}, rarity = 3}
+		{items = {"hades_extrafarming:grapes 1", "hades_extrafarming:seed_grapes"}, rarity = 3}
 	}
 }
 minetest.register_node("hades_extrafarming:grapes_8", table.copy(def))
@@ -232,7 +247,7 @@ minetest.register_node("hades_extrafarming:grapes_8", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:grapes"] = {
 	crop = "hades_extrafarming:grapes",
-	seed = "hades_extrafarming:grapes",
+	seed = "hades_extrafarming:seed_grapes",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
@@ -249,9 +264,9 @@ minetest.register_node("hades_extrafarming:grapebush", {
 	sunlight_propagates = true,
 	drop = {
 		items = {
-			{items = {"hades_extrafarming:grapes 1"}, rarity = 1},
+			{items = {"hades_extrafarming:grapes 1", "hades_extrafarming:seed_grapes"}, rarity = 1},
 			{items = {"hades_extrafarming:grapes 1"}, rarity = 2},
-			{items = {"hades_extrafarming:grapes 1"}, rarity = 3}
+			{items = {"hades_extrafarming:grapes 1", "hades_extrafarming:seed_grapes"}, rarity = 3}
 		}
 	},
 	selection_box = farming.select,

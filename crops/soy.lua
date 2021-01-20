@@ -1,20 +1,41 @@
 
 local S = farming.intllib
 
+-- soy seeds
+minetest.register_node("hades_extrafarming:seed_soy", {
+	description = S("Soy Seed"),
+	tiles = {"farming_soy_seed.png"},
+	inventory_image = "farming_soy_seed.png",
+	wield_image = "farming_soy_seedd.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:soy_1")
+	end,
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_soy",
+	recipe = {"hades_extrafarming:soy_pod"},
+})
+
 -- soy pod
 minetest.register_craftitem("hades_extrafarming:soy_pod", {
 	description = S("Soy Pod"),
 	inventory_image = "farming_soy_pod.png",
-	groups = {seed = 2, food_soy_pod = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:soy_1")
-	end
+	groups = {food_soy_pod = 1, flammable = 2},
 })
 
 minetest.register_craftitem("hades_extrafarming:soy_beans", {
 	description = S("Soy Beans"),
 	inventory_image = "farming_soy_beans.png",
-	groups = {food_soy = 1, flammable = 2},
+	groups = {food_soy = 1, flammable = 2, food = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
@@ -40,7 +61,7 @@ minetest.register_node("hades_extrafarming:soy_milk", {
 	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
 	groups = {
 		vessel = 1, food_milk_glass = 1, dig_immediate = 3,
-		attached_node = 1, drink = 1
+		attached_node = 1, drink = 1, food = 3, eatable = 2
 	},
 	sounds = hades_sounds.node_sound_glass_defaults()
 })
@@ -62,7 +83,7 @@ minetest.register_craft( {
 minetest.register_craftitem("hades_extrafarming:tofu", {
 	description = S("Tofu"),
 	inventory_image = "farming_tofu.png",
-	groups = {food_tofu = 1, food_meat_raw = 1, flammable = 2},
+	groups = {food_tofu = 1, food_meat_raw = 1, flammable = 2, food = 2, eatable = 3},
 	on_use = minetest.item_eat(3)
 })
 
@@ -80,7 +101,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:tofu_cooked", {
 	description = S("Cooked Tofu"),
 	inventory_image = "farming_tofu_cooked.png",
-	groups = {food_meat = 1, flammable = 2},
+	groups = {food_meat = 1, flammable = 2, food = 2, eatable = 6},
 	on_use = minetest.item_eat(6)
 })
 
@@ -164,7 +185,7 @@ minetest.register_node("hades_extrafarming:soy_7", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:soy_pod"] = {
 	crop = "hades_extrafarming:soy",
-	seed = "hades_extrafarming:soy_pod",
+	seed = "hades_extrafarming:seed_soy",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 7

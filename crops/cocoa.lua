@@ -26,7 +26,7 @@ local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 	end
 
 	-- check if pointing at jungletree
-	if under.name ~= "default:jungletree"
+	if under.name ~= "hades_trees:jungletree"
 	or minetest.get_node(pt.above).name ~= "air" then
 		return
 	end
@@ -63,14 +63,35 @@ local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 	return itemstack
 end
 
+-- cocoa seed
+minetest.register_node("hades_extrafarming:seed_cocoa", {
+	description = S("Cocoa Seed"),
+	tiles = {"farming_cocoa_seed.png"},
+	inventory_image = "farming_cocoa_seed.png",
+	wield_image = "farming_cocoa_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return place_cocoa(itemstack, placer, pointed_thing, "hades_extrafarming:cocoa_1")
+	end,
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_cocoa",
+	recipe = {"group:food_cocoa"}
+})
+
 -- cocoa beans
 minetest.register_craftitem("hades_extrafarming:cocoa_beans", {
 	description = S("Cocoa Beans"),
 	inventory_image = "farming_cocoa_beans.png",
-	groups = {seed = 2, food_cocoa = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return place_cocoa(itemstack, placer, pointed_thing, "hades_extrafarming:cocoa_1")
-	end
+	groups = {food_cocoa = 1, flammable = 2},
 })
 
 minetest.register_craft( {
@@ -84,6 +105,7 @@ minetest.register_craft( {
 minetest.register_craftitem("hades_extrafarming:cookie", {
 	description = S("Cookie"),
 	inventory_image = "farming_cookie.png",
+  groups = {food = 2, eatable = 2},
 	on_use = minetest.item_eat(2)
 })
 
@@ -98,6 +120,7 @@ minetest.register_craft( {
 minetest.register_craftitem("hades_extrafarming:chocolate_dark", {
 	description = S("Bar of Dark Chocolate"),
 	inventory_image = "farming_chocolate_dark.png",
+  groups = {food = 2, eatable = 3},
 	on_use = minetest.item_eat(3)
 })
 
@@ -154,7 +177,7 @@ local def = {
 	},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	growth_check = function(pos, node_name)
-		if minetest.find_node_near(pos, 1, {"default:jungletree"}) then
+		if minetest.find_node_near(pos, 1, {"hades_trees:jungletree"}) then
 			return false
 		end
 		return true
@@ -193,7 +216,7 @@ minetest.register_node("hades_extrafarming:cocoa_4", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:cocoa_beans"] = {
 	crop = "hades_extrafarming:cocoa",
-	seed = "hades_extrafarming:cocoa_beans",
+	seed = "hades_extrafarming:seed_cocoa",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4

@@ -3,20 +3,41 @@ local S = farming.intllib
 
 -- Textures for Pea crop and Peas were done by Andrey01
 
+-- pea seeds
+minetest.register_node("hades_extrafarming:seed_pea", {
+	description = S("Pea Seed"),
+	tiles = {"farming_pea_seed.png"},
+	inventory_image = "farming_pea_seed.png",
+	wield_image = "farming_pea_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pea_1")
+	end,
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_pea",
+	recipe = {"group:food_pea_pod"}
+})
+
 -- pea pod
 minetest.register_craftitem("hades_extrafarming:pea_pod", {
 	description = S("Pea Pod"),
 	inventory_image = "farming_pea_pod.png",
-	groups = {seed = 2, food_pea_pod = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pea_1")
-	end
+	groups = {food_pea_pod = 1, flammable = 2},
 })
 
 minetest.register_craftitem("hades_extrafarming:peas", {
 	description = S("Peas"),
 	inventory_image = "farming_pea_peas.png",
-	groups = {food_peas = 1, flammable = 2},
+	groups = {food_peas = 1, flammable = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
@@ -30,7 +51,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:pea_soup", {
 	description = S("Pea Soup"),
 	inventory_image = "farming_pea_soup.png",
-	groups = {flammable = 2},
+	groups = {flammable = 2, eatable = 4},
 	on_use = minetest.item_eat(4, "hades_extrafarming:bowl")
 })
 

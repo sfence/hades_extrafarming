@@ -1,6 +1,24 @@
 
 local S = farming.intllib
 
+-- pineapple seeds
+minetest.register_node("hades_extrafarming:seed_pineapple", {
+	description = S("Pineapple Seed"),
+	tiles = {"farming_pineapple_seed.png"},
+	inventory_image = "farming_pineapple_seed.png",
+	wield_image = "farming_pineapple_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:pineapple_1")
+	end,
+})
+
 -- pineapple top
 minetest.register_craftitem("hades_extrafarming:pineapple_top", {
 	description = S("Pineapple Top"),
@@ -32,7 +50,7 @@ minetest.register_node("hades_extrafarming:pineapple", {
 minetest.register_craftitem("hades_extrafarming:pineapple_ring", {
 	description = S("Pineapple Ring"),
 	inventory_image = "farming_pineapple_ring.png",
-	groups = {food_pineapple_ring = 1, flammable = 2},
+	groups = {food_pineapple_ring = 1, flammable = 2, food = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
@@ -48,7 +66,7 @@ minetest.register_craftitem("hades_extrafarming:pineapple_juice", {
 	description = S("Pineapple Juice"),
 	inventory_image = "farming_pineapple_juice.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {vessel = 1, drink = 1}
+	groups = {vessel = 1, drink = 1, food = 3, eatable = 4}
 })
 
 minetest.register_craft({

@@ -1,13 +1,28 @@
 local S = farming.intllib
 
+-- lettuce seeds
+minetest.register_node("hades_extrafarming:seed_lettuce", {
+	description = S("Lettuce Seed"),
+	tiles = {"farming_lettuce_seed.png"},
+	inventory_image = "farming_lettuce_seed.png",
+	wield_image = "farming_lettuce_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:lettuce_1")
+	end,
+})
+
 -- lettuce
 minetest.register_craftitem("hades_extrafarming:lettuce", {
 	description = S("Lettuce"),
 	inventory_image = "farming_lettuce.png",
-	groups = {seed = 2, food_lettuce = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:lettuce_1")
-	end,
+	groups = {food_lettuce = 1, flammable = 2, food = 2, eatable = 2},
 	on_use = minetest.item_eat(2),
 })
 
@@ -47,8 +62,9 @@ def.tiles = {"farming_lettuce_5.png"}
 def.groups.growing = nil
 def.drop = {
 	items = {
-		{items = {'hades_extrafarming:lettuce 2'}, rarity = 1},
-		{items = {'hades_extrafarming:lettuce 1'}, rarity = 2},
+		{items = {'hades_extrafarming:lettuce', "hades_extrafarming:seed_lettuce"}, rarity = 1},
+		{items = {'hades_extrafarming:lettuce 1'}, rarity = 4},
+		{items = {'hades_extrafarming:seed_lettuce 1'}, rarity = 4},
 	}
 }
 minetest.register_node("hades_extrafarming:lettuce_5", table.copy(def))
@@ -56,7 +72,7 @@ minetest.register_node("hades_extrafarming:lettuce_5", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:lettuce"] = {
 	crop = "hades_extrafarming:lettuce",
-	seed = "hades_extrafarming:lettuce",
+	seed = "hades_extrafarming:seed_lettuce",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 5

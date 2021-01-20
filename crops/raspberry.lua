@@ -1,15 +1,36 @@
 
 local S = farming.intllib
 
+-- raspberries seeds
+minetest.register_node("hades_extrafarming:seed_raspberry", {
+	description = S("Raspberry Seed"),
+	tiles = {"farming_raspberry_seed.png"},
+	inventory_image = "farming_raspberry_seed.png",
+	wield_image = "farming_raspberry_seedd.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:raspberry_1")
+	end,
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_raspberry",
+	recipe = {"group:food_raspberries"}
+})
+
 -- raspberries
 minetest.register_craftitem("hades_extrafarming:raspberries", {
 	description = S("Raspberries"),
 	inventory_image = "farming_raspberries.png",
-	groups = {seed = 2, food_raspberries = 1, food_raspberry = 1,
-			food_berry = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:raspberry_1")
-	end,
+	groups = {food_raspberries = 1, food_raspberry = 1,
+			food_berry = 1, flammable = 2, food = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
@@ -18,7 +39,7 @@ minetest.register_craftitem("hades_extrafarming:smoothie_raspberry", {
 	description = S("Raspberry Smoothie"),
 	inventory_image = "farming_raspberry_smoothie.png",
 	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
-	groups = {vessel = 1, drink = 1}
+	groups = {vessel = 1, drink = 1, food = 3, eatable = 2}
 })
 
 minetest.register_craft({

@@ -9,9 +9,9 @@ local S = farming.intllib
 -- corn seeds
 minetest.register_node("hades_extrafarming:seed_corn", {
 	description = S("Corn Seeds"),
-	tiles = {"crops_corn_base_seed.png"},
-	inventory_image = "crops_corn_base_seed.png",
-	wield_image = "crops_corn_base_seed.png",
+	tiles = {"farming_corn_seed.png"},
+	inventory_image = "farming_corn_seed.png",
+	wield_image = "farming_corn_seed.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 4},
 	paramtype = "light",
@@ -34,7 +34,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:corn", {
 	description = S("Corn"),
 	inventory_image = "farming_corn.png",
-	groups = {food_corn = 1, flammable = 2},
+	groups = {food_corn = 1, flammable = 2, food = 2, eatable = 3},
 	on_use = minetest.item_eat(3)
 })
 
@@ -42,7 +42,7 @@ minetest.register_craftitem("hades_extrafarming:corn", {
 minetest.register_craftitem("hades_extrafarming:corn_cob", {
 	description = S("Corn on the Cob"),
 	inventory_image = "farming_corn_cob.png",
-	groups = {food_corn_cooked = 1, flammable = 2},
+	groups = {food_corn_cooked = 1, flammable = 2, food = 2, eatable = 5},
 	on_use = minetest.item_eat(5)
 })
 

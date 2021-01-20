@@ -24,7 +24,7 @@ minetest.register_craftitem("hades_extrafarming:mint_tea", {
 	description = S("Mint Tea"),
 	inventory_image = "farming_mint_tea.png",
 	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
-	groups = {flammable = 4}
+	groups = {flammable = 4, food = 3, eatable = 2}
 })
 
 minetest.register_craft({

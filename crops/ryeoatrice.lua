@@ -72,7 +72,7 @@ minetest.register_craftitem("hades_extrafarming:rice_bread", {
 	description = S("Rice Bread"),
 	inventory_image = "farming_rice_bread.png",
 	on_use = minetest.item_eat(5),
-	groups = {food_rice_bread = 1, flammable = 2}
+	groups = {food_rice_bread = 1, flammable = 2, food = 2, eatable = 5}
 })
 
 minetest.register_craftitem("hades_extrafarming:rice_flour", {
@@ -110,7 +110,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:flour_multigrain",
 	recipe = {
-		"hades_extrafarming:wheat", "hades_extrafarming:barley", "hades_extrafarming:oat",
+		"hades_farming:wheat", "hades_extrafarming:barley", "hades_extrafarming:oat",
 		"hades_extrafarming:rye", "hades_extrafarming:mortar_pestle"
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
@@ -122,7 +122,7 @@ minetest.register_craftitem("hades_extrafarming:bread_multigrain", {
 	description = S("Multigrain Bread"),
 	inventory_image = "farming_bread_multigrain.png",
 	on_use = minetest.item_eat(7),
-	groups = {food_bread = 1, flammable = 2}
+	groups = {food_bread = 1, flammable = 2, food = 2, eatable = 7}
 })
 
 minetest.register_craft({

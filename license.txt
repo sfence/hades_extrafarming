@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2016 TenPlus1
+Copyright (c) 2016 TenPlus1, 2021 SFENCE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -161,4 +161,26 @@ Created by Auke Kok (License: CC BY-SA 3.0)
    crops_green_bean_seed.png
    crops_melon_seed.png
    crops_pumpkin_seed.png
+
+Created by SFENCE (license: CC BY-SA 4.0)
+   farming_beetroot_seed.png
+   farming_blackberry_seed.png
+   farming_blueberry_seed.png
+   farming_cabbage_seed.png
+   farming_carrot_seed.png
+   farming_chili_seed.png
+   farming_coffee_seed.png
+   farming_corn_seed.png
+   farming_cucumber_seed.png
+   farming_garlic_seed.png
+   farming_grapes_seed.png
+   farming_lettuce_seed.png
+   farming_onion_seed.png
+   farming_pea_seed.png
+   farming_pineapple_seed.png
+   farming_raspberry_seed.png
+   farming_rhubarb_seed.png
+   farming_soy_seed.png
+   farming_vanilla_seed.png
+   
 

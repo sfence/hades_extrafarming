@@ -7,14 +7,32 @@
 
 local S = farming.intllib
 
--- potato
+-- garlic seed
+minetest.register_node("hades_extrafarming:seed_garlic", {
+	description = S("Garlic Seed"),
+	tiles = {"farming_garlic_seed.png"},
+	inventory_image = "farming_garlic_seed.png",
+	wield_image = "farming_garlic_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:garlic_1")
+	end,
+})
+
+-- garlic
 minetest.register_craftitem("hades_extrafarming:garlic_clove", {
 	description = S("Garlic clove"),
 	inventory_image = "crops_garlic_clove.png",
-	groups = {seed = 2, food_garlic_clove = 1, flammable = 3},
+	groups = {seeds = 2, food_garlic_clove = 1, flammable = 3},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:garlic_1")
-	end
+	end,
 })
 
 -- garlic bulb
@@ -22,7 +40,7 @@ minetest.register_craftitem("hades_extrafarming:garlic", {
 	description = S("Garlic"),
 	inventory_image = "crops_garlic.png",
 	on_use = minetest.item_eat(1),
-	groups = {food_garlic = 1, flammable = 3}
+	groups = {food_garlic = 1, flammable = 3, food = 2, eatable = 1}
 })
 
 minetest.register_craft({
@@ -120,7 +138,8 @@ def.drop = {
 	items = {
 		{items = {"hades_extrafarming:garlic 3"}, rarity = 1},
 		{items = {"hades_extrafarming:garlic"}, rarity = 2},
-		{items = {"hades_extrafarming:garlic"}, rarity = 5}
+		{items = {"hades_extrafarming:garlic"}, rarity = 10},
+		{items = {"hades_extrafarming:seed_garlic"}, rarity = 10}
 	}
 }
 minetest.register_node("hades_extrafarming:garlic_5", table.copy(def))
@@ -128,7 +147,7 @@ minetest.register_node("hades_extrafarming:garlic_5", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:garlic"] = {
 	crop = "hades_extrafarming:garlic",
-	seed = "hades_extrafarming:garlic_clove",
+	seed = "hades_extrafarming:seed_garlic",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 5

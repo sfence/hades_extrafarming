@@ -6,14 +6,29 @@
 
 local S = farming.intllib
 
+-- carrot seed
+minetest.register_node("hades_extrafarming:seed_carrot", {
+	description = S("Carrot Seed"),
+	tiles = {"farming_carrot_seed.png"},
+	inventory_image = "farming_carrot_seed.png",
+	wield_image = "farming_carrot_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:carrot_1")
+	end,
+})
+
 -- carrot
 minetest.register_craftitem("hades_extrafarming:carrot", {
 	description = S("Carrot"),
 	inventory_image = "farming_carrot.png",
-	groups = {seed = 2, food_carrot = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:carrot_1")
-	end,
+	groups = {food_carrot = 1, flammable = 2, food = 2, eatable = 4},
 	on_use = minetest.item_eat(4)
 })
 
@@ -22,7 +37,7 @@ minetest.register_craftitem("hades_extrafarming:carrot_juice", {
 	description = S("Carrot Juice"),
 	inventory_image = "farming_carrot_juice.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {vessel = 1, drink = 1}
+	groups = {vessel = 1, drink = 1, food = 3, eatable = 4,}
 })
 
 minetest.register_craft({
@@ -37,6 +52,7 @@ minetest.register_craft({
 })
 
 -- golden carrot
+--[[
 minetest.register_craftitem("hades_extrafarming:carrot_gold", {
 	description = S("Golden Carrot"),
 	inventory_image = "farming_carrot_gold.png",
@@ -51,6 +67,7 @@ minetest.register_craft({
 		{"", "default:gold_lump", ""}
 	}
 })
+--]]
 
 -- carrot definition
 local def = {
@@ -97,8 +114,8 @@ minetest.register_node("hades_extrafarming:carrot_6", table.copy(def))
 def.tiles = {"farming_carrot_7.png"}
 def.drop = {
 	items = {
-		{items = {"hades_extrafarming:carrot"}, rarity = 1},
-		{items = {"hades_extrafarming:carrot 2"}, rarity = 3}
+		{items = {"hades_extrafarming:carrot", "hades_extrafarming:seed_carrot"}, rarity = 1},
+		{items = {"hades_extrafarming:carrot 2", "hades_extrafarming:seed_carrot"}, rarity = 3}
 	}
 }
 minetest.register_node("hades_extrafarming:carrot_7", table.copy(def))
@@ -108,8 +125,9 @@ def.tiles = {"farming_carrot_8.png"}
 def.groups.growing = nil
 def.drop = {
 	items = {
-		{items = {"hades_extrafarming:carrot 2"}, rarity = 1},
-		{items = {"hades_extrafarming:carrot 3"}, rarity = 2}
+		{items = {"hades_extrafarming:carrot 2", "hades_extrafarming:seed_carrot"}, rarity = 1},
+		{items = {"hades_extrafarming:carrot 3", "hades_extrafarming:seed_carrot"}, rarity = 4},
+		{items = {"hades_extrafarming:carrot 2", "hades_extrafarming:seed_carrot 2"}, rarity = 4}
 	}
 }
 minetest.register_node("hades_extrafarming:carrot_8", table.copy(def))
@@ -117,7 +135,7 @@ minetest.register_node("hades_extrafarming:carrot_8", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:carrot"] = {
 	crop = "hades_extrafarming:carrot",
-	seed = "hades_extrafarming:carrot",
+	seed = "hades_extrafarming:seed_carrot",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8

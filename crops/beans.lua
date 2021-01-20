@@ -94,7 +94,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:beans", {
 	description = S("Green Beans"),
 	inventory_image = "farming_beans.png",
-	groups = {food_beans = 1, flammable = 2},
+	groups = {food_beans = 1, flammable = 2, food = 2, eatabale = 1},
 	on_use = minetest.item_eat(1),
 })
 

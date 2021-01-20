@@ -98,7 +98,7 @@ end
 minetest.register_craftitem("hades_extrafarming:turkish_delight", {
 	description = S("Turkish Delight"),
 	inventory_image = "farming_turkish_delight.png",
-	groups = {flammable = 3},
+	groups = {flammable = 3, food = 2, eatable = 2},
 	on_use = minetest.item_eat(2)
 })
 
@@ -120,7 +120,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:garlic_bread", {
 	description = S("Garlic Bread"),
 	inventory_image = "farming_garlic_bread.png",
-	groups = {flammable = 3},
+	groups = {flammable = 3, food = 2, eatable = 2},
 	on_use = minetest.item_eat(2)
 })
 
@@ -135,6 +135,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:donut", {
 	description = S("Donut"),
 	inventory_image = "farming_donut.png",
+  groups = {food = 2, eatable = 4},
 	on_use = minetest.item_eat(4)
 })
 
@@ -150,6 +151,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:donut_chocolate", {
 	description = S("Chocolate Donut"),
 	inventory_image = "farming_donut_chocolate.png",
+  groups = {food = 2, eatable = 6},
 	on_use = minetest.item_eat(6)
 })
 
@@ -164,6 +166,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:donut_apple", {
 	description = S("Apple Donut"),
 	inventory_image = "farming_donut_apple.png",
+  groups = {food = 2, eatable = 6},
 	on_use = minetest.item_eat(6)
 })
 
@@ -180,6 +183,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:porridge", {
 	description = S("Porridge"),
 	inventory_image = "farming_porridge.png",
+  groups = {food = 2, eatable = 6},
 	on_use = minetest.item_eat(6, "hades_extrafarming:bowl")
 })
 
@@ -201,6 +205,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:jaffa_cake", {
 	description = S("Jaffa Cake"),
 	inventory_image = "farming_jaffa_cake.png",
+  groups = {food = 2, eatable = 6},
 	on_use = minetest.item_eat(6)
 })
 
@@ -223,6 +228,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:apple_pie", {
 	description = S("Apple Pie"),
 	inventory_image = "farming_apple_pie.png",
+  groups = {food = 2, eatable = 6},
 	on_use = minetest.item_eat(6)
 })
 
@@ -241,7 +247,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:cactus_juice", {
 	description = S("Cactus Juice"),
 	inventory_image = "farming_cactus_juice.png",
-	groups = {vessel = 1, drink = 1},
+	groups = {vessel = 1, drink = 1, food = 3, eatable = 2},
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
 			if math.random(5) == 1 then
@@ -305,6 +311,7 @@ end
 minetest.register_craftitem("hades_extrafarming:spaghetti", {
 	description = S("Spaghetti"),
 	inventory_image = "farming_spaghetti.png",
+  groups = {food = 2, eatable = 8},
 	on_use = minetest.item_eat(8)
 })
 
@@ -323,6 +330,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:bibimbap", {
 	description = S("Bibimbap"),
 	inventory_image = "farming_bibimbap.png",
+  groups = {food = 2, eatable = 8},
 	on_use = minetest.item_eat(8, "hades_extrafarming:bowl")
 })
 
@@ -355,6 +363,7 @@ end
 minetest.register_craftitem("hades_extrafarming:burger", {
 	description = S("Burger"),
 	inventory_image = "farming_burger.png",
+  groups = {food = 2, eatable = 16},
 	on_use = minetest.item_eat(16),
 })
 
@@ -362,7 +371,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:burger",
 	recipe = {
-		"hades_extrafarming:bread", "group:food_meat", "group:food_cheese",
+		"hades_farming:bread", "group:food_meat", "group:food_cheese",
 		"group:food_tomato", "group:food_cucumber", "group:food_onion",
 		"group:food_lettuce"
 	}
@@ -373,6 +382,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:salad", {
 	description = S("Salad"),
 	inventory_image = "farming_salad.png",
+  groups = {food = 2, eatable = 8},
 	on_use = minetest.item_eat(8, "hades_extrafarming:bowl")
 })
 

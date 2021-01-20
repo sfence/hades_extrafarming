@@ -1,6 +1,7 @@
 
 local S = farming.intllib
 
+--[[
 -- wheat seeds
 minetest.register_node("hades_extrafarming:seed_wheat", {
 	description = S("Wheat Seed"),
@@ -103,6 +104,7 @@ minetest.register_craft({
 	output = "hades_extrafarming:bread",
 	recipe = "hades_extrafarming:flour"
 })
+--]]
 
 -- sliced bread
 minetest.register_craftitem("hades_extrafarming:bread_slice", {
@@ -115,7 +117,7 @@ minetest.register_craftitem("hades_extrafarming:bread_slice", {
 minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:bread_slice 5",
-	recipe = {"hades_extrafarming:bread", "group:food_cutting_board"},
+	recipe = {"hades_farming:bread", "group:food_cutting_board"},
 	replacements = {{"group:food_cutting_board", "hades_extrafarming:cutting_board"}}
 })
 
@@ -139,7 +141,7 @@ minetest.register_craftitem("hades_extrafarming:toast_sandwich", {
 	description = S("Toast Sandwich"),
 	inventory_image = "farming_toast_sandwich.png",
 	on_use = minetest.item_eat(4),
-	groups = {flammable = 2}
+	groups = {flammable = 2, food = 2, eatable = 4}
 })
 
 minetest.register_craft({
@@ -151,6 +153,7 @@ minetest.register_craft({
 	}
 })
 
+--[[
 -- wheat definition
 local def = {
 	drawtype = "plantlike",
@@ -251,3 +254,5 @@ minetest.register_craft({
 	recipe = "hades_extrafarming:wheat",
 	burntime = 1
 })
+--]]
+

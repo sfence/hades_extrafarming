@@ -29,7 +29,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:melon_slice", {
 	description = S("Melon Slice"),
 	inventory_image = "farming_melon_slice.png",
-	groups = {food_melon_slice = 1, flammable = 3},
+	groups = {food_melon_slice = 1, flammable = 3, food = 2, eatable = 2},
 	on_use = minetest.item_eat(2)
 })
 
@@ -108,7 +108,7 @@ minetest.register_node("hades_extrafarming:melon_8", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:melon"] = {
 	crop = "hades_extrafarming:melon",
-	seed = "hades_extrafarming:melon_slice",
+	seed = "hades_extrafarming:seed_melon",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8

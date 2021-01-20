@@ -6,14 +6,35 @@
 
 local S = farming.intllib
 
+-- cucumber seed
+minetest.register_node("hades_extrafarming:seed_cucumber", {
+	description = S("Cucumber Seed"),
+	tiles = {"farming_cucumber_seed.png"},
+	inventory_image = "farming_cucumber_seed.png",
+	wield_image = "farming_cucumber_seed.png",
+	drawtype = "signlike",
+	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	sunlight_propagates = true,
+	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:cucumber_1")
+	end,
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_extrafarming:seed_cucumber",
+	recipe = {"group:food_cucumber"}
+})
+
 -- cucumber
 minetest.register_craftitem("hades_extrafarming:cucumber", {
 	description = S("Cucumber"),
 	inventory_image = "farming_cucumber.png",
-	groups = {seed = 2, food_cucumber = 1, flammable = 2},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:cucumber_1")
-	end,
+	groups = {food_cucumber = 1, flammable = 2, food = 2, eatable = 4},
 	on_use = minetest.item_eat(4)
 })
 
@@ -58,7 +79,7 @@ minetest.register_node("hades_extrafarming:cucumber_4", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:cucumber"] = {
 	crop = "hades_extrafarming:cucumber",
-	seed = "hades_extrafarming:cucumber",
+	seed = "hades_extrafarming:seed_cucumber",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4
