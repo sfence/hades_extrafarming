@@ -6,7 +6,7 @@ minetest.register_node("hades_extrafarming:seed_rhubarb", {
 	description = S("Rhubarb Seed"),
 	tiles = {"farming_rhubarb_seed.png"},
 	inventory_image = "farming_rhubarb_seed.png",
-	wield_image = "farming_rhubarb_seedd.png",
+	wield_image = "farming_rhubarb_seed.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
 	paramtype = "light",

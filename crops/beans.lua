@@ -181,8 +181,8 @@ minetest.register_craft({
 	output = "hades_extrafarming:beanpole",
 	recipe = {
 		{"", "", ""},
-		{"default:stick", "", "default:stick"},
-		{"default:stick", "", "default:stick"}
+		{"group:stick", "", "group:stick"},
+		{"group:stick", "", "group:stick"}
 	}
 })
 
