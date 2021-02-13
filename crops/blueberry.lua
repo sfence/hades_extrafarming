@@ -21,7 +21,7 @@ minetest.register_node("hades_extrafarming:seed_blueberry", {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "hades_extrafarming:seed_blueberries",
+	output = "hades_extrafarming:seed_blueberry",
 	recipe = {"group:food_blueberry"}
 })
 
@@ -108,7 +108,7 @@ minetest.register_node("hades_extrafarming:blueberry_4", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:blueberries"] = {
 	crop = "hades_extrafarming:blueberry",
-	seed = "hades_extrafarming:seed_blueberries",
+	seed = "hades_extrafarming:seed_blueberry",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4

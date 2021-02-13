@@ -170,9 +170,9 @@ minetest.register_node("hades_extrafarming:trellis", {
 minetest.register_craft({
 	output = "hades_extrafarming:trellis",
 	recipe = {
-		{"default:stick", "default:stick", "default:stick"},
-		{"default:stick", "default:stick", "default:stick"},
-		{"default:stick", "default:stick", "default:stick"}
+		{"hades_core:stick", "hades_core:stick", "hades_core:stick"},
+		{"hades_core:stick", "hades_core:stick", "hades_core:stick"},
+		{"hades_core:stick", "hades_core:stick", "hades_core:stick"}
 	}
 })
 

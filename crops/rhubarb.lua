@@ -15,7 +15,7 @@ minetest.register_node("hades_extrafarming:seed_rhubarb", {
 	sunlight_propagates = true,
 	selection_box = farming.select,
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:raspberry_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:rhubarb_1")
 	end,
 })
 

@@ -22,7 +22,7 @@ minetest.register_node("hades_extrafarming:seed_soy", {
 minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:seed_soy",
-	recipe = {"hades_extrafarming:soy_pod"},
+	recipe = {"hades_extrafarming:soy_beans"},
 })
 
 -- soy pod

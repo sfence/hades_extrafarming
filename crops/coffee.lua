@@ -18,6 +18,8 @@ minetest.register_node("hades_extrafarming:seed_coffee", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:coffee_1")
 	end,
 })
+-- bug fix, can be removed later
+minetest.register_alias("hades_extrafarming:coffee_seed", "hades_extrafarming:seed_coffee")
 
 -- coffee
 minetest.register_craftitem("hades_extrafarming:coffee_beans", {
@@ -29,7 +31,7 @@ minetest.register_craftitem("hades_extrafarming:coffee_beans", {
 minetest.register_craft({
 	type = "cooking",
 	output = "hades_extrafarming:coffee_beans",
-	recipe = "hades_extrafarming:coffee_seed",
+	recipe = "hades_extrafarming:seed_coffee",
   cooktime = 10,
 })
 
@@ -117,9 +119,9 @@ def.tiles = {"farming_coffee_5.png"}
 def.groups.growing = nil
 def.drop = {
 	items = {
-		{items = {"hades_extrafarming:coffee_seed 2"}, rarity = 1},
-		{items = {"hades_extrafarming:coffee_seed 2"}, rarity = 2},
-		{items = {"hades_extrafarming:coffee_seed 2"}, rarity = 3}
+		{items = {"hades_extrafarming:seed_coffee 2"}, rarity = 1},
+		{items = {"hades_extrafarming:seed_coffee 2"}, rarity = 2},
+		{items = {"hades_extrafarming:seed_coffee 2"}, rarity = 3}
 	}
 }
 minetest.register_node("hades_extrafarming:coffee_5", table.copy(def))

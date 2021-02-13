@@ -87,7 +87,7 @@ minetest.register_node("hades_extrafarming:seed_bean", {
 minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:seed_bean",
-	recipe = {"group:food_beans"}
+	recipe = {"hades_extrafarming:beans"}
 })
 
 -- beans
@@ -102,7 +102,7 @@ minetest.register_craftitem("hades_extrafarming:beans", {
 minetest.register_craft({
 	output = "dye:green",
 	recipe = {
-		{"hades_extrafarming:beans"}
+		{"hades_extrafarming:seed_bean"}
 	}
 })
 

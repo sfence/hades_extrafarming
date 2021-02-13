@@ -24,7 +24,7 @@ minetest.register_node("hades_extrafarming:seed_pea", {
 minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:seed_pea",
-	recipe = {"group:food_pea_pod"}
+	recipe = {"hades_extrafarming:peas"}
 })
 
 -- pea pod

@@ -58,7 +58,7 @@ minetest.register_craft( {
 	output = "hades_extrafarming:pineapple_ring 5",
 	type = "shapeless",
 	recipe = {"group:food_pineapple"},
-	replacements = {{"hades_extrafarming:pineapple", "hades_extrafarming:pineapple_top"}}
+	replacements = {{"hades_extrafarming:pineapple", "hades_extrafarming:pineapple_top"},{"pineapple:pineapple", "pineapple:sapling"}}
 })
 
 -- pineapple juice

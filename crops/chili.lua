@@ -19,12 +19,6 @@ minetest.register_node("hades_extrafarming:seed_chili", {
 	end,
 })
 
-minetest.register_craft({
-	type = "shapeless",
-	output = "hades_extrafarming:seed_chili_pepper",
-	recipe = {"group:food_chili_pepper"}
-})
-
 -- chili pepper
 minetest.register_craftitem("hades_extrafarming:chili_pepper", {
 	description = S("Chili Pepper"),
@@ -47,7 +41,8 @@ minetest.register_craft({
 	recipe = {
 		"group:food_chili_pepper", "group:food_barley",
 		"group:food_tomato", "group:food_beans", "group:food_bowl"
-	}
+	},
+  replacements = {{"hades_extrafarming:chili_pepper", "hades_extrafarming:seed_chili"}},
 })
 
 -- chili can be used for red dye
@@ -55,7 +50,8 @@ minetest.register_craft({
 	output = "dye:red",
 	recipe = {
 		{"hades_extrafarming:chili_pepper"}
-	}
+	},
+  replacements = {{"hades_extrafarming:chili_pepper", "hades_extrafarming:seed_chili"}},
 })
 
 -- chili definition
@@ -116,7 +112,7 @@ minetest.register_node("hades_extrafarming:chili_8", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:chili_pepper"] = {
 	crop = "hades_extrafarming:chili",
-	seed = "hades_extrafarming:seed_chili_pepper",
+	seed = "hades_extrafarming:seed_chili",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
