@@ -145,13 +145,16 @@ Created by mDiyo (Natura), modified by TenPlus1 (License: CC BY-SA 3.0):
   farming_barley.png
 
 Created by OgelGames (CC BY-SA 4.0)
-   farming_berry_smoothie.png
-   farming_cactus_juice.png
-   farming_salad.png
+  farming_berry_smoothie.png
+  farming_cactus_juice.png
+  farming_salad.png
 
 Created by Felfa (CC0)
-   farming_blackberry*.png
-   farming_lettuce*.png
-   farming_burger.png
-   farming_soy*.png
-   farming_vanilla*.png
+  farming_blackberry*.png
+  farming_lettuce*.png
+  farming_burger.png
+  farming_soy*.png
+  farming_vanilla*.png
+
+Created by gorlock (CC0)
+  farming_salt_crystal.png
