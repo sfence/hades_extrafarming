@@ -348,7 +348,6 @@ minetest.register_craftitem("farming:pasta", {
 	groups = {food_pasta = 1}
 })
 
-if minetest.get_modpath("mobs_animal") or minetest.get_modpath("xanadu")then
 minetest.register_craft({
 	output = "farming:pasta",
 	type = "shapeless",
@@ -358,7 +357,7 @@ minetest.register_craft({
 	},
 	replacements = {{"group:food_mixing_bowl", "farming:mixing_bowl"}}
 })
-else
+
 minetest.register_craft({
 	output = "farming:pasta",
 	type = "shapeless",
@@ -371,7 +370,6 @@ minetest.register_craft({
 		{"group:food_oil", "vessels:glass_bottle"}
 	}
 })
-end
 
 -- Spaghetti
 
@@ -399,7 +397,6 @@ minetest.register_craftitem("farming:bibimbap", {
 	on_use = minetest.item_eat(8, "farming:bowl")
 })
 
-if minetest.get_modpath("mobs_animal") or minetest.get_modpath("xanadu")then
 minetest.register_craft({
 	output = "farming:bibimbap",
 	type = "shapeless",
@@ -410,7 +407,7 @@ minetest.register_craft({
 	},
 	replacements = {{"group:food_skillet", "farming:skillet"}}
 })
-else
+
 minetest.register_craft({
 	output = "farming:bibimbap",
 	type = "shapeless",
@@ -421,7 +418,6 @@ minetest.register_craft({
 	},
 	replacements = {{"group:food_skillet", "farming:skillet"}}
 })
-end
 
 -- Burger
 
