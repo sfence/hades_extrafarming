@@ -16,6 +16,19 @@ minetest.register_craft({
 	recipe = "default:papyrus"
 })
 
+--= Sugar caramel
+
+minetest.register_craftitem("farming:caramel", {
+	description = S("Caramel"),
+	inventory_image = "farming_caramel.png",
+})
+
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 6,
+	output = "farming:caramel",
+	recipe = "group:food_sugar",
+})
 
 --= Salt
 
@@ -471,4 +484,76 @@ minetest.register_craft({
 		"group:food_strawberry", "group:food_banana",
 		"vessels:drinking_glass"
 	}
+})
+
+-- Patatas a la importancia
+
+minetest.register_craftitem("farming:spanish_potatoes", {
+	description = S("Spanish Potatoes"),
+	inventory_image = "farming_spanish_potatoes.png",
+	on_use = minetest.item_eat(8, "farming:bowl"),
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:spanish_potatoes",
+	recipe = {
+		"farming:potato", "group:food_parsley", "farming:potato",
+		"group:food_egg", "group:food_flour", "farming:onion",
+		"farming:garlic_clove", "group:food_bowl", "group:food_skillet"
+	},
+	replacements = {{"group:food_skillet", "farming:skillet"}}
+})
+
+-- Potato omelet
+
+minetest.register_craftitem("farming:potato_omelet", {
+	description = S("Potato omelet"),
+	inventory_image = "farming_potato_omelet.png",
+	on_use = minetest.item_eat(6, "farming:bowl"),
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:potato_omelet",
+	recipe = {
+		"group:food_egg", "farming:potato", "group:food_onion",
+		"group:food_skillet", "group:food_bowl"},
+	replacements = {{"group:food_skillet", "farming:skillet"}}
+})
+
+-- Paella
+
+minetest.register_craftitem("farming:paella", {
+	description = S("Paella"),
+	inventory_image = "farming_paella.png",
+	on_use = minetest.item_eat(8, "farming:bowl")
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:paella",
+	recipe = {
+		"group:food_rice", "dye:orange", "farming:pepper_red",
+		"group:food_peas", "group:food_chicken", "group:food_bowl", "group:food_skillet"
+	},
+	replacements = {{"group:food_skillet", "farming:skillet"}}
+})
+
+-- Flan
+
+minetest.register_craftitem("farming:flan", {
+	description = S("Vanilla Flan"),
+	inventory_image = "farming_vanilla_flan.png",
+	on_use = minetest.item_eat(6)
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flan",
+	recipe = {
+		"group:food_sugar", "group:food_milk", "farming:caramel",
+		"group:food_egg", "group:food_egg", "farming:vanilla_extract"
+	},
+	replacements = {{"mobs:bucket_milk", "bucket:bucket_empty"}}
 })
