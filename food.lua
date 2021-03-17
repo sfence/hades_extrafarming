@@ -555,7 +555,10 @@ minetest.register_craft({
 		"group:food_sugar", "group:food_milk", "farming:caramel",
 		"group:food_egg", "group:food_egg", "farming:vanilla_extract"
 	},
-	replacements = {{"mobs:bucket_milk", "bucket:bucket_empty"}}
+	replacements = {
+		{"group:food_milk", "bucket:bucket_empty"},
+		{"farming:vanilla_extract", "vessels:glass_bottle"}
+	}
 })
 
 -- Vegan Cheese
