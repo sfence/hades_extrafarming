@@ -193,7 +193,7 @@ minetest.register_craft({
 	recipe = {
 		{"group:food_gelatin", "group:food_sugar", "group:food_gelatin"},
 		{"group:food_sugar", "group:food_rose_water", "group:food_sugar"},
-		{"group:food_cornstarch", "group:food_sugar", "dye:pink"}
+		{"group:food_sugar", "dye:pink", "group:food_sugar"}
 	},
 	replacements = {
 		{"group:food_cornstarch", "farming:bowl"},
