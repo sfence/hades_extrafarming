@@ -556,6 +556,7 @@ minetest.register_craft({
 		"group:food_egg", "group:food_egg", "farming:vanilla_extract"
 	},
 	replacements = {
+		{"cucina_vegana:soy_milk", "vessels:drinking_glass"},
 		{"group:food_milk", "bucket:bucket_empty"},
 		{"farming:vanilla_extract", "vessels:glass_bottle"}
 	}
