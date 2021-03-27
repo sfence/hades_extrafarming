@@ -600,3 +600,42 @@ minetest.register_craft({
 		{"farming:pot", "farming:pot"},
 	}
 })
+
+-- Onigiri
+
+minetest.register_craftitem("farming:onigiri", {
+	description = S("Onirigi"),
+	inventory_image = "farming_onigiri.png",
+	on_use = minetest.item_eat(2),
+	groups = {flammable = 2},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:onigiri",
+	recipe = {
+		"group:food_rice", "group:food_rice", "group:food_seaweed", "group:food_salt"
+	}
+})
+
+-- Gyoza
+
+minetest.register_craftitem("farming:gyoza", {
+	description = S("Gyoza"),
+	inventory_image = "farming_gyoza.png",
+	on_use = minetest.item_eat(4),
+	groups = {flammable = 2},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:gyoza 4",
+	recipe = {
+		"group:food_cabbage", "group:food_garlic_clove", "group:food_onion",
+		"group:food_meat_raw", "group:food_salt", "group:food_skillet",
+		"group:food_flour"
+	},
+	replacements = {
+		{"group:food_skillet", "farming:skillet"}
+	}
+})
