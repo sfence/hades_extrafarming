@@ -654,10 +654,10 @@ minetest.register_craft({
 	output = "farming:mochi",
 	recipe = {
 		"group:food_mortar_pestle", "group:food_rice", "group:food_rice",
-		"group:food_sugar",	"group:water_bucket"
+		"group:food_sugar",	"bucket:bucket_river_water"
 	},
 	replacements = {
 		{"group:food_mortar_pestle", "farming:mortar_pestle"},
-		{"group:water_bucket", "bucket:bucket_empty"}
+		{"bucket:bucket_river_water", "bucket:bucket_empty"}
 	}
 })
