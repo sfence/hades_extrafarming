@@ -639,3 +639,25 @@ minetest.register_craft({
 		{"group:food_skillet", "farming:skillet"}
 	}
 })
+
+-- Mochi
+
+minetest.register_craftitem("farming:mochi", {
+	description = S("Mochi"),
+	inventory_image = "farming_mochi.png",
+	on_use = minetest.item_eat(3),
+	groups = {flammable = 2},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:mochi",
+	recipe = {
+		"group:food_mortar_pestle", "group:food_rice", "group:food_rice",
+		"group:food_sugar",	"group:water_bucket"
+	},
+	replacements = {
+		{"group:food_mortar_pestle", "farming:mortar_pestle"},
+		{"group:water_bucket", "bucket:bucket_empty"}
+	}
+})
