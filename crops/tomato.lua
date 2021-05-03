@@ -26,12 +26,11 @@ minetest.register_craftitem("farming:tomato_soup", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "farming:tomato_soup",
 	recipe = {
-		"group:food_tomato",
-		"group:food_tomato",
-		"group:food_bowl"
+		{"group:food_tomato"},
+		{"group:food_tomato"},
+		{"group:food_bowl"}
 	}
 })
 
