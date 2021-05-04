@@ -21,9 +21,8 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "farming:melon_slice 4",
-	recipe = {"farming:melon_8", "farming:cutting_board"},
+	recipe = {{"farming:cutting_board", "farming:melon_8"}},
 	replacements = {{"farming:cutting_board", "farming:cutting_board"}}
 })
 
