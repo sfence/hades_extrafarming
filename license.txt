@@ -169,3 +169,7 @@ Created by Felfa (CC0)
 
 Created by gorlock (CC0)
   farming_salt_crystal.png
+
+Created by sirrobzeroone (CC0)
+  farming_gyoza.png
+  farming_pineapple_ring.png
