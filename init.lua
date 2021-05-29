@@ -667,7 +667,7 @@ dofile(farming.path.."/utensils.lua")
 
 -- default crops
 dofile(farming.path.."/crops/wheat.lua") -- wheat in hades farming
---dofile(farming.path.."/crops/cotton.lua") -- cotton in hades farming
+dofile(farming.path.."/crops/cotton.lua") -- cotton in hades farming
 
 
 -- helper function

@@ -1,6 +1,7 @@
 
 local S = farming.intllib
 
+--[[
 -- wild cotton as a source of cotton seed and a chance of cotton itself
 minetest.register_node("hades_extrafarming:cotton_wild", {
 	description = S("Wild Cotton"),
@@ -44,6 +45,7 @@ minetest.register_node("hades_extrafarming:seed_cotton", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:cotton_1")
 	end
 })
+--]]
 
 -- cotton
 minetest.register_craftitem("hades_extrafarming:cotton", {
@@ -53,11 +55,14 @@ minetest.register_craftitem("hades_extrafarming:cotton", {
 })
 
 -- string
+--[[
 minetest.register_craftitem("hades_extrafarming:string", {
 	description = S("String"),
 	inventory_image = "farming_string.png",
 	groups = {flammable = 2}
 })
+--]]
+minetest.register_alias("hades_extrafarming:string", "hades_farming:cotton");
 
 -- cotton to wool
 minetest.register_craft({
@@ -78,11 +83,13 @@ minetest.register_craft({
 })
 
 -- can be used as fuel
+--[[
 minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:string",
 	burntime = 1
 })
+--]]
 
 minetest.register_craft({
 	type = "fuel",
@@ -90,6 +97,7 @@ minetest.register_craft({
 	burntime = 1
 })
 
+--[[
 -- cotton definition
 local def = {
 	drawtype = "plantlike",
@@ -176,6 +184,29 @@ farming.registered_plants["hades_extrafarming:cotton"] = {
 	maxlight = farming.max_light,
 	steps = 8
 }
+--]]
+
+for i = 1,3 do
+	local plant_name = "hades_farming:cotton_"..i;
+	local new_drop = table.copy(minetest.registered_nodes[plant_name].drop)
+
+	for index, data in pairs(new_drop.items) do
+		if (data.items[1]=="hades_farming:cotton") then
+			new_drop.items[index].items[1] = "hades_extrafarming:cotton"
+		end
+	end
+
+	minetest.override_item(plant_name, {drop = new_drop})
+end
+
+minetest.clear_craft({
+	--output = "wool:white",
+	recipe = {
+		{"hades_farming:cotton", "hades_farming:cotton"},
+		{"hades_farming:cotton", "hades_farming:cotton"}
+	}
+})
+
 
 --[[ Cotton using api
 farming.register_plant("hades_extrafarming:cotton", {
