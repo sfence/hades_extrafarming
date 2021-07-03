@@ -135,11 +135,6 @@ local def = {
 	tiles = {"farming_cocoa_1.png"},
 	paramtype = "light",
 	walkable = false,
-	drop = {
-		items = {
-			{items = {"farming:cocoa_beans 1"}, rarity = 2},
-		}
-	},
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
