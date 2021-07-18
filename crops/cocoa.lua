@@ -139,6 +139,7 @@ local def = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
+	drop = {},
 	groups = {
 		snappy = 3, flammable = 2, plant = 1, growing = 1,
 		not_in_creative_inventory = 1, leafdecay = 1, leafdecay_drop = 1
