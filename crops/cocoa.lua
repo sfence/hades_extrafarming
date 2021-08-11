@@ -1,6 +1,7 @@
 
 local S = farming.intllib
 
+--[[
 -- place cocoa
 local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 
@@ -100,6 +101,7 @@ minetest.register_craft( {
 		{ "hades_extrafarming:cocoa_beans" }
 	}
 })
+--]]
 
 -- chocolate cookie
 minetest.register_craftitem("hades_extrafarming:cookie", {
@@ -156,6 +158,7 @@ minetest.register_craft({
 	}
 })
 
+--[[
 -- cocoa definition
 local def = {
 	drawtype = "plantlike",
@@ -260,3 +263,4 @@ minetest.register_on_generated(function(minp, maxp)
 		end
 	end
 end)
+--]]

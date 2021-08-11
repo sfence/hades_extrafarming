@@ -401,7 +401,7 @@ minetest.register_craftitem("hades_extrafarming:smoothie_berry", {
 	description = S("Triple Berry Smoothie"),
 	inventory_image = "farming_berry_smoothie.png",
 	on_use = minetest.item_eat(6, "vessels:drinking_glass"),
-	groups = {vessel = 1, drink = 1}
+	groups = {vessel = 1, drink = 1, food = 3, eatable = 6}
 })
 
 minetest.register_craft({

@@ -31,7 +31,7 @@ minetest.register_craftitem("hades_extrafarming:beetroot", {
 minetest.register_craftitem("hades_extrafarming:beetroot_soup", {
 	description = S("Beetroot Soup"),
 	inventory_image = "farming_beetroot_soup.png",
-	groups = {flammable = 2},
+	groups = {flammable = 2, food = 3, eatable = 6},
 	on_use = minetest.item_eat(6, "hades_extrafarming:bowl")
 })
 

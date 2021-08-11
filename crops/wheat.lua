@@ -111,7 +111,7 @@ minetest.register_craftitem("hades_extrafarming:bread_slice", {
 	description = S("Sliced Bread"),
 	inventory_image = "farming_bread_slice.png",
 	on_use = minetest.item_eat(1),
-	groups = {food_bread_slice = 1, flammable = 2}
+	groups = {food_bread_slice = 1, flammable = 2, food = 2, eatable = 1}
 })
 
 minetest.register_craft({
@@ -126,7 +126,7 @@ minetest.register_craftitem("hades_extrafarming:toast", {
 	description = S("Toast"),
 	inventory_image = "farming_toast.png",
 	on_use = minetest.item_eat(1),
-	groups = {food_toast = 1, flammable = 2}
+	groups = {food_toast = 1, flammable = 2, food = 2, eatable = 1}
 })
 
 minetest.register_craft({

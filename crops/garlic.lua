@@ -71,6 +71,7 @@ minetest.register_node("hades_extrafarming:garlic_braid", {
 		"crops_garlic_braid_side.png^[transformFx","crops_garlic_braid_side.png",
 		"crops_garlic_braid.png","crops_garlic_braid.png"
 	},
+  use_texture_alpha = "opaque",
 	groups = {vessel = 1, dig_immediate = 3, flammable = 3},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	node_box = {

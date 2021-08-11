@@ -38,6 +38,7 @@ minetest.register_craftitem("hades_extrafarming:blueberries", {
 minetest.register_craftitem("hades_extrafarming:muffin_blueberry", {
 	description = S("Blueberry Muffin"),
 	inventory_image = "farming_blueberry_muffin.png",
+  groups = {food = 2, eatable = 2},
 	on_use = minetest.item_eat(2)
 })
 
@@ -52,6 +53,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:blueberry_pie", {
 	description = S("Blueberry Pie"),
 	inventory_image = "farming_blueberry_pie.png",
+  groups = {food = 2, eatable = 6},
 	on_use = minetest.item_eat(6)
 })
 

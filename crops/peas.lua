@@ -37,7 +37,7 @@ minetest.register_craftitem("hades_extrafarming:pea_pod", {
 minetest.register_craftitem("hades_extrafarming:peas", {
 	description = S("Peas"),
 	inventory_image = "farming_pea_peas.png",
-	groups = {food_peas = 1, flammable = 2, eatable = 1},
+	groups = {food_peas = 1, flammable = 2, food = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
@@ -51,7 +51,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:pea_soup", {
 	description = S("Pea Soup"),
 	inventory_image = "farming_pea_soup.png",
-	groups = {flammable = 2, eatable = 4},
+	groups = {flammable = 2, food = 3, eatable = 4},
 	on_use = minetest.item_eat(4, "hades_extrafarming:bowl")
 })
 

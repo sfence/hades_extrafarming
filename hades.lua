@@ -24,6 +24,12 @@ minetest.override_item("hades_farming:potato", {
   groups = orig_groups,
 })
 
+local orig_groups = table.copy(minetest.registered_items["hades_farming:strawberry"].groups);
+orig_groups.food_strawberry = 1;
+minetest.override_item("hades_farming:strawberry", {
+  groups = orig_groups,
+})
+
 local orig_groups = table.copy(minetest.registered_items["hades_trees:apple"].groups);
 orig_groups.food_apple = 1;
 minetest.override_item("hades_trees:apple", {

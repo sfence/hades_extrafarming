@@ -687,7 +687,7 @@ ddoo("corn.lua", farming.corn)
 ddoo("coffee.lua", farming.coffee)
 ddoo("melon.lua", farming.melon)
 ddoo("pumpkin.lua", farming.pumpkin)
---ddoo("cocoa.lua", farming.cocoa) -- cocoa tree in hades trees
+ddoo("cocoa.lua", farming.cocoa) -- cocoa tree in hades trees
 ddoo("raspberry.lua", farming.raspberry)
 ddoo("blueberry.lua", farming.blueberry)
 ddoo("rhubarb.lua", farming.rhubarb)

@@ -96,7 +96,7 @@ minetest.register_node("hades_extrafarming:jackolantern_on", {
 minetest.register_craft({
 	output = "hades_extrafarming:jackolantern",
 	recipe = {
-		{"default:torch"},
+		{"hades_torches:torch"},
 		{"group:food_pumpkin"}
 	}
 })

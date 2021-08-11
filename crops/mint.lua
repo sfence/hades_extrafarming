@@ -37,7 +37,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"},
-		{"group:water_bucket", "bucket:bucket_empty"}
+		{"group:water_bucket", "hades_bucket:bucket_empty"}
 	}
 })
 
