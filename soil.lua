@@ -79,7 +79,7 @@ minetest.register_node("farming:soil_wet", {
 		"default_dirt.png^farming_soil_wet.png",
 		"default_dirt.png^farming_soil_wet_side.png"},
 	drop = "default:dirt",
-	groups = {crumbly = 3, not_in_creative_inventory = 1, soil = 3, field = 1},
+	groups = {crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, field = 1},
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dirt",
@@ -96,7 +96,7 @@ minetest.register_node("farming:dry_soil", {
 		"default_dry_dirt.png^farming_soil.png",
 		"default_dry_dirt.png"},
 	drop = "default:dry_dirt",
-	groups = {crumbly = 3, not_in_creative_inventory = 1, soil = 2, field = 1},
+	groups = {crumbly = 3, not_in_creative_inventory = 1, soil = 1, field = 1},
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dry_dirt",
@@ -111,7 +111,7 @@ minetest.register_node("farming:dry_soil_wet", {
 		"default_dry_dirt.png^farming_soil_wet.png",
 		"default_dry_dirt.png^farming_soil_wet_side.png"},
 	drop = "default:dry_dirt",
-	groups = {crumbly = 3, not_in_creative_inventory = 1, soil = 3, field = 1},
+	groups = {crumbly = 3, not_in_creative_inventory = 1, soil = 2, wet = 1, field = 1},
 	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dry_dirt",

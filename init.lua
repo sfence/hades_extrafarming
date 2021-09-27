@@ -247,6 +247,10 @@ local function set_growing(pos, stages_left)
 			local stage_length = statistics.normal(STAGE_LENGTH_AVG, STAGE_LENGTH_DEV)
 
 			stage_length = clamp(stage_length, 0.5 * STAGE_LENGTH_AVG, 3.0 * STAGE_LENGTH_AVG)
+			--  apply soil effect
+			local node_under = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
+			local soil = minetest.get_item_group(node_under.name, "soil")
+			stage_length = stage_length*3/soil
 
 			timer:set(stage_length, -0.5 * math.random() * STAGE_LENGTH_AVG)
 		end
@@ -321,7 +325,10 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 	else
 		local under = minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z})
 
-		if minetest.get_item_group(under.name, "soil") < 3 then
+		if minetest.get_item_group(under.name, "wet") == 0 then
+			return true
+		end
+		if minetest.get_item_group(under.name, "soil") == 0 then
 			return true
 		end
 	end
