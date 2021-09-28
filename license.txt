@@ -166,6 +166,7 @@ Created by Felfa (CC0)
   farming_potato_omelette.png
   farming_spanish_potatoes.png
   farming_vanilla_flan.png
+  farming_sunflower*.png
 
 Created by gorlock (CC0)
   farming_salt_crystal.png
