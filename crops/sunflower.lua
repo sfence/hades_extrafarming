@@ -8,7 +8,7 @@ minetest.register_craftitem("farming:sunflower", {
 })
 
 -- sunflower seeds
-minetest.register_craftitem("farming:sunflower_seeds", {
+minetest.register_craftitem("farming:seed_sunflower", {
 	description = S("Sunflower Seeds"),
 	inventory_image = "farming_sunflower_seeds.png",
 	groups = {seed = 2, food_sunflower_seeds = 1, flammable = 2},
@@ -17,8 +17,10 @@ minetest.register_craftitem("farming:sunflower_seeds", {
 	end
 })
 
+minetest.register_alias("farming:sunflower_seeds", "farming:seed_sunflower")
+
 minetest.register_craft({
-	output = "farming:sunflower_seeds 5",
+	output = "farming:seed_sunflower 5",
 	recipe = {{"farming:sunflower"}}
 })
 
@@ -34,7 +36,7 @@ minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
 	output = "farming:sunflower_seeds_toasted",
-	recipe = "farming:sunflower_seeds"
+	recipe = "farming:seed_sunflower"
 })
 
 -- sunflower oil
@@ -151,7 +153,7 @@ minetest.register_node("farming:sunflower_8", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["farming:sunflower"] = {
 	crop = "farming:sunflower",
-	seed = "farming:sunflower_seeds",
+	seed = "farming:seed_sunflower",
 	minlight = 14,
 	maxlight = farming.max_light,
 	steps = 8
