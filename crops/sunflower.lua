@@ -84,11 +84,6 @@ minetest.register_craftitem("farming:sunflower_bread", {
 	groups = {food_bread = 1, flammable = 2}
 })
 
-minetest.register_craftitem("farming:sunflower_bread", {
-	description = S("Sunflower Bread"),
-	inventory_image = "farming_sunflower_bread.png"
-})
-
 minetest.register_craft({
 	output = "farming:sunflower_bread",
 	recipe = {{"group:food_sunflower_seeds_toasted", "group:food_bread", "group:food_sunflower_seeds_toasted"}}

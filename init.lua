@@ -340,7 +340,6 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 	if max_growth == 1 or lambda < 2.0 then
 
 		local light = (minetest.get_node_light(light_pos) or 0)
-		--print ("light level:", light)
 
 		if light < MIN_LIGHT or light > MAX_LIGHT then
 			return true

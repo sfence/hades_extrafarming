@@ -146,10 +146,12 @@ local def = {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 	growth_check = function(pos, node_name)
+
 		if minetest.find_node_near(pos, 1, {"default:jungletree"}) then
-			return false
+			return false -- can grow
 		end
-		return true
+
+		return true -- cannot grow
 	end
 }
 
