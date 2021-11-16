@@ -7,7 +7,7 @@
 
 farming = {
 	mod = "redo",
-	version = "20210928",
+	version = "20211116",
 	path = minetest.get_modpath("farming"),
 	select = {
 		type = "fixed",
@@ -425,7 +425,7 @@ function farming.place_seed(itemstack, placer, pointed_thing, plantname)
 	-- thanks to Krock for helping with this issue :)
 	local def = minetest.registered_nodes[under.name]
 	if placer and itemstack and def and def.on_rightclick then
-		return def.on_rightclick(pt.under, under, placer, itemstack)
+		return def.on_rightclick(pt.under, under, placer, itemstack, pt)
 	end
 
 	local above = minetest.get_node(pt.above)
