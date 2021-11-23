@@ -45,7 +45,7 @@ minetest.register_craft({
 })
 
 -- soy sauce
-minetest.register_node("farming:soy_sauce", {
+minetest.register_node("hades_extrafarming:soy_sauce", {
 	description = S("Soy Sauce"),
 	drawtype = "plantlike",
 	tiles = {"farming_soy_sauce.png"},
@@ -60,23 +60,22 @@ minetest.register_node("farming:soy_sauce", {
 	groups = {
 		vessel = 1, food_soy_sauce = 1, dig_immediate = 3, attached_node = 1
 	},
-	sounds = default.node_sound_glass_defaults()
+	sounds = hades_sounds.node_sound_glass_defaults()
 })
 
 
 -- soy sauce recipe
 minetest.register_craft( {
-	output = "farming:soy_sauce",
+	output = "hades_extrafarming:soy_sauce",
 	recipe = {
 		{"group:food_soy", "group:food_salt", "group:food_soy"},
 		{"", "group:food_juicer", ""},
-		{"", "bucket:bucket_water", "vessels:glass_bottle"}
+		{"", "hades_bucket:bucket_water", "vessels:glass_bottle"}
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty"},
-		{"group:food_juicer", "farming:juicer"}
+		{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"},
+		{"group:food_juicer", "hades_extrafarming:juicer"}
 	}
->>>>>>> origin/master
 })
 
 -- soy milk
@@ -121,7 +120,6 @@ minetest.register_craftitem("hades_extrafarming:tofu", {
 })
 
 minetest.register_craft({
-<<<<<<< HEAD
 	output = "hades_extrafarming:tofu",
 	recipe = {
 		{"hades_extrafarming:baking_tray", "group:food_soy", "group:food_soy"},

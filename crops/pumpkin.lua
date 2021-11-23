@@ -212,7 +212,7 @@ minetest.register_node("hades_extrafarming:pumpkin_8", {
 		flammable = 2, plant = 1
 	},
 	drop = "hades_extrafarming:pumpkin_8",
-	sounds = hades_sounds.node_sound_wood_defaults()
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	paramtype2 = "facedir",
 	on_place = minetest.rotate_node
 })

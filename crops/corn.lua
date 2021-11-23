@@ -54,20 +54,20 @@ minetest.register_craft({
 })
 
 -- popcorn
-minetest.register_craftitem("farming:popcorn", {
+minetest.register_craftitem("hades_extrafarming:popcorn", {
 	description = S("Popcorn"),
 	inventory_image = "farming_popcorn.png",
-	groups = {food_popcorn = 1, flammable = 2},
+	groups = {food_popcorn = 1, flammable = 2, eatable = 4},
 	on_use = minetest.item_eat(4)
 })
 
 minetest.register_craft({
-	output = "farming:popcorn",
+	output = "hades_extrafarming:popcorn",
 	recipe = {
 		{"group:food_pot", "group:food_oil", "group:food_corn"}
 	},
 	replacements = {
-		{"group:food_pot", "farming:pot"},
+		{"group:food_pot", "hades_extrafarming:pot"},
 		{"group:food_oil", "vessels:glass_bottle"}
 	}
 })

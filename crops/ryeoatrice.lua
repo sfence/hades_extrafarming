@@ -18,9 +18,9 @@ minetest.override_item("hades_extrafarming:rye", {
 	groups = {food_rye = 1, flammable = 4}
 })
 
-minetest.override_item("farming:rye_1", {drop = {}})
-minetest.override_item("farming:rye_2", {drop = {}})
-minetest.override_item("farming:rye_3", {drop = {}})
+minetest.override_item("hades_extrafarming:rye_1", {drop = {}})
+minetest.override_item("hades_extrafarming:rye_2", {drop = {}})
+minetest.override_item("hades_extrafarming:rye_3", {drop = {}})
 
 minetest.register_craft({
 	output = "hades_extrafarming:flour",
@@ -46,9 +46,9 @@ minetest.override_item("hades_extrafarming:oat", {
 	groups = {food_oats = 1, flammable = 4}
 })
 
-minetest.override_item("farming:oat_1", {drop = {}})
-minetest.override_item("farming:oat_2", {drop = {}})
-minetest.override_item("farming:oat_3", {drop = {}})
+minetest.override_item("hades_extrafarming:oat_1", {drop = {}})
+minetest.override_item("hades_extrafarming:oat_2", {drop = {}})
+minetest.override_item("hades_extrafarming:oat_3", {drop = {}})
 
 minetest.register_craft({
 	output = "hades_extrafarming:flour",

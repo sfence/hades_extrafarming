@@ -57,7 +57,7 @@ minetest.register_node("hades_extrafarming:sunflower_oil", {
 		food_oil = 1, vessel = 1, dig_immediate = 3, attached_node = 1,
 		flammable = 2
 	},
-	sounds = default.node_sound_glass_defaults()
+	sounds = hades_sounds.node_sound_glass_defaults()
 })
 
 minetest.register_craft( {
@@ -81,7 +81,7 @@ minetest.register_craftitem("hades_extrafarming:sunflower_bread", {
 	description = S("Sunflower Seed Bread"),
 	inventory_image = "farming_sunflower_bread.png",
 	on_use = minetest.item_eat(8),
-	groups = {food_bread = 1, flammable = 2}
+	groups = {food_bread = 1, flammable = 2, eatable = 8}
 })
 
 minetest.register_craft({
@@ -103,7 +103,7 @@ local def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 -- stage 1

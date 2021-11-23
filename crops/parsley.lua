@@ -1,11 +1,11 @@
 local S = farming.intllib
 
--- persley seeds
-minetest.register_node("hades_extrafarming:seed_persley", {
-	description = S("Persley Seed"),
-	tiles = {"farming_persley_seed.png"},
-	inventory_image = "farming_persley_seed.png",
-	wield_image = "farming_persley_seed.png",
+-- parsley seeds
+minetest.register_node("hades_extrafarming:seed_parsley", {
+	description = S("Parsley Seed"),
+	tiles = {"farming_parsley_seed.png"},
+	inventory_image = "farming_parsley_seed.png",
+	wield_image = "farming_parsley_seed.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 2},
 	paramtype = "light",
@@ -14,7 +14,7 @@ minetest.register_node("hades_extrafarming:seed_persley", {
 	sunlight_propagates = true,
 	selection_box = farming.select,
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:persley_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:parsley_1")
 	end,
 })
 
@@ -42,7 +42,7 @@ local def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 -- stage 1
