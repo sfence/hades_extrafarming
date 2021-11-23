@@ -71,10 +71,10 @@ minetest.register_craft( {
 	output = "hades_extrafarming:vanilla_extract",
 	recipe = {
 		{ "group:food_vanilla", "group:food_vanilla", "group:food_vanilla"},
-		{ "group:food_vanilla", "hades_extrafarming:bottle_ethanol", "bucket:bucket_water"},
+		{ "group:food_vanilla", "hades_extrafarming:bottle_ethanol", "hades_bucket:bucket_water"},
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty"},
+		{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"},
 	}
 })
 

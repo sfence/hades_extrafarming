@@ -63,7 +63,7 @@ minetest.register_craft( {
 		"vessels:drinking_glass", "group:food_coffee",
 		"group:water_bucket", "group:food_saucepan"},
 	replacements = {
-		{"group:water_bucket", "bucket:bucket_empty"},
+		{"group:water_bucket", "hades_bucket:bucket_empty"},
 		{"group:food_saucepan", "hades_extrafarming:saucepan"}
 	}
 })

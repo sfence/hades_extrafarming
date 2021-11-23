@@ -71,10 +71,10 @@ minetest.register_craft( {
 	output = "hades_extrafarming:soy_milk",
 	recipe = {
 		"group:food_soy", "group:food_soy", "group:food_soy",
-		"hades_extrafarming:vanilla_extract", "bucket:bucket_water", "vessels:drinking_glass"
+		"hades_extrafarming:vanilla_extract", "hades_bucket:bucket_water", "vessels:drinking_glass"
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty"},
+		{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"},
 		{"hades_extrafarming:vanilla_extract", "vessels:glass_bottle"}
 	}
 })

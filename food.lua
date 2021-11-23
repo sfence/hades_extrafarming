@@ -38,13 +38,15 @@ minetest.register_node("hades_extrafarming:salt", {
 	}
 })
 
+--[[
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
 	output = "hades_extrafarming:salt",
-	recipe = "bucket:bucket_water",
-	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
+	recipe = "hades_bucket:bucket_water",
+	replacements = {{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"}}
 })
+--]]
 
 --= Rose Water
 
@@ -73,7 +75,7 @@ minetest.register_craft({
 		{"group:water_bucket", "group:food_pot", "vessels:glass_bottle"}
 	},
 	replacements = {
-		{"group:water_bucket", "bucket:bucket_empty"},
+		{"group:water_bucket", "hades_bucket:bucket_empty"},
 		{"group:food_pot", "hades_extrafarming:pot"}
 	}
 })
@@ -219,7 +221,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"hades_extrafarming:baking_tray", "hades_extrafarming:baking_tray"},
-		{"mobs:bucket_milk", "bucket:bucket_empty"}
+		{"mobs:bucket_milk", "hades_bucket:bucket_empty"}
 	}
 })
 
