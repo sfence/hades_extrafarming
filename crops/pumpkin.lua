@@ -46,9 +46,8 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:pumpkin_slice 4",
-	recipe = {"hades_extrafarming:pumpkin", "hades_extrafarming:cutting_board"},
+	recipe = {{"hades_extrafarming:cutting_board","hades_extrafarming:pumpkin"}},
 	replacements = {{"hades_extrafarming:cutting_board", "hades_extrafarming:cutting_board"}}
 })
 
@@ -143,8 +142,9 @@ minetest.register_craftitem("hades_extrafarming:pumpkin_dough", {
 
 minetest.register_craft({
 	output = "hades_extrafarming:pumpkin_dough",
-	type = "shapeless",
-	recipe = {"group:food_flour", "group:food_pumpkin_slice", "group:food_pumpkin_slice"}
+	recipe = {
+		{"group:food_pumpkin_slice", "group:food_flour", "group:food_pumpkin_slice"}
+	}
 })
 
 minetest.register_craft({
@@ -204,7 +204,7 @@ minetest.register_node("hades_extrafarming:pumpkin_8", {
 	description = S("Pumpkin"),
 	tiles = {
 		"farming_pumpkin_top.png",
-		"farming_pumpkin_top.png",
+		"farming_pumpkin_bottom.png",
 		"farming_pumpkin_side.png"
 	},
 	groups = {
@@ -213,6 +213,8 @@ minetest.register_node("hades_extrafarming:pumpkin_8", {
 	},
 	drop = "hades_extrafarming:pumpkin_8",
 	sounds = hades_sounds.node_sound_wood_defaults()
+	paramtype2 = "facedir",
+	on_place = minetest.rotate_node
 })
 
 minetest.register_alias("hades_extrafarming:pumpkin", "hades_extrafarming:pumpkin_8")

@@ -45,12 +45,11 @@ minetest.register_craftitem("hades_extrafarming:onion_soup", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:onion_soup",
 	recipe = {
-		"group:food_onion", "group:food_onion", "group:food_pot",
-		"group:food_onion", "group:food_onion",
-		"group:food_onion", "group:food_onion", "group:food_bowl"
+		{"group:food_onion", "group:food_onion", "group:food_onion"},
+		{"group:food_onion", "group:food_pot", "group:food_onion"},
+		{"", "group:food_bowl", ""}
 	},
 	replacements = {{"hades_extrafarming:pot", "hades_extrafarming:pot"}}
 })
@@ -99,7 +98,7 @@ def.drop = {
 		{items = {"hades_extrafarming:onion"}, rarity = 1},
 		{items = {"hades_extrafarming:onion"}, rarity = 2},
 		{items = {"hades_extrafarming:onion"}, rarity = 2},
-		{items = {"hades_extrafarming:onion"}, rarity = 5},
+		{items = {"hades_extrafarming:onion"}, rarity = 5}
 	}
 }
 minetest.register_node("hades_extrafarming:onion_5", table.copy(def))

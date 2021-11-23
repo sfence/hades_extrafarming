@@ -16,13 +16,6 @@ minetest.override_item("hades_trees:apple", {
 	groups = old_groups,
 })
 
-if minetest.registered_nodes["flowers:mushroom_brown"] then
-minetest.override_item("flowers:mushroom_brown", {
-	light_source = 1,
-	groups = {food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 2}
-})
-end
-
 --= Aliases
 
 -- Banana
@@ -31,6 +24,37 @@ if eth then
 	alias("farming_plus:banana_leaves", "ethereal:bananaleaves")
 	alias("farming_plus:banana", "ethereal:banana")
 else
+	--[[
+	minetest.register_node(":ethereal:banana", {
+		description = S("Banana"),
+		drawtype = "torchlike",
+		tiles = {"farming_banana_single.png"},
+		inventory_image = "farming_banana_single.png",
+		wield_image = "farming_banana_single.png",
+		paramtype = "light",
+		sunlight_propagates = true,
+		walkable = false,
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.2, 0.2}
+		},
+		groups = {food_banana = 1, fleshy = 3, dig_immediate = 3, flammable = 2},
+		on_use = minetest.item_eat(2),
+		sounds = default.node_sound_leaves_defaults()
+	})
+
+	minetest.register_node(":ethereal:bananaleaves", {
+		description = S("Banana Leaves"),
+		tiles = {"farming_banana_leaf.png"},
+		inventory_image = "farming_banana_leaf.png",
+		wield_image = "farming_banana_leaf.png",
+		paramtype = "light",
+		waving = 1,
+		groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+		sounds = default.node_sound_leaves_defaults()
+	})
+	--]]
+
 	alias("farming_plus:banana_sapling", "hades_trees:banana_sapling")
 	alias("farming_plus:banana_leaves", "hades_trees:banana_leaves")
 	alias("farming_plus:banana", "hades_trees:banana")
@@ -100,6 +124,16 @@ if eth then
 	alias("farming_plus:strawberry_3", "ethereal:strawberry_5")
 	alias("farming_plus:strawberry", "ethereal:strawberry_7")
 else
+	--[[
+	minetest.register_craftitem(":ethereal:strawberry", {
+		description = S("Strawberry"),
+		inventory_image = "farming_strawberry.png",
+		wield_image = "farming_strawberry.png",
+		groups = {food_strawberry = 1, flammable = 2},
+		on_use = minetest.item_eat(1)
+	})
+	--]]
+
 	alias("farming_plus:strawberry_item", "hades_farming:strawberry")
 	alias("farming_plus:strawberry_seed", "hades_farming:seed_strawberry")
 	alias("farming_plus:strawberry_1", "hades_farming:strawberry_1")

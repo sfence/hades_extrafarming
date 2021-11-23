@@ -30,7 +30,7 @@ minetest.register_craftitem("hades_extrafarming:pepper_yellow", {
 	description = S("Yellow Pepper"),
 	inventory_image = "crops_pepper_yellow.png",
 	on_use = minetest.item_eat(3),
-	groups = {food_pepper = 1, flammable = 3, food = 2, eatable = 3},
+	groups = {food_pepper = 1, flammable = 3, food = 2, eatable = 3}
 })
 
 -- red pepper
@@ -38,13 +38,12 @@ minetest.register_craftitem("hades_extrafarming:pepper_red", {
 	description = S("Red Pepper"),
 	inventory_image = "crops_pepper_red.png",
 	on_use = minetest.item_eat(4),
-	groups = {food_pepper = 1, flammable = 3, food = 2, eatable = 4},
+	groups = {food_pepper = 1, flammable = 3, food = 2, eatable = 4}
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:peppercorn",
-	recipe = {"group:food_pepper"}
+	recipe = {{"group:food_pepper"}}
 })
 
 -- ground pepper
@@ -69,8 +68,11 @@ minetest.register_node("hades_extrafarming:pepper_ground", {
 
 minetest.register_craft( {
 	output = "hades_extrafarming:pepper_ground",
-	type = "shapeless",
-	recipe = {"group:food_peppercorn", "vessels:glass_bottle", "hades_extrafarming:mortar_pestle"},
+	recipe = {
+		{"group:food_peppercorn"},
+		{"hades_extrafarming:mortar_pestle"},
+		{"vessels:glass_bottle"}
+	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })
 
@@ -126,7 +128,7 @@ def.drop = {
 	max_items = 2, items = {
 		{items = {'hades_extrafarming:pepper_yellow 2'}, rarity = 1},
 		{items = {'hades_extrafarming:pepper_yellow'}, rarity = 2},
-		{items = {'hades_extrafarming:pepper_yellow'}, rarity = 3},
+		{items = {'hades_extrafarming:pepper_yellow'}, rarity = 3}
 	}
 }
 minetest.register_node("hades_extrafarming:pepper_6", table.copy(def))
@@ -138,7 +140,7 @@ def.drop = {
 	max_items = 2, items = {
 		{items = {'hades_extrafarming:pepper_red 2'}, rarity = 1},
 		{items = {'hades_extrafarming:pepper_red'}, rarity = 2},
-		{items = {'hades_extrafarming:pepper_red'}, rarity = 3},
+		{items = {'hades_extrafarming:pepper_red'}, rarity = 3}
 	}
 }
 minetest.register_node("hades_extrafarming:pepper_7", table.copy(def))

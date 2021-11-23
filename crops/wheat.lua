@@ -47,9 +47,7 @@ minetest.register_craft({
 
 minetest.register_craft({
 	output = "hades_extrafarming:wheat 3",
-	recipe = {
-		{"hades_extrafarming:straw"}
-	}
+	recipe = {{"hades_extrafarming:straw"}}
 })
 
 -- check and register stairs
@@ -81,11 +79,10 @@ minetest.register_craftitem("hades_extrafarming:flour", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:flour",
 	recipe = {
-		"hades_extrafarming:wheat", "hades_extrafarming:wheat", "hades_extrafarming:wheat",
-		"hades_extrafarming:wheat", "hades_extrafarming:mortar_pestle"
+		{"hades_extrafarming:wheat", "hades_extrafarming:wheat", "hades_extrafarming:wheat"},
+		{"hades_extrafarming:wheat", "hades_extrafarming:mortar_pestle", ""}
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })
@@ -115,9 +112,8 @@ minetest.register_craftitem("hades_extrafarming:bread_slice", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:bread_slice 5",
-	recipe = {"hades_farming:bread", "group:food_cutting_board"},
+	recipe = {{"group:food_cutting_board", "hades_farming:bread"}},
 	replacements = {{"group:food_cutting_board", "hades_extrafarming:cutting_board"}}
 })
 

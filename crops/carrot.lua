@@ -42,9 +42,10 @@ minetest.register_craftitem("hades_extrafarming:carrot_juice", {
 
 minetest.register_craft({
 	output = "hades_extrafarming:carrot_juice",
-	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "group:food_carrot", "hades_extrafarming:juicer"
+		{"group:food_carrot"},
+		{"hades_extrafarming:juicer"},
+		{"vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}

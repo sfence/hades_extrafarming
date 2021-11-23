@@ -53,11 +53,30 @@ minetest.register_craft({
 	recipe = "group:food_corn"
 })
 
+-- popcorn
+minetest.register_craftitem("farming:popcorn", {
+	description = S("Popcorn"),
+	inventory_image = "farming_popcorn.png",
+	groups = {food_popcorn = 1, flammable = 2},
+	on_use = minetest.item_eat(4)
+})
+
+minetest.register_craft({
+	output = "farming:popcorn",
+	recipe = {
+		{"group:food_pot", "group:food_oil", "group:food_corn"}
+	},
+	replacements = {
+		{"group:food_pot", "farming:pot"},
+		{"group:food_oil", "vessels:glass_bottle"}
+	}
+})
+
 -- cornstarch
 minetest.register_craftitem("hades_extrafarming:cornstarch", {
 	description = S("Cornstarch"),
 	inventory_image = "farming_cornstarch.png",
-	groups = {food_cornstarch = 1, flammable = 2}
+	groups = {food_cornstarch = 1, food_gelatin = 1, food_flammable = 2}
 })
 
 minetest.register_craft({
@@ -68,7 +87,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"},
-		{"group:food_baking_tray", "hades_extrafarming:baking_tray"},
+		{"group:food_baking_tray", "hades_extrafarming:baking_tray"}
 	}
 })
 
@@ -93,9 +112,9 @@ minetest.register_node("hades_extrafarming:bottle_ethanol", {
 minetest.register_craft( {
 	output = "hades_extrafarming:bottle_ethanol",
 	recipe = {
-		{ "vessels:glass_bottle", "group:food_corn", "group:food_corn"},
-		{ "group:food_corn", "group:food_corn", "group:food_corn"},
-		{ "group:food_corn", "group:food_corn", "group:food_corn"}
+		{"group:food_corn", "group:food_corn", "group:food_corn"},
+		{"group:food_corn", "vessels:glass_bottle", "group:food_corn"},
+		{"group:food_corn", "group:food_corn", "group:food_corn"}
 	}
 })
 
@@ -103,7 +122,7 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:bottle_ethanol",
 	burntime = 80,
-	replacements = {{ "hades_extrafarming:bottle_ethanol", "vessels:glass_bottle"}}
+	replacements = {{"hades_extrafarming:bottle_ethanol", "vessels:glass_bottle"}}
 })
 
 -- corn definition

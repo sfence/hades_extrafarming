@@ -61,7 +61,7 @@ local def = {
 	},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	minlight = 10,
-	maxlight = 12,
+	maxlight = 12
 }
 
 -- stage 1

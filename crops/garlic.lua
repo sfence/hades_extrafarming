@@ -64,6 +64,7 @@ minetest.register_node("hades_extrafarming:garlic_braid", {
 	inventory_image = "crops_garlic_braid.png",
 	wield_image = "crops_garlic_braid.png",
 	drawtype = "nodebox",
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	tiles = {

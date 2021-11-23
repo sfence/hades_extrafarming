@@ -59,10 +59,9 @@ minetest.register_craftitem("hades_extrafarming:blueberry_pie", {
 
 minetest.register_craft({
 	output = "hades_extrafarming:blueberry_pie",
-	type = "shapeless",
 	recipe = {
-		"group:food_flour", "group:food_sugar",
-		"group:food_blueberries", "group:food_baking_tray"
+		{"group:food_flour", "group:food_sugar", "group:food_blueberries"},
+		{"group:food_baking_tray", "", ""}
 	},
 	replacements = {{"group:food_baking_tray", "hades_extrafarming:baking_tray"}}
 })
@@ -102,7 +101,7 @@ def.drop = {
 	items = {
 		{items = {"hades_extrafarming:blueberries 2"}, rarity = 1},
 		{items = {"hades_extrafarming:blueberries"}, rarity = 2},
-		{items = {"hades_extrafarming:blueberries"}, rarity = 3},
+		{items = {"hades_extrafarming:blueberries"}, rarity = 3}
 	}
 }
 minetest.register_node("hades_extrafarming:blueberry_4", table.copy(def))

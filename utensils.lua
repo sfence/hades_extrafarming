@@ -20,7 +20,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:bowl",
-	burntime = 10,
+	burntime = 10
 })
 
 -- saucepan
@@ -155,9 +155,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft( {
-	type = "shapeless",
 	output = "vessels:glass_fragments",
-	recipe = {
-		"hades_extrafarming:mixing_bowl"
-	}
+	recipe = {{"hades_extrafarming:mixing_bowl"}}
 })

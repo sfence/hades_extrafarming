@@ -56,8 +56,7 @@ minetest.register_craftitem("hades_extrafarming:pineapple_ring", {
 
 minetest.register_craft( {
 	output = "hades_extrafarming:pineapple_ring 5",
-	type = "shapeless",
-	recipe = {"group:food_pineapple"},
+	recipe = {{"group:food_pineapple"}},
 	replacements = {{"hades_extrafarming:pineapple", "hades_extrafarming:pineapple_top"},{"pineapple:pineapple", "pineapple:sapling"}}
 })
 
@@ -71,11 +70,12 @@ minetest.register_craftitem("hades_extrafarming:pineapple_juice", {
 
 minetest.register_craft({
 	output = "hades_extrafarming:pineapple_juice",
-	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "group:food_pineapple_ring",
-		"group:food_pineapple_ring", "group:food_pineapple_ring",
-		"hades_extrafarming:juicer"},
+		{"group:food_pineapple_ring", "group:food_pineapple_ring",
+				"group:food_pineapple_ring"},
+		{"", "hades_extrafarming:juicer", ""},
+		{"", "vessels:drinking_glass", ""}
+	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}
 	}
@@ -83,10 +83,10 @@ minetest.register_craft({
 
 minetest.register_craft({
 	output = "hades_extrafarming:pineapple_juice 2",
-	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "vessels:drinking_glass",
-		"group:food_pineapple", "hades_extrafarming:juicer"
+		{"group:food_pineapple", ""},
+		{"hades_extrafarming:juicer", ""},
+		{"vessels:drinking_glass", "vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}

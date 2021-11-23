@@ -64,7 +64,7 @@ def.drop = {
 	items = {
 		{items = {'hades_extrafarming:lettuce', "hades_extrafarming:seed_lettuce"}, rarity = 1},
 		{items = {'hades_extrafarming:lettuce 1'}, rarity = 4},
-		{items = {'hades_extrafarming:seed_lettuce 1'}, rarity = 4},
+		{items = {'hades_extrafarming:seed_lettuce 1'}, rarity = 4}
 	}
 }
 minetest.register_node("hades_extrafarming:lettuce_5", table.copy(def))

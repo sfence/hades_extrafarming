@@ -42,9 +42,8 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:melon_slice 4",
-	recipe = {"hades_extrafarming:melon_8", "hades_extrafarming:cutting_board"},
+	recipe = {{"hades_extrafarming:cutting_board", "hades_extrafarming:melon_8"}},
 	replacements = {{"hades_extrafarming:cutting_board", "hades_extrafarming:cutting_board"}}
 })
 
@@ -93,17 +92,22 @@ def.tiles = {"farming_melon_7.png"}
 minetest.register_node("hades_extrafarming:melon_7", table.copy(def))
 
 -- stage 8 (final)
-def.drawtype = "nodebox"
-def.description = S("Melon")
-def.tiles = {"farming_melon_top.png", "farming_melon_top.png", "farming_melon_side.png"}
-def.selection_box = {-.5, -.5, -.5, .5, .5, .5}
-def.walkable = true
-def.groups = {
-	food_melon = 1, snappy = 2, oddly_breakable_by_hand = 1,
-	flammable = 2, plant = 1
-}
-def.drop = "hades_extrafarming:melon_8"
-minetest.register_node("hades_extrafarming:melon_8", table.copy(def))
+minetest.register_node("hades_extrafarming:melon_8", {
+	description = S("Melon"),
+	tiles = {
+		"farming_melon_top.png",
+		"farming_melon_bottom.png",
+		"farming_melon_side.png"
+	},
+	groups = {
+		food_melon = 1, snappy = 2, oddly_breakable_by_hand = 1,
+		flammable = 2, plant = 1
+	},
+	drop = "hades_extrafarming:melon_8",
+	sounds = hades_sounds.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+	on_place = minetest.rotate_node
+})
 
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:melon"] = {

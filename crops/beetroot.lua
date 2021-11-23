@@ -36,20 +36,17 @@ minetest.register_craftitem("hades_extrafarming:beetroot_soup", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:beetroot_soup",
 	recipe = {
-		"group:food_beetroot", "group:food_beetroot",
-		"group:food_beetroot", "group:food_beetroot",
-		"group:food_beetroot", "group:food_beetroot","group:food_bowl"
+		{"group:food_beetroot", "group:food_beetroot", "group:food_beetroot"},
+		{"group:food_beetroot", "group:food_bowl", "group:food_beetroot"}
 	}
 })
 
 -- red dye
 minetest.register_craft({
-	type = "shapeless",
 	output = "dye:red",
-	recipe = {"group:food_beetroot"}
+	recipe = {{"group:food_beetroot"}}
 })
 
 local def = {

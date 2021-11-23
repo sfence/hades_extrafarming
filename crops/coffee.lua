@@ -58,10 +58,10 @@ minetest.register_alias("hades_extrafarming:drinking_cup", "vessels:drinking_gla
 
 minetest.register_craft( {
 	output = "hades_extrafarming:coffee_cup",
-	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "group:food_coffee",
-		"group:water_bucket", "group:food_saucepan"},
+		{"group:food_saucepan", "group:food_coffee", "group:water_bucket"},
+		{"", "vessels:drinking_glass", ""}
+	},
 	replacements = {
 		{"group:water_bucket", "hades_bucket:bucket_empty"},
 		{"group:food_saucepan", "hades_extrafarming:saucepan"}
@@ -71,10 +71,11 @@ minetest.register_craft( {
 if minetest.get_modpath("bucket_wooden") then
 	minetest.register_craft( {
 		output = "hades_extrafarming:coffee_cup",
-		type = "shapeless",
+		output = "farming:coffee_cup",
 		recipe = {
-			"vessels:drinking_glass", "group:food_coffee",
-			"group:water_bucket_wooden", "group:food_saucepan"},
+			{"group:food_saucepan", "group:food_coffee", "group:water_bucket_wooden"},
+			{"", "vessels:drinking_glass", ""}
+		},
 		replacements = {
 			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},
 			{"group:food_saucepan", "hades_extrafarming:saucepan"}

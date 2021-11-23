@@ -36,21 +36,18 @@ minetest.register_craftitem("hades_extrafarming:chili_bowl", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:chili_bowl",
 	recipe = {
-		"group:food_chili_pepper", "group:food_barley",
-		"group:food_tomato", "group:food_beans", "group:food_bowl"
-	},
+		{"group:food_chili_pepper", "group:food_rice", "group:food_tomato"},
+		{"group:food_beans", "group:food_bowl", ""}
+	}
   replacements = {{"hades_extrafarming:chili_pepper", "hades_extrafarming:seed_chili"}},
 })
 
 -- chili can be used for red dye
 minetest.register_craft({
 	output = "dye:red",
-	recipe = {
-		{"hades_extrafarming:chili_pepper"}
-	},
+	recipe = {{"hades_extrafarming:chili_pepper"}}
   replacements = {{"hades_extrafarming:chili_pepper", "hades_extrafarming:seed_chili"}},
 })
 

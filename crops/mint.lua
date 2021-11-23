@@ -29,11 +29,9 @@ minetest.register_craftitem("hades_extrafarming:mint_tea", {
 
 minetest.register_craft({
 	output = "hades_extrafarming:mint_tea",
-	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "group:food_mint",
-		"group:food_mint", "group:food_mint",
-		"hades_extrafarming:juicer", "group:water_bucket"
+		{"group:food_mint", "group:food_mint", "group:food_mint"},
+		{"group:water_bucket", "hades_extrafarming:juicer", "vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"},
@@ -44,11 +42,9 @@ minetest.register_craft({
 if minetest.get_modpath("bucket_wooden") then
 	minetest.register_craft({
 		output = "hades_extrafarming:mint_tea",
-		type = "shapeless",
 		recipe = {
-			"vessels:drinking_glass", "group:food_mint",
-			"group:food_mint", "group:food_mint",
-			"hades_extrafarming:juicer", "group:water_bucket_wooden"
+			{"group:food_mint", "group:food_mint", "group:food_mint"},
+			{"group:water_bucket_wooden", "hades_extrafarming:juicer", "vessels:drinking_glass"}
 		},
 		replacements = {
 			{"group:food_juicer", "hades_extrafarming:juicer"},
@@ -92,7 +88,7 @@ def.drop = {
 		{items = {"hades_extrafarming:mint_leaf 2"}, rarity = 1},
 		{items = {"hades_extrafarming:mint_leaf 2"}, rarity = 2},
 		{items = {"hades_extrafarming:seed_mint 1"}, rarity = 1},
-		{items = {"hades_extrafarming:seed_mint 2"}, rarity = 2},
+		{items = {"hades_extrafarming:seed_mint 2"}, rarity = 2}
 	}
 }
 minetest.register_node("hades_extrafarming:mint_4", table.copy(def))

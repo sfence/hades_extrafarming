@@ -18,12 +18,15 @@ minetest.override_item("hades_extrafarming:rye", {
 	groups = {food_rye = 1, flammable = 4}
 })
 
+minetest.override_item("farming:rye_1", {drop = {}})
+minetest.override_item("farming:rye_2", {drop = {}})
+minetest.override_item("farming:rye_3", {drop = {}})
+
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:flour",
 	recipe = {
-		"hades_extrafarming:rye", "hades_extrafarming:rye", "hades_extrafarming:rye", "hades_extrafarming:rye",
-		"hades_extrafarming:mortar_pestle"
+		{"hades_extrafarming:rye", "hades_extrafarming:rye", "hades_extrafarming:rye"},
+		{"hades_extrafarming:rye", "hades_extrafarming:mortar_pestle", ""}
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })
@@ -43,12 +46,15 @@ minetest.override_item("hades_extrafarming:oat", {
 	groups = {food_oats = 1, flammable = 4}
 })
 
+minetest.override_item("farming:oat_1", {drop = {}})
+minetest.override_item("farming:oat_2", {drop = {}})
+minetest.override_item("farming:oat_3", {drop = {}})
+
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:flour",
 	recipe = {
-		"hades_extrafarming:oat", "hades_extrafarming:oat", "hades_extrafarming:oat", "hades_extrafarming:oat",
-		"hades_extrafarming:mortar_pestle"
+		{"hades_extrafarming:oat", "hades_extrafarming:oat", "hades_extrafarming:oat"},
+		{"hades_extrafarming:oat", "hades_extrafarming:mortar_pestle", ""}
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })
@@ -68,6 +74,10 @@ minetest.override_item("hades_extrafarming:rice", {
 	groups = {food_rice = 1, flammable = 4}
 })
 
+minetest.override_item("hades_extrafarming:rice_1", {drop = {}})
+minetest.override_item("hades_extrafarming:rice_2", {drop = {}})
+minetest.override_item("hades_extrafarming:rice_3", {drop = {}})
+
 minetest.register_craftitem("hades_extrafarming:rice_bread", {
 	description = S("Rice Bread"),
 	inventory_image = "farming_rice_bread.png",
@@ -82,11 +92,10 @@ minetest.register_craftitem("hades_extrafarming:rice_flour", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:rice_flour",
 	recipe = {
-		"hades_extrafarming:rice", "hades_extrafarming:rice", "hades_extrafarming:rice", "hades_extrafarming:rice",
-		"hades_extrafarming:mortar_pestle"
+		{"hades_extrafarming:rice", "hades_extrafarming:rice", "hades_extrafarming:rice"},
+		{"hades_extrafarming:rice", "hades_extrafarming:mortar_pestle", ""}
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })

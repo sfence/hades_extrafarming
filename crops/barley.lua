@@ -28,11 +28,10 @@ minetest.register_craftitem("hades_extrafarming:barley", {
 
 -- flour
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:flour",
 	recipe = {
-		"hades_extrafarming:barley", "hades_extrafarming:barley", "hades_extrafarming:barley",
-		"hades_extrafarming:barley", "hades_extrafarming:mortar_pestle"
+		{"hades_extrafarming:barley", "hades_extrafarming:barley", "hades_extrafarming:barley"},
+		{"hades_extrafarming:barley", "hades_extrafarming:mortar_pestle", ""}
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })
