@@ -50,10 +50,10 @@ minetest.register_craft( {
 	output = "farming:vanilla_extract",
 	recipe = {
 		{"group:food_vanilla", "group:food_vanilla", "group:food_vanilla"},
-		{"group:food_vanilla", "farming:bottle_ethanol", "bucket:bucket_water"},
+		{"group:food_vanilla", "farming:bottle_ethanol", "group:food_water_glass"},
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty"},
+		{"group:food_water_glass", "vessels:drinking_glass"}
 	}
 })
 

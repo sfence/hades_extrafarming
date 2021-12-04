@@ -39,6 +39,19 @@ minetest.register_craft({
 	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
 })
 
+if minetest.get_modpath("bucket_wooden") then
+
+	minetest.register_craft({
+		output = "farming:glass_water 4",
+		recipe = {
+			{"vessels:drinking_glass", "vessels:drinking_glass"},
+			{"vessels:drinking_glass", "vessels:drinking_glass"},
+			{"group:water_bucket_wooden", "farming:hemp_fibre"}
+		},
+		replacements = {{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"}}
+	})
+end
+
 --= Sugar
 
 minetest.register_craftitem("farming:sugar", {
@@ -155,7 +168,6 @@ minetest.register_node("farming:salt_crystal", {
 	},
 })
 minetest.register_craft({
---	type = "shapeless",
 	output = "farming:salt 9",
 	recipe = {
 		{"farming:salt_crystal", "farming:mortar_pestle"}
@@ -196,28 +208,13 @@ minetest.register_craft({
 	recipe = {
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
-		{"group:water_bucket", "group:food_pot", "vessels:glass_bottle"}
+		{"group:food_water_glass", "group:food_pot", "vessels:glass_bottle"}
 	},
 	replacements = {
-		{"group:water_bucket", "bucket:bucket_empty"},
+		{"group:food_water_glass", "vessels:drinking_glass"},
 		{"group:food_pot", "farming:pot"}
 	}
 })
-
-if minetest.get_modpath("bucket_wooden") then
-	minetest.register_craft({
-		output = "farming:rose_water",
-		recipe = {
-			{"flowers:rose", "flowers:rose", "flowers:rose"},
-			{"flowers:rose", "flowers:rose", "flowers:rose"},
-			{"group:water_bucket_wooden", "group:food_pot", "vessels:glass_bottle"}
-		},
-		replacements = {
-			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},
-			{"group:food_pot", "farming:pot"}
-		}
-	})
-end
 
 --= Turkish Delight
 
@@ -251,7 +248,6 @@ minetest.register_craftitem("farming:garlic_bread", {
 })
 
 minetest.register_craft({
---	type = "shapeless",
 	output = "farming:garlic_bread",
 	recipe = {
 		{"group:food_toast", "group:food_garlic_clove", "group:food_garlic_clove"}
@@ -312,7 +308,6 @@ minetest.register_craftitem("farming:porridge", {
 })
 
 minetest.register_craft({
---	type = "shapeless",
 	output = "farming:porridge",
 	recipe = {
 		{"group:food_oats", "group:food_oats", "group:food_oats"},
@@ -333,7 +328,6 @@ minetest.register_craftitem("farming:jaffa_cake", {
 })
 
 minetest.register_craft({
---	type = "shapeless",
 	output = "farming:jaffa_cake",
 	recipe = {
 		{"farming:baking_tray", "group:food_egg", "group:food_sugar"},
@@ -342,7 +336,8 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"farming:baking_tray", "farming:baking_tray"},
-		{"mobs:bucket_milk", "bucket:bucket_empty"}
+		{"mobs:bucket_milk", "bucket:bucket_empty"},
+		{"farming:soy_milk", "vessels:drining_glass"}
 	}
 })
 

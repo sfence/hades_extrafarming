@@ -636,6 +636,7 @@ farming.artichoke = 0.001
 farming.parsley = 0.002
 farming.sunflower = 0.001
 farming.grains = true
+farming.rice = true
 farming.rarety = 0.002
 
 
@@ -699,6 +700,7 @@ ddoo("peas.lua", farming.peas)
 ddoo("beetroot.lua", farming.beetroot)
 ddoo("chili.lua", farming.chili)
 ddoo("ryeoatrice.lua", farming.grains)
+ddoo("rice.lua", farming.rice)
 ddoo("mint.lua", farming.mint)
 ddoo("cabbage.lua", farming.cabbage)
 ddoo("blackberry.lua", farming.blackberry)

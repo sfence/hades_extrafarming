@@ -54,7 +54,7 @@ local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 			minetest.after(0.20,
 				farming.refill_plant,
 				placer,
-				"farming:cocoa_beans",
+				"farming:cocoa_beans_raw",
 				placer:get_wield_index()
 			)
 		end
@@ -64,13 +64,26 @@ local function place_cocoa(itemstack, placer, pointed_thing, plantname)
 end
 
 -- cocoa beans
-minetest.register_craftitem("farming:cocoa_beans", {
-	description = S("Cocoa Beans"),
-	inventory_image = "farming_cocoa_beans.png",
-	groups = {seed = 2, food_cocoa = 1, flammable = 2},
+minetest.register_craftitem("farming:cocoa_beans_raw", {
+	description = S("Raw Cocoa Beans"),
+	inventory_image = "farming_cocoa_beans.png^[brighten",
+	groups = {seed = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return place_cocoa(itemstack, placer, pointed_thing, "farming:cocoa_1")
 	end
+})
+
+minetest.register_craftitem("farming:cocoa_beans", {
+	description = S("Cocoa Beans"),
+	inventory_image = "farming_cocoa_beans.png",
+	groups = {food_cocoa = 1, flammable = 2}
+})
+
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 5,
+	output = "farming:cocoa_beans",
+	recipe = "farming:cocoa_beans_raw"
 })
 
 minetest.register_craft( {
@@ -166,7 +179,7 @@ minetest.register_node("farming:cocoa_2", table.copy(def))
 def.tiles = {"farming_cocoa_3.png"}
 def.drop = {
 	items = {
-		{items = {"farming:cocoa_beans 1"}, rarity = 1}
+		{items = {"farming:cocoa_beans_raw 1"}, rarity = 1}
 	}
 }
 minetest.register_node("farming:cocoa_3", table.copy(def))
@@ -177,9 +190,9 @@ def.groups.growing = nil
 def.growth_check = nil
 def.drop = {
 	items = {
-		{items = {"farming:cocoa_beans 2"}, rarity = 1},
-		{items = {"farming:cocoa_beans 1"}, rarity = 2},
-		{items = {"farming:cocoa_beans 1"}, rarity = 4}
+		{items = {"farming:cocoa_beans_raw 2"}, rarity = 1},
+		{items = {"farming:cocoa_beans_raw 1"}, rarity = 2},
+		{items = {"farming:cocoa_beans_raw 1"}, rarity = 4}
 	}
 }
 minetest.register_node("farming:cocoa_4", table.copy(def))
@@ -187,7 +200,7 @@ minetest.register_node("farming:cocoa_4", table.copy(def))
 -- add to registered_plants
 farming.registered_plants["farming:cocoa_beans"] = {
 	crop = "farming:cocoa",
-	seed = "farming:cocoa_beans",
+	seed = "farming:cocoa_beans_raw",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4

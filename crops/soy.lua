@@ -5,23 +5,14 @@ local S = farming.intllib
 minetest.register_craftitem("farming:soy_pod", {
 	description = S("Soy Pod"),
 	inventory_image = "farming_soy_pod.png",
-	groups = {seed = 2, food_soy_pod = 1, flammable = 2},
+	groups = {seed = 2, food_soy = 1, food_soy_pod = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:soy_1")
 	end
 })
 
-minetest.register_craftitem("farming:soy_beans", {
-	description = S("Soy Beans"),
-	inventory_image = "farming_soy_beans.png",
-	groups = {food_soy = 1, flammable = 2},
-	on_use = minetest.item_eat(1)
-})
-
-minetest.register_craft({
-	output = "farming:soy_beans",
-	recipe = {{"farming:soy_pod"}}
-})
+-- replacement for soy beans that was removed
+minetest.register_alias("farming:soy_beans", "farming:soy_pod")
 
 -- soy sauce
 minetest.register_node("farming:soy_sauce", {
@@ -41,7 +32,6 @@ minetest.register_node("farming:soy_sauce", {
 	},
 	sounds = default.node_sound_glass_defaults()
 })
-
 
 -- soy sauce recipe
 minetest.register_craft( {
@@ -173,7 +163,7 @@ def.drop = {
 	max_items = 3, items = {
 		{items = {"farming:soy_pod"}, rarity = 1},
 		{items = {"farming:soy_pod"}, rarity = 2},
-		{items = {"farming:soy_pod"}, rarity = 3},
+		{items = {"farming:soy_pod"}, rarity = 3}
 	}
 }
 minetest.register_node("farming:soy_6", table.copy(def))
@@ -194,7 +184,7 @@ minetest.register_node("farming:soy_7", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:soy_pod"] = {
-	crop = "farming:soy",
+	crop = "farming:soy_pod",
 	seed = "farming:soy_pod",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,

@@ -31,27 +31,13 @@ minetest.register_craft({
 	output = "farming:mint_tea",
 	recipe = {
 		{"group:food_mint", "group:food_mint", "group:food_mint"},
-		{"group:water_bucket", "farming:juicer", "vessels:drinking_glass"}
+		{"group:food_water_glass", "farming:juicer", ""}
 	},
 	replacements = {
-		{"group:food_juicer", "farming:juicer"},
-		{"group:water_bucket", "bucket:bucket_empty"}
+		{"group:food_juicer", "farming:juicer"}
 	}
 })
 
-if minetest.get_modpath("bucket_wooden") then
-	minetest.register_craft({
-		output = "farming:mint_tea",
-		recipe = {
-			{"group:food_mint", "group:food_mint", "group:food_mint"},
-			{"group:water_bucket_wooden", "farming:juicer", "vessels:drinking_glass"}
-		},
-		replacements = {
-			{"group:food_juicer", "farming:juicer"},
-			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"}
-		}
-	})
-end
 
 -- mint definition
 local def = {

@@ -7,23 +7,15 @@ local S = farming.intllib
 minetest.register_craftitem("farming:pea_pod", {
 	description = S("Pea Pod"),
 	inventory_image = "farming_pea_pod.png",
-	groups = {seed = 2, food_pea_pod = 1, flammable = 2},
+	groups = {seed = 2, food_peas = 1, food_pea_pod = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pea_1")
-	end
-})
-
-minetest.register_craftitem("farming:peas", {
-	description = S("Peas"),
-	inventory_image = "farming_pea_peas.png",
-	groups = {food_peas = 1, flammable = 2},
+	end,
 	on_use = minetest.item_eat(1)
 })
 
-minetest.register_craft({
-	output = "farming:peas",
-	recipe = {{"farming:pea_pod"}}
-})
+-- replacement for separate peas item that was removed
+minetest.register_alias("farming:peas", "farming:pea_pod")
 
 -- pea soup
 minetest.register_craftitem("farming:pea_soup", {
@@ -91,7 +83,7 @@ minetest.register_node("farming:pea_5", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:pea_pod"] = {
-	crop = "farming:pea",
+	crop = "farming:pea_pod",
 	seed = "farming:pea_pod",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
