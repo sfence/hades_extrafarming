@@ -41,7 +41,7 @@ Mithril Scythe (Right-click to harvest and replant crops)=Guadaña de mithril (c
 
 ### soil.lua ###
 Soil=Suelo
-Wet Soil=Suelo Seco
+Wet Soil=Suelo mojado
 
 ### utensils.lua ###
 Wooden Bowl=Cuenco de Madera
@@ -133,7 +133,7 @@ Onion=Cebolla
 
 ### peas.lua ###
 Pea Pod=Vaina de guisante
-Peas=Gisantes
+Peas=Guisantes
 Pea Soup=Sopa de Guisantes
 
 ### pepper.lua ###
