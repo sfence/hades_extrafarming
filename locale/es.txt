@@ -117,15 +117,15 @@ Grapes=Uvas
 Trellis (place on soil before planting grapes)=Grade de Ripas (colocar en el suelo antes de plantar las uvas)
 
 ### hemp.lua ###
-Hemp Seed=Semilla de Caniamo
-Hemp Leaf=Folha de Caniamo
-Bottle of Hemp Oil=Garrafa de Aceite de Caniamo
-Hemp Fibre=Fibra de Caniamo
-Hemp Block=Bloque de Caniamo
-Hemp Rope=Corda de Caniamo
+Hemp Seed=Semilla de Cáñamo
+Hemp Leaf=Folha de Cáñamo
+Bottle of Hemp Oil=Garrafa de Aceite de Cáñamo
+Hemp Fibre=Fibra de Cáñamo
+Hemp Block=Bloque de Cáñamo
+Hemp Rope=Corda de Cáñamo
 
 ### melon.lua ###
-Melon Slice=Rebanada de Melon
+Melon Slice=Melón o Sandía
 Melon=Melon
 
 ### onion.lua ###
