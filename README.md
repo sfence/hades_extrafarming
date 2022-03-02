@@ -23,9 +23,9 @@ Farming Redo is a simplified version of the built-in farming mod in minetest and
 
 This mod works by adding your new plant to the {growing=1} group and numbering the stages from _1 to as many stages as you like, but the underscore MUST be used only once in the node name to separate plant from stage number e.g.
 
-"farming:cotton_1"      through to   "farming:cotton_8"
-"farming:wheat_1"       through to   "farming:wheat_8"
-"farming:cucumber_1"    through to   "farming:cucumber_4"
+* "farming:cotton_1"      through to   "farming:cotton_8"
+* "farming:wheat_1"       through to   "farming:wheat_8"
+* "farming:cucumber_1"    through to   "farming:cucumber_4"
 
 https://forum.minetest.net/viewtopic.php?id=9019
 
