@@ -389,6 +389,10 @@ end
 function farming.refill_plant(player, plantname, index)
 
 	local inv = player:get_inventory()
+  if inv==nil then
+    minetest.log("error", "Refill plant missing player inventory.")
+    return
+  end
 	local old_stack = inv:get_stack("main", index)
 
 	if old_stack:get_name() ~= "" then
