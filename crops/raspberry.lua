@@ -45,7 +45,7 @@ minetest.register_craftitem("hades_extrafarming:smoothie_raspberry", {
 minetest.register_craft({
 	output = "hades_extrafarming:smoothie_raspberry",
 	recipe = {
-		{"default:snow"},
+		{"hades_snow:snow"},
 		{"group:food_raspberries"},
 		{"vessels:drinking_glass"}
 	}
