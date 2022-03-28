@@ -5,8 +5,8 @@ local S = farming.intllib
 minetest.register_craft({
 	output = "hades_bucket:bucket_river_water",
 	recipe = {
-		{"farming:hemp_fibre"},
-		{"farming:hemp_fibre"},
+		{"hades_extrafarming:hemp_fibre"},
+		{"hades_extrafarming:hemp_fibre"},
 		{"hades_bucket:bucket_water"}
 	}
 })
@@ -34,7 +34,7 @@ minetest.register_craft({
 	recipe = {
 		{"vessels:drinking_glass", "vessels:drinking_glass"},
 		{"vessels:drinking_glass", "vessels:drinking_glass"},
-		{"hades_bucket:bucket_water", "farming:hemp_fibre"}
+		{"hades_bucket:bucket_water", "hades_extrafarming:hemp_fibre"}
 	},
 	replacements = {{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"}}
 })
