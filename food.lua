@@ -328,7 +328,7 @@ minetest.register_craftitem("farming:jaffa_cake", {
 })
 
 minetest.register_craft({
-	output = "farming:jaffa_cake",
+	output = "farming:jaffa_cake 3",
 	recipe = {
 		{"farming:baking_tray", "group:food_egg", "group:food_sugar"},
 		{"group:food_flour", "group:food_cocoa", "group:food_orange"},
@@ -337,6 +337,7 @@ minetest.register_craft({
 	replacements = {
 		{"farming:baking_tray", "farming:baking_tray"},
 		{"mobs:bucket_milk", "bucket:bucket_empty"},
+		{"mobs:wooden_bucket_milk", "wooden_bucket:bucket_wood_empty"},
 		{"farming:soy_milk", "vessels:drining_glass"}
 	}
 })
