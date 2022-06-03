@@ -7,7 +7,7 @@
 
 farming = {
 	mod = "redo",
-	version = "20220309",
+	version = "20220603",
 	path = minetest.get_modpath("farming"),
 	select = {
 		type = "fixed",
@@ -410,6 +410,9 @@ function farming.refill_plant(player, plantname, index)
 	if not player then return end
 
 	local inv = player:get_inventory()
+
+	if not inv then return end
+
 	local old_stack = inv:get_stack("main", index)
 
 	if old_stack:get_name() ~= "" then
