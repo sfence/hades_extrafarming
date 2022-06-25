@@ -180,3 +180,6 @@ Created by TechM8 (https://www.deviantart.com/techm8)
 
 Created by RZR0 (CC-BY-NC-SA)
   farming_blueberry_pie.png
+
+Created by DMBuce (MIT - https://github.com/DMBuce/hatchling-snacks)
+  farming_mac_and_cheese.png

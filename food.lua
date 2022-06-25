@@ -417,6 +417,21 @@ minetest.register_craft({
 	}
 })
 
+-- Mac & Cheese
+
+minetest.register_craftitem("farming:mac_and_cheese", {
+	description = S("Mac & Cheese"),
+	inventory_image = "farming_mac_and_cheese.png",
+	on_use = minetest.item_eat(6, "farming:bowl")
+})
+
+minetest.register_craft({
+	output = "farming:mac_and_cheese",
+	recipe = {
+		{"group:food_pasta", "group:food_cheese", "group:food_bowl"}
+	}
+})
+
 -- Spaghetti
 
 minetest.register_craftitem("farming:spaghetti", {
