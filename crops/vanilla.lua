@@ -82,7 +82,7 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:vanilla_extract",
 	burntime = 25,
-	replacements = {{ "hades_extrafarming:vanilla_extract", "vessels:glass_bottle" }}
+	replacements = {{ "hades_extrafarming:vanilla_extract", "hades_vessels:glass_bottle" }}
 })
 
 -- stage 1

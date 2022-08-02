@@ -71,7 +71,7 @@ minetest.register_craft( {
 	recipe = {
 		{"group:food_peppercorn"},
 		{"hades_extrafarming:mortar_pestle"},
-		{"vessels:glass_bottle"}
+		{"hades_vessels:glass_bottle"}
 	},
 	replacements = {{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })

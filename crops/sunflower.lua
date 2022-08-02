@@ -65,7 +65,7 @@ minetest.register_craft( {
 	recipe = {
 		{"group:food_sunflower_seeds", "group:food_sunflower_seeds", "group:food_sunflower_seeds"},
 		{"group:food_sunflower_seeds", "group:food_sunflower_seeds", "group:food_sunflower_seeds"},
-		{"group:food_sunflower_seeds", "vessels:glass_bottle", "group:food_sunflower_seeds"}
+		{"group:food_sunflower_seeds", "hades_vessels:glass_bottle", "group:food_sunflower_seeds"}
 	}
 })
 
@@ -73,7 +73,7 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:sunflower_oil",
 	burntime = 30,
-	replacements = {{"hades_extrafarming:sunflower_oil", "vessels:glass_bottle"}}
+	replacements = {{"hades_extrafarming:sunflower_oil", "hades_vessels:glass_bottle"}}
 })
 
 -- sunflower seed bread

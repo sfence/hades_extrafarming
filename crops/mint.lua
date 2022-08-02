@@ -23,7 +23,7 @@ minetest.register_craftitem("hades_extrafarming:mint_leaf", {
 minetest.register_craftitem("hades_extrafarming:mint_tea", {
 	description = S("Mint Tea"),
 	inventory_image = "farming_mint_tea.png",
-	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(2, "hades_vessels:drinking_glass"),
 	groups = {flammable = 4, food = 3, eatable = 2}
 })
 
@@ -31,7 +31,7 @@ minetest.register_craft({
 	output = "hades_extrafarming:mint_tea",
 	recipe = {
 		{"group:food_mint", "group:food_mint", "group:food_mint"},
-		{"group:water_bucket", "hades_extrafarming:juicer", "vessels:drinking_glass"}
+		{"group:water_bucket", "hades_extrafarming:juicer", "hades_vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"},
@@ -44,7 +44,7 @@ if minetest.get_modpath("bucket_wooden") then
 		output = "hades_extrafarming:mint_tea",
 		recipe = {
 			{"group:food_mint", "group:food_mint", "group:food_mint"},
-			{"group:water_bucket_wooden", "hades_extrafarming:juicer", "vessels:drinking_glass"}
+			{"group:water_bucket_wooden", "hades_extrafarming:juicer", "hades_vessels:drinking_glass"}
 		},
 		replacements = {
 			{"group:food_juicer", "hades_extrafarming:juicer"},

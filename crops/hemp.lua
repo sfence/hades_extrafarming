@@ -48,7 +48,7 @@ minetest.register_craft( {
 	recipe = {
 		{"hades_extrafarming:hemp_leaf", "hades_extrafarming:hemp_leaf", "hades_extrafarming:hemp_leaf"},
 		{"hades_extrafarming:hemp_leaf", "hades_extrafarming:hemp_leaf", "hades_extrafarming:hemp_leaf"},
-		{"", "vessels:glass_bottle", ""}
+		{"", "hades_vessels:glass_bottle", ""}
 	}
 })
 
@@ -57,7 +57,7 @@ minetest.register_craft( {
 	recipe = {
 		{"hades_extrafarming:seed_hemp", "hades_extrafarming:seed_hemp", "hades_extrafarming:seed_hemp"},
 		{"hades_extrafarming:seed_hemp", "hades_extrafarming:seed_hemp", "hades_extrafarming:seed_hemp"},
-		{"hades_extrafarming:seed_hemp", "vessels:glass_bottle", "hades_extrafarming:seed_hemp"}
+		{"hades_extrafarming:seed_hemp", "hades_vessels:glass_bottle", "hades_extrafarming:seed_hemp"}
 	}
 })
 
@@ -65,7 +65,7 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:hemp_oil",
 	burntime = 20,
-	replacements = {{"hades_extrafarming:hemp_oil", "vessels:glass_bottle"}}
+	replacements = {{"hades_extrafarming:hemp_oil", "hades_vessels:glass_bottle"}}
 })
 
 -- hemp fibre

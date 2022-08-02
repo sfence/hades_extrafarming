@@ -49,18 +49,18 @@ minetest.register_node("hades_extrafarming:coffee_cup", {
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.25, 0.25}
 	},
 	groups = {vessel = 1, dig_immediate = 3, attached_node = 1, drink = 1, food = 3, eatable = 2},
-	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(2, "hades_vessels:drinking_glass"),
 	sounds = hades_sounds.node_sound_glass_defaults()
 })
 
 minetest.register_alias("hades_extrafarming:coffee_cup_hot", "hades_extrafarming:coffee_cup")
-minetest.register_alias("hades_extrafarming:drinking_cup", "vessels:drinking_glass")
+minetest.register_alias("hades_extrafarming:drinking_cup", "hades_vessels:drinking_glass")
 
 minetest.register_craft( {
 	output = "hades_extrafarming:coffee_cup",
 	recipe = {
 		{"group:food_saucepan", "group:food_coffee", "group:water_bucket"},
-		{"", "vessels:drinking_glass", ""}
+		{"", "hades_vessels:drinking_glass", ""}
 	},
 	replacements = {
 		{"group:water_bucket", "hades_bucket:bucket_empty"},
@@ -74,7 +74,7 @@ if minetest.get_modpath("bucket_wooden") then
 		output = "farming:coffee_cup",
 		recipe = {
 			{"group:food_saucepan", "group:food_coffee", "group:water_bucket_wooden"},
-			{"", "vessels:drinking_glass", ""}
+			{"", "hades_vessels:drinking_glass", ""}
 		},
 		replacements = {
 			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},

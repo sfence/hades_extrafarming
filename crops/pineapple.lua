@@ -64,7 +64,7 @@ minetest.register_craft( {
 minetest.register_craftitem("hades_extrafarming:pineapple_juice", {
 	description = S("Pineapple Juice"),
 	inventory_image = "farming_pineapple_juice.png",
-	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(4, "hades_vessels:drinking_glass"),
 	groups = {vessel = 1, drink = 1, food = 3, eatable = 4}
 })
 
@@ -74,7 +74,7 @@ minetest.register_craft({
 		{"group:food_pineapple_ring", "group:food_pineapple_ring",
 				"group:food_pineapple_ring"},
 		{"", "hades_extrafarming:juicer", ""},
-		{"", "vessels:drinking_glass", ""}
+		{"", "hades_vessels:drinking_glass", ""}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}
@@ -86,7 +86,7 @@ minetest.register_craft({
 	recipe = {
 		{"group:food_pineapple", ""},
 		{"hades_extrafarming:juicer", ""},
-		{"vessels:drinking_glass", "vessels:drinking_glass"}
+		{"hades_vessels:drinking_glass", "hades_vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}

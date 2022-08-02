@@ -70,7 +70,7 @@ minetest.register_craft( {
 	recipe = {
 		{"group:food_soy", "group:food_salt", "group:food_soy"},
 		{"", "group:food_juicer", ""},
-		{"", "hades_bucket:bucket_water", "vessels:glass_bottle"}
+		{"", "hades_bucket:bucket_water", "hades_vessels:glass_bottle"}
 	},
 	replacements = {
 		{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"},
@@ -91,7 +91,7 @@ minetest.register_node("hades_extrafarming:soy_milk", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
-	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(2, "hades_vessels:drinking_glass"),
 	groups = {
 		vessel = 1, food_milk_glass = 1, dig_immediate = 3,
 		attached_node = 1, drink = 1, food = 3, eatable = 2
@@ -103,11 +103,11 @@ minetest.register_craft( {
 	output = "hades_extrafarming:soy_milk",
 	recipe = {
 		{"group:food_soy", "group:food_soy", "group:food_soy"},
-		{"hades_extrafarming:vanilla_extract", "hades_bucket:bucket_water", "vessels:drinking_glass"}
+		{"hades_extrafarming:vanilla_extract", "hades_bucket:bucket_water", "hades_vessels:drinking_glass"}
 	},
 	replacements = {
 		{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"},
-		{"hades_extrafarming:vanilla_extract", "vessels:glass_bottle"}
+		{"hades_extrafarming:vanilla_extract", "hades_vessels:glass_bottle"}
 	}
 })
 

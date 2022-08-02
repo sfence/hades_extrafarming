@@ -22,8 +22,8 @@ minetest.register_craftitem("hades_extrafarming:glass_water", {
 minetest.register_craft({
 	output = "hades_extrafarming:glass_water 4",
 	recipe = {
-		{"vessels:drinking_glass", "vessels:drinking_glass"},
-		{"vessels:drinking_glass", "vessels:drinking_glass"},
+		{"hades_vessels:drinking_glass", "hades_vessels:drinking_glass"},
+		{"hades_vessels:drinking_glass", "hades_vessels:drinking_glass"},
 		{"hades_bucket:hades_bucket_river_water", ""}
 	},
 	replacements = {{"hades_bucket:bucket_river_water", "hades_bucket:bucket_empty"}}
@@ -32,8 +32,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "hades_extrafarming:glass_water 4",
 	recipe = {
-		{"vessels:drinking_glass", "vessels:drinking_glass"},
-		{"vessels:drinking_glass", "vessels:drinking_glass"},
+		{"hades_vessels:drinking_glass", "hades_vessels:drinking_glass"},
+		{"hades_vessels:drinking_glass", "hades_vessels:drinking_glass"},
 		{"hades_bucket:bucket_water", "hades_extrafarming:hemp_fibre"}
 	},
 	replacements = {{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"}}
@@ -200,7 +200,7 @@ minetest.register_craft({
 	recipe = {
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
-		{"group:water_bucket", "group:food_pot", "vessels:glass_bottle"}
+		{"group:water_bucket", "group:food_pot", "hades_vessels:glass_bottle"}
 	},
 	replacements = {
 		{"group:water_bucket", "hades_bucket:bucket_empty"},
@@ -214,7 +214,7 @@ if minetest.get_modpath("bucket_wooden") then
 		recipe = {
 			{"flowers:rose", "flowers:rose", "flowers:rose"},
 			{"flowers:rose", "flowers:rose", "flowers:rose"},
-			{"group:water_bucket_wooden", "group:food_pot", "vessels:glass_bottle"}
+			{"group:water_bucket_wooden", "group:food_pot", "hades_vessels:glass_bottle"}
 		},
 		replacements = {
 			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},
@@ -241,7 +241,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:food_cornstarch", "hades_extrafarming:bowl"},
-		{"group:food_rose_water", "vessels:glass_bottle"}
+		{"group:food_rose_water", "hades_vessels:glass_bottle"}
 	}
 })
 
@@ -326,8 +326,8 @@ minetest.register_craft({
 		{"group:food_oats", "group:food_bowl", "group:food_milk_glass"}
 	},
 	replacements = {
-		{"mobs:glass_milk", "vessels:drinking_glass"},
-		{"hades_extrafarming:soy_milk", "vessels:drinking_glass"}
+		{"mobs:glass_milk", "hades_vessels:drinking_glass"},
+		{"hades_extrafarming:soy_milk", "hades_vessels:drinking_glass"}
 	}
 })
 
@@ -382,10 +382,10 @@ minetest.register_craftitem("hades_extrafarming:cactus_juice", {
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
 			if math.random(5) == 1 then
-				return minetest.do_item_eat(-1, "vessels:drinking_glass",
+				return minetest.do_item_eat(-1, "hades_vessels:drinking_glass",
 						itemstack, user, pointed_thing)
 			else
-				return minetest.do_item_eat(2, "vessels:drinking_glass",
+				return minetest.do_item_eat(2, "hades_vessels:drinking_glass",
 						itemstack, user, pointed_thing)
 			end
 		end
@@ -397,7 +397,7 @@ minetest.register_craft({
 	recipe = {
 		{"hades_core:cactus"},
 		{"hades_extrafarming:juicer"},
-		{"vessels:drinking_glass"}
+		{"hades_vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}
@@ -427,7 +427,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:food_mixing_bowl", "hades_extrafarming:mixing_bowl"},
-		{"group:food_oil", "vessels:glass_bottle"}
+		{"group:food_oil", "hades_vessels:glass_bottle"}
 	}
 })
 
@@ -514,7 +514,7 @@ minetest.register_craft({
 		"group:food_lettuce", "group:food_oil"
 	},
   replacements = {
-    {"group:food_oil","vessels:glass_bottle"},
+    {"group:food_oil","hades_vessels:glass_bottle"},
   },
 })
 
@@ -523,7 +523,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:smoothie_berry", {
 	description = S("Triple Berry Smoothie"),
 	inventory_image = "farming_berry_smoothie.png",
-	on_use = minetest.item_eat(6, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(6, "hades_vessels:drinking_glass"),
 	groups = {vessel = 1, drink = 1, food = 3, eatable = 6}
 })
 
@@ -533,7 +533,7 @@ minetest.register_craft({
 	recipe = {
 		"group:food_raspberries", "group:food_blackberries",
 		"group:food_strawberry", "group:food_banana",
-		"vessels:drinking_glass"
+		"hades_vessels:drinking_glass"
 	}
 })
 
@@ -610,9 +610,9 @@ minetest.register_craft({
 		{"group:food_egg", "group:food_egg", "hades_extrafarming:vanilla_extract"}
 	},
 	replacements = {
-		{"cucina_vegana:soy_milk", "vessels:drinking_glass"},
+		{"cucina_vegana:soy_milk", "hades_vessels:drinking_glass"},
 		{"group:food_milk", "hades_bucket:bucket_empty"},
-		{"hades_extrafarming:vanilla_extract", "vessels:glass_bottle"}
+		{"hades_extrafarming:vanilla_extract", "hades_vessels:glass_bottle"}
 	}
 })
 
@@ -634,9 +634,9 @@ minetest.register_craft({
 		{"group:food_gelatin", "group:food_pot", ""}
 	},
 	replacements = {
-		{"hades_extrafarming:soy_milk", "vessels:drinking_glass 3"},
+		{"hades_extrafarming:soy_milk", "hades_vessels:drinking_glass 3"},
 		{"hades_extrafarming:pot", "hades_extrafarming:pot"},
-		{"hades_extrafarming:bottle_ethanol", "vessels:glass_bottle"}
+		{"hades_extrafarming:bottle_ethanol", "hades_vessels:glass_bottle"}
 	}
 })
 
@@ -648,7 +648,7 @@ minetest.register_craft({
 		{"group:food_gelatin", "group:food_pot", ""}
 	},
 	replacements = {
-		{"hades_extrafarming:soy_milk", "vessels:drinking_glass 3"},
+		{"hades_extrafarming:soy_milk", "hades_vessels:drinking_glass 3"},
 		{"hades_extrafarming:pot", "hades_extrafarming:pot"}
 	}
 })
@@ -710,6 +710,6 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:food_mortar_pestle", "hades_extrafarming:mortar_pestle"},
-		{"hades_extrafarming:glass_water", "vessels:drinking_glass"}
+		{"hades_extrafarming:glass_water", "hades_vessels:drinking_glass"}
 	}
 })

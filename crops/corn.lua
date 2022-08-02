@@ -68,7 +68,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"group:food_pot", "hades_extrafarming:pot"},
-		{"group:food_oil", "vessels:glass_bottle"}
+		{"group:food_oil", "hades_vessels:glass_bottle"}
 	}
 })
 
@@ -113,7 +113,7 @@ minetest.register_craft( {
 	output = "hades_extrafarming:bottle_ethanol",
 	recipe = {
 		{"group:food_corn", "group:food_corn", "group:food_corn"},
-		{"group:food_corn", "vessels:glass_bottle", "group:food_corn"},
+		{"group:food_corn", "hades_vessels:glass_bottle", "group:food_corn"},
 		{"group:food_corn", "group:food_corn", "group:food_corn"}
 	}
 })
@@ -122,7 +122,7 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "hades_extrafarming:bottle_ethanol",
 	burntime = 80,
-	replacements = {{"hades_extrafarming:bottle_ethanol", "vessels:glass_bottle"}}
+	replacements = {{"hades_extrafarming:bottle_ethanol", "hades_vessels:glass_bottle"}}
 })
 
 -- corn definition

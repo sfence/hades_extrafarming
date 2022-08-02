@@ -38,7 +38,7 @@ minetest.register_craftitem("hades_extrafarming:raspberries", {
 minetest.register_craftitem("hades_extrafarming:smoothie_raspberry", {
 	description = S("Raspberry Smoothie"),
 	inventory_image = "farming_raspberry_smoothie.png",
-	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(2, "hades_vessels:drinking_glass"),
 	groups = {vessel = 1, drink = 1, food = 3, eatable = 2}
 })
 
@@ -47,7 +47,7 @@ minetest.register_craft({
 	recipe = {
 		{"hades_snow:snow"},
 		{"group:food_raspberries"},
-		{"vessels:drinking_glass"}
+		{"hades_vessels:drinking_glass"}
 	}
 })
 

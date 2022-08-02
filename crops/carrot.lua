@@ -36,7 +36,7 @@ minetest.register_craftitem("hades_extrafarming:carrot", {
 minetest.register_craftitem("hades_extrafarming:carrot_juice", {
 	description = S("Carrot Juice"),
 	inventory_image = "farming_carrot_juice.png",
-	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
+	on_use = minetest.item_eat(4, "hades_vessels:drinking_glass"),
 	groups = {vessel = 1, drink = 1, food = 3, eatable = 4,}
 })
 
@@ -45,7 +45,7 @@ minetest.register_craft({
 	recipe = {
 		{"group:food_carrot"},
 		{"hades_extrafarming:juicer"},
-		{"vessels:drinking_glass"}
+		{"hades_vessels:drinking_glass"}
 	},
 	replacements = {
 		{"group:food_juicer", "hades_extrafarming:juicer"}
