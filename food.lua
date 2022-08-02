@@ -512,7 +512,10 @@ minetest.register_craft({
 	recipe = {
 		"group:food_bowl", "group:food_tomato", "group:food_cucumber",
 		"group:food_lettuce", "group:food_oil"
-	}
+	},
+  replacements = {
+    {"group:food_oil","vessels:glass_bottle"},
+  },
 })
 
 -- Triple Berry Smoothie
