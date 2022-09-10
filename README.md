@@ -163,7 +163,7 @@ There is one abm for new group `group:growing`.
 
 ### Changelog:
 
-- NEXT - Now blueberries can make blue dye, tweak soil types to work better with older 0.4.x clients and add spanish translation (thx mckaygerhard), add trellis setting to registered_crops and fix pea and soy crop names (thx nixnoxus)
+- NEXT - Now blueberries can make blue dye, tweak soil types to work better with older 0.4.x clients and add spanish translation (thx mckaygerhard), add trellis setting to registered_crops and fix pea and soy crop names (thx nixnoxus), add strawberries if ethereal mod not active
 - 1.46 - Added min/max default light settings, added lettuce and blackberries with food items (thanks OgelGames), added soya, vanilla and sunflowers (thanks Felfa), added tofu, added salt crystals (thanks gorlock)
 - 1.45 - Dirt and Hoes are more in line with default by using dry/wet/base, added cactus juice, added pasta, spaghetti, cabbage, korean bibimbap, code tidy
 options, onion soup added (thanks edcrypt), Added apple pie, added wild cotton to savanna

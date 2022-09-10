@@ -38,20 +38,21 @@ end
 
 -- add crops to mapgen
 register_plant("potato_3", 15, 40, nil, "", -1, farming.potato)
-register_plant("tomato_7", 5, 20, nil, "", -1, farming.tomato)
-register_plant("corn_7", 12, 22, nil, "", -1, farming.corn)
-register_plant("raspberry_4", 3, 10, nil, "", -1, farming.raspberry)
-register_plant("rhubarb_3", 3, 15, nil, "", -1, farming.rhubarb)
-register_plant("blueberry_4", 3, 10, nil, "", -1, farming.blueberry)
-register_plant("beanbush", 18, 35, nil, "", -1, farming.beans)
-register_plant("grapebush", 25, 45, nil, "", -1, farming.grapes)
-register_plant("onion_5", 5, 22, nil, "", -1, farming.onion)
-register_plant("garlic_5", 3, 30, nil, "group:tree", 1, farming.garlic)
-register_plant("pea_5", 25, 50, nil, "", -1, farming.peas)
-register_plant("beetroot_5", 1, 15, nil, "", -1, farming.beetroot)
-register_plant("cabbage_6", 2, 10, nil, "", -1, farming.cabbage)
-register_plant("lettuce_5", 5, 30, nil, "", -1, farming.lettuce)
-register_plant("blackberry_4", 3, 10, nil, "", -1, farming.blackberry)
+register_plant("tomato_7", 5, 25, nil, "", -1, farming.tomato)
+register_plant("corn_7", 12, 25, nil, "", -1, farming.corn)
+register_plant("strawberry_7", 20, 55, nil, "", -1, farming.strawberry)
+register_plant("raspberry_4", 3, 15, nil, "", -1, farming.raspberry)
+register_plant("rhubarb_3", 3, 20, nil, "", -1, farming.rhubarb)
+register_plant("blueberry_4", 3, 15, nil, "", -1, farming.blueberry)
+register_plant("beanbush", 18, 38, nil, "", -1, farming.beans)
+register_plant("grapebush", 25, 50, nil, "", -1, farming.grapes)
+register_plant("onion_5", 5, 28, nil, "", -1, farming.onion)
+register_plant("garlic_5", 3, 35, nil, "group:tree", 1, farming.garlic)
+register_plant("pea_5", 25, 55, nil, "", -1, farming.peas)
+register_plant("beetroot_5", 1, 20, nil, "", -1, farming.beetroot)
+register_plant("cabbage_6", 2, 15, nil, "", -1, farming.cabbage)
+register_plant("lettuce_5", 5, 35, nil, "", -1, farming.lettuce)
+register_plant("blackberry_4", 3, 20, nil, "", -1, farming.blackberry)
 register_plant("vanilla_7", 5, 35, nil, "", -1, farming.vanilla)
 register_plant("parsley_3", 10, 40, nil, "", -1, farming.parsley)
 register_plant("sunflower_8", 10, 40, nil, "", -1, farming.sunflower)
@@ -67,16 +68,16 @@ if mg_name == "v6" then
 	register_plant("cucumber_4", 1, 20, nil, "group:water", 1, farming.cucumber)
 	register_plant("melon_8", 1, 20, nil, "group:water", 1, farming.melon)
 	register_plant("pumpkin_8", 1, 20, nil, "group:water", 1, farming.pumpkin)
-	register_plant("coffee_5", 20, 45, nil, "", -1, farming.coffee)
+	register_plant("coffee_5", 20, 50, nil, "", -1, farming.coffee)
 	register_plant("soy_6", 20, 50, nil, "", -1, farming.soy)
 else
 	-- v7 maps have a beach so plants growing near water is limited to 6 high
-	register_plant("carrot_8", 1, 15, nil, "", -1, farming.carrot)
-	register_plant("cucumber_4", 1, 10, nil, "", -1, farming.cucumber)
+	register_plant("carrot_8", 1, 20, nil, "", -1, farming.carrot)
+	register_plant("cucumber_4", 1, 20, nil, "", -1, farming.cucumber)
 	register_plant("melon_8", 1, 6, {"default:dirt_with_dry_grass",
 		"default:dirt_with_rainforest_litter"}, "", -1, farming.melon)
 	register_plant("pumpkin_8", 1, 6, nil, "", -1, farming.pumpkin)
-	register_plant("coffee_5", 20, 45, {"default:dirt_with_dry_grass",
+	register_plant("coffee_5", 20, 55, {"default:dirt_with_dry_grass",
 		"default:dirt_with_rainforest_litter",
 		"default:dry_dirt_with_dry_grass"}, "", -1, farming.coffee)
 	register_plant("soy_6", 20, 50, {"default:dirt_with_dry_grass",
