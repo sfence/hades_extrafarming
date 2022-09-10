@@ -46,11 +46,7 @@ minetest.register_craftitem("farming:carrot_gold", {
 
 minetest.register_craft({
 	output = "farming:carrot_gold",
-	recipe = {
-		{"", "default:gold_lump", ""},
-		{"default:gold_lump", "group:food_carrot", "default:gold_lump"},
-		{"", "default:gold_lump", ""}
-	}
+	recipe = {{"group:food_carrot", "default:gold_lump"}}
 })
 
 -- carrot definition
