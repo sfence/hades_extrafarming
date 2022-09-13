@@ -153,3 +153,26 @@ farming.registered_plants["farming:pepper"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+local grow_on = farming.mapgen == "v6" and {"default:dirt_with_grass"}
+		or {"default:dirt_with_rainforest_litter"}
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = grow_on,
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.pepper,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 933,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 5,
+	y_max = 35,
+	decoration = {"farming:pepper_5", "farming:pepper_6", "farming:pepper_7"},
+	spawn_by = "group:tree",
+	num_spawn_by = 1
+})

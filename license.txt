@@ -183,3 +183,24 @@ Created by RZR0 (CC-BY-NC-SA)
 
 Created by DMBuce (MIT - https://github.com/DMBuce/hatchling-snacks)
   farming_mac_and_cheese.png
+
+
+Copyright (C) 2021-2022: Atlante - AFL-1.1
+License for code: AFL-1.1
+
+Attribution — You must give appropriate credit, provide a link to the license, and
+indicate if changes were made. You may do so in any reasonable manner, but not in any way
+that suggests the licensor endorses you or your use.
+
+ShareAlike — If you remix, transform, or build upon the material, you must distribute
+your contributions under the same license as the original.
+
+Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+  farming_asparagus*
+  farming_eggplant*
+  farming_spinach*
+  farming_onigiri.png
+  farming_rice.png
+  farming_chili_powder.png

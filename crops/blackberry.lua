@@ -10,7 +10,7 @@ minetest.register_craftitem("farming:blackberry", {
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:blackberry_1")
 	end,
-	on_use = minetest.item_eat(1),
+	on_use = minetest.item_eat(1)
 })
 
 local def = {
@@ -60,3 +60,21 @@ farming.registered_plants["farming:blackberry"] = {
 	maxlight = farming.max_light,
 	steps = 4
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.blackberry,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 329,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 3,
+	y_max = 20,
+	decoration = "farming:blackberry_4"
+})

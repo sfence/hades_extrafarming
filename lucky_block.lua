@@ -63,6 +63,10 @@ if minetest.get_modpath("lucky_block") then
 			{"farming:wheat_8", "farming:chili_8"},
 			{"farming:cotton_8", "farming:cucumber_4"},
 		}},
+		{"sch", "instafarm", 0, true, {
+			{"farming:wheat_8", "farming:spinach_4"},
+			{"farming:cotton_8", "farming:eggplant_4"},
+		}},
 		{"nod", "default:chest", 0, {
 			{name = "farming:seed_wheat", max = 15},
 			{name = "farming:seed_barley", max = 15},
@@ -74,6 +78,8 @@ if minetest.get_modpath("lucky_block") then
 			{name = "farming:soil_wet", max = 10},
 			{name = "farming:cotton_wild", max = 5},
 			{name = "farming:grapebush", max = 5},
+			{name = "farming:asparagus", max = 7}
 		}},
+		{"dro", {"farming:chili_powder"}, 5}
 	})
 end

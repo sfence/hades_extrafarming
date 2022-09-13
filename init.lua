@@ -7,7 +7,7 @@
 
 farming = {
 	mod = "redo",
-	version = "20220603",
+	version = "20220913",
 	path = minetest.get_modpath("farming"),
 	select = {
 		type = "fixed",
@@ -15,7 +15,8 @@ farming = {
 	},
 	registered_plants = {},
 	min_light = 12,
-	max_light = 15
+	max_light = 15,
+	mapgen = minetest.get_mapgen_setting("mg_name")
 }
 
 
@@ -548,7 +549,7 @@ farming.register_plant = function(name, def)
 		on_place = function(itemstack, placer, pointed_thing)
 			return farming.place_seed(itemstack, placer,
 				pointed_thing, mname .. ":" .. pname .. "_1")
-		end,
+		end
 	})
 
 	-- Register harvest
@@ -627,6 +628,9 @@ end
 
 
 -- default settings
+farming.asparagus = 0.002
+farming.eggplant = 0.002
+farming.spinach = 0.002
 farming.carrot = 0.001
 farming.potato = 0.001
 farming.tomato = 0.001
@@ -736,8 +740,10 @@ ddoo("artichoke.lua", farming.artichoke)
 ddoo("parsley.lua", farming.parsley)
 ddoo("sunflower.lua", farming.sunflower)
 ddoo("strawberry.lua", farming.strawberry)
+ddoo("asparagus.lua", farming.asparagus)
+ddoo("eggplant.lua", farming.eggplant)
+ddoo("spinach.lua", farming.eggplant)
 
 dofile(farming.path .. "/food.lua")
-dofile(farming.path .. "/mapgen.lua")
 dofile(farming.path .. "/compatibility.lua") -- Farming Plus compatibility
 dofile(farming.path .. "/lucky_block.lua")

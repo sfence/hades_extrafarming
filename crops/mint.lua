@@ -87,3 +87,23 @@ farming.registered_plants["farming:mint"] = {
 	maxlight = farming.max_light,
 	steps = 4
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.mint,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 329,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 1,
+	y_max = 75,
+	decoration = "farming:mint_4",
+	spawn_by = "group:water",
+	num_spawn_by = 1
+})

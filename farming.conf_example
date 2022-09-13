@@ -6,6 +6,9 @@
 --]]
 
 -- true to enable crop/food in-game and on mapgen set spawn rarety
+farming.asparagus = 0.002
+farming.eggplant = 0.002
+farming.spinach = 0.002
 farming.carrot = 0.001
 farming.potato = 0.001
 farming.tomato = 0.001

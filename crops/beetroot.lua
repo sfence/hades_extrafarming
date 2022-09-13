@@ -87,3 +87,21 @@ farming.registered_plants["farming:beetroot"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.beetroot,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 329,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 1,
+	y_max = 20,
+	decoration = "farming:beetroot_5"
+})

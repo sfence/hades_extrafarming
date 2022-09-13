@@ -257,7 +257,27 @@ minetest.register_node("farming:hemp_8", table.copy(def))
 farming.registered_plants["farming:hemp"] = {
 	crop = "farming:hemp",
 	seed = "farming:seed_hemp",
-	mminlight = farming.min_light,
+	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.hemp,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 420,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 3,
+	y_max = 45,
+	decoration = "farming:hemp_7",
+	spawn_by = "group:tree",
+	num_spawn_by = 1
+})
