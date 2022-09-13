@@ -2,6 +2,7 @@
 local S = farming.intllib
 
 --= filter sea water into river water
+
 minetest.register_craft({
 	output = "bucket:bucket_river_water",
 	recipe = {
@@ -71,14 +72,14 @@ minetest.register_craft({
 
 minetest.register_craftitem("farming:caramel", {
 	description = S("Caramel"),
-	inventory_image = "farming_caramel.png",
+	inventory_image = "farming_caramel.png"
 })
 
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 6,
 	output = "farming:caramel",
-	recipe = "group:food_sugar",
+	recipe = "group:food_sugar"
 })
 
 --= Salt
@@ -165,8 +166,9 @@ minetest.register_node("farming:salt_crystal", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
-	},
+	}
 })
+
 minetest.register_craft({
 	output = "farming:salt 9",
 	recipe = {
@@ -367,13 +369,9 @@ minetest.register_craftitem("farming:cactus_juice", {
 	groups = {vessel = 1, drink = 1},
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
-			if math.random(5) == 1 then
-				return minetest.do_item_eat(-1, "vessels:drinking_glass",
-						itemstack, user, pointed_thing)
-			else
-				return minetest.do_item_eat(2, "vessels:drinking_glass",
-						itemstack, user, pointed_thing)
-			end
+			local num = math.random(5) == 1 and -1 or 2
+			return minetest.do_item_eat(num, "vessels:drinking_glass",
+					itemstack, user, pointed_thing)
 		end
 	end
 })

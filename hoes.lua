@@ -190,29 +190,29 @@ farming.register_hoe(":farming:hoe_diamond", {
 -- Toolranks support
 if tr then
 
-minetest.override_item("farming:hoe_wood", {
-	original_description = "Wood Hoe",
-	description = toolranks.create_description("Wood Hoe")})
+	minetest.override_item("farming:hoe_wood", {
+		original_description = "Wood Hoe",
+		description = toolranks.create_description("Wood Hoe")})
 
-minetest.override_item("farming:hoe_stone", {
-	original_description = "Stone Hoe",
-	description = toolranks.create_description("Stone Hoe")})
+	minetest.override_item("farming:hoe_stone", {
+		original_description = "Stone Hoe",
+		description = toolranks.create_description("Stone Hoe")})
 
-minetest.override_item("farming:hoe_steel", {
-	original_description = "Steel Hoe",
-	description = toolranks.create_description("Steel Hoe")})
+	minetest.override_item("farming:hoe_steel", {
+		original_description = "Steel Hoe",
+		description = toolranks.create_description("Steel Hoe")})
 
-minetest.override_item("farming:hoe_bronze", {
-	original_description = "Bronze Hoe",
-	description = toolranks.create_description("Bronze Hoe")})
+	minetest.override_item("farming:hoe_bronze", {
+		original_description = "Bronze Hoe",
+		description = toolranks.create_description("Bronze Hoe")})
 
-minetest.override_item("farming:hoe_mese", {
-	original_description = "Mese Hoe",
-	description = toolranks.create_description("Mese Hoe")})
+	minetest.override_item("farming:hoe_mese", {
+		original_description = "Mese Hoe",
+		description = toolranks.create_description("Mese Hoe")})
 
-minetest.override_item("farming:hoe_diamond", {
-	original_description = "Diamond Hoe",
-	description = toolranks.create_description("Diamond Hoe")})
+	minetest.override_item("farming:hoe_diamond", {
+		original_description = "Diamond Hoe",
+		description = toolranks.create_description("Diamond Hoe")})
 end
 
 
@@ -314,13 +314,13 @@ local function throw_potion(itemstack, player)
 	local dir = player:get_look_dir()
 	local velocity = 20
 
-	obj:setvelocity({
+	obj:set_velocity({
 		x = dir.x * velocity,
 		y = dir.y * velocity,
 		z = dir.z * velocity
 	})
 
-	obj:setacceleration({
+	obj:set_acceleration({
 		x = dir.x * -3,
 		y = -9.5,
 		z = dir.z * -3
@@ -386,15 +386,9 @@ minetest.register_tool("farming:scythe_mithril", {
 
 		local def = minetest.registered_nodes[node.name]
 
-		if not def then
-			return
-		end
-
-		if not def.drop then
-			return
-		end
-
-		if not def.groups
+		if not def
+		or not def.drop
+		or not def.groups
 		or not def.groups.plant then
 			return
 		end

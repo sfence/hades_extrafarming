@@ -104,7 +104,7 @@ end
 
 -- Growth Logic
 local STAGE_LENGTH_AVG = tonumber(
-		minetest.settings:get("farming_stage_length")) or 200 -- 160
+		minetest.settings:get("farming_stage_length")) or 200
 local STAGE_LENGTH_DEV = STAGE_LENGTH_AVG / 6
 
 
@@ -367,8 +367,8 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 
 		growth = 1
 	else
-		local night_light  = (minetest.get_node_light(light_pos, 0) or 0)
-		local day_light    = (minetest.get_node_light(light_pos, 0.5) or 0)
+		local night_light = (minetest.get_node_light(light_pos, 0) or 0)
+		local day_light = (minetest.get_node_light(light_pos, 0.5) or 0)
 		local night_growth = night_light >= MIN_LIGHT and night_light <= MAX_LIGHT
 		local day_growth = day_light >= MIN_LIGHT and day_light <= MAX_LIGHT
 
@@ -746,4 +746,9 @@ ddoo("spinach.lua", farming.eggplant)
 
 dofile(farming.path .. "/food.lua")
 dofile(farming.path .. "/compatibility.lua") -- Farming Plus compatibility
-dofile(farming.path .. "/lucky_block.lua")
+
+if minetest.get_modpath("lucky_block") then
+	dofile(farming.path .. "/lucky_block.lua")
+end
+
+print("[MOD] Farming Redo loaded")

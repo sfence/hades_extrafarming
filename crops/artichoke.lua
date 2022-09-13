@@ -72,7 +72,7 @@ minetest.register_decoration({
 		offset = 0,
 		scale = farming.artichoke,
 		spread = {x = 100, y = 100, z = 100},
-		seed = 448,
+		seed = 123,
 		octaves = 3,
 		persist = 0.6
 	},

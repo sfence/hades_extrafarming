@@ -1,3 +1,4 @@
+
 local S = farming.intllib
 
 -- eggplant
@@ -74,10 +75,10 @@ minetest.register_decoration({
 	noise_params = {
 		offset = -0.1,
 		scale = farming.eggplant,
-		spread = {x = 50, y = 50, z = 50},
-		seed = 4242,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 356,
 		octaves = 3,
-		persist = 0.7
+		persist = 0.6
 	},
 	biomes = {"deciduous_forest"},
 	y_max = 31000,

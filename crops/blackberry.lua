@@ -70,7 +70,7 @@ minetest.register_decoration({
 		offset = 0,
 		scale = farming.blackberry,
 		spread = {x = 100, y = 100, z = 100},
-		seed = 329,
+		seed = 567,
 		octaves = 3,
 		persist = 0.6
 	},
