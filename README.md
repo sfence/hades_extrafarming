@@ -88,7 +88,7 @@ farming mod folder or the world folder.  Also `minetest.conf` contains a setting
 
 #### Nodes and food
 
-This farming mod provides a large selection of craftable foods:
+This farming mod provides a large selection of craftable food and items:
 
 | Node name               | Description name      |
 | ----------------------- | --------------------- |
@@ -109,6 +109,7 @@ This farming mod provides a large selection of craftable foods:
 | farming:apple_pie       | Apple Pie             |
 | farming:cactus_juice    | Cactus Juice          |
 | farming:pasta           | Pasta                 |
+| farming:mac_and_cheese  | Mac & Cheese          |
 | farming:spaghetti       | Spaghetti             |
 | farming:bibimbap        | Bibimbap              |
 | farming:burger          | Burger                |
@@ -122,11 +123,68 @@ This farming mod provides a large selection of craftable foods:
 | farming:onigiri         | Onirigi               |
 | farming:gyoza           | Gyoza                 |
 | farming:mochi           | Mochi                 |
+| farming:beetroot_soup   | Beetroot Soup         |
+| farming:muffin_blueberry | Blueberry Muffin      |
+| farming:blueberry_pie   | Blueberry Pie         |
+| farming:carrot_juice    | Carrot Juice          |
+| farming:carrot_gold     | Golden Carrot (revives) |
+| farming:chili_bowl      | Bowl or Chili         |
+| farming:cocoa_beans     | Cocoa Beans           |
+| farming:cookie          | Chocolate Cookie      |
+| farming:chocolate_dark  | Bar of Dark Chocolate |
+| farming:chocolate_block | Chocolate Block       |
+| farming:coffee_cup      | Cup of Coffee         |
+| farming:corn_cob        | Corn on the Cob       |
+| farming:popcorn         | Popcorn               |
+| farming:cornstarch      | Cornstarch            |
+| farming:ethanol         | Bottle of Ethanol (fuel) |
+| farming:string          | String                |
+| farming:garlic_braid    | Garlic Braid          |
+| farming:garlic_clove    | Garlic Clove          |
+| farming:hemp_oil        | Hemp Oil              |
+| farming:hemp_fibre      | Hemp Fibre            |
+| farming:hemp_block      | Hemp Block            |
+| farming:hemp_rope       | Hemp Rope             |
+| farming:mint_tea        | Mint Tea              |
+| farming:onion_soup      | Onion Soup            |
+| farming:pea_soup        | Pea Soup              |
+| farming:pepper_ground   | Ground Pepper         |
+| farming:pineapple_ring  | Pineapple Ring        |
+| farming:pineapple_juice | Pineapple Juice       |
+| farming:baked_potato    | Baked Potato          |
+| farming:potato_salad    | Cucumber & Potato Salad |
+| farming:jackolantern    | Jack 'O Lantern       |
+| farming:scarecrow_bottom | Scarecrow Bottom      |
+| farming:pumpkin_dough   | Pumpkin Dough          |
+| farming:pumpkin_bread   | Pumpkin Bread          |
+| farming:smoothie_raspberry | Raspberry Smoothie    |
+| farming:rhubarb_pie     | Rhybarb Pie            |
+| farming:rice_flour      | Rice Flour             |
+| farming:rice_bread      | Rice Bread             |
+| farming:flour_multigrain | Multigrain Rice        |
+| farming:bread_multigrain | Multigrain Bread       |
+| farming:soy_sauce        | Soy Sauce              |
+| farming:soy_milk         | Soy Milk               |
+| farming:tofu             | Tofu                   |
+| farming:tofu_cooked      | Cooked Tofu            |
+| farming:sunflower_seeds_toasted | Toasted Sunflower Seeds |
+| farming:sunflower_oil    | Sunflower Oil          |
+| farming:sunflower_bread  | Sunflower Bread        |
+| farming:tomato_soup      | Tomato Soup            |
+| farming:vanilla_extract  | Vanilla Extract        |
+| farming:flour            | Flour                  |
+| farming:bread            | Bread                  |
+| farming:straw            | Straw Block            |
+| farming:bread_slice      | Bread Slice            |
+| farming:toast            | Toast                  |
+| farming:toast_sandwich   | Toast Sandwich         |
 
-#### Items tools
+#### Item and Tools
 
 | node name               | Description           |
 | ----------------------- | --------------------- |
+| farming:trellis         | Trellis (for growing grapes) |
+| farming:beanpole        | Bean Pole (for growing beans) |
 | farming:scythe_mithril  | Mithril Scythe (Use to harvest and replant crops) |
 | farming:hoe_bomb        | Hoe Bomb (use or throw on grassy areas to hoe land) |
 | farming:hoe_wood        | Wooden Hoe            |

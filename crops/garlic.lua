@@ -26,9 +26,8 @@ minetest.register_craftitem("farming:garlic", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "farming:garlic_clove 8",
-	recipe = {"farming:garlic"}
+	recipe = {{"farming:garlic"}}
 })
 
 minetest.register_craft({
