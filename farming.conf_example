@@ -45,9 +45,6 @@ farming.strawberry = not minetest.get_modpath("ethereal") and 0.002
 farming.grains = true -- true or false only
 farming.rice = true
 
--- default rarety of crops on map (higher number = more crops)
-farming.rarety = 0.002
-
 -- default minimum and maximum light levels crops need to grow
 farming.min_light = 12
 farming.max_light = 15

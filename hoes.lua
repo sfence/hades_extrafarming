@@ -475,34 +475,4 @@ if minetest.get_modpath("moreores") then
 			{"", "", "group:stick"}
 		}
 	})
---[[
-	farming.register_hoe(":moreores:hoe_silver", {
-		description = S("%s Hoe"):format(S("Silver")),
-		inventory_image = "moreores_tool_silverhoe.png",
-		max_uses = 300,
-		material = "moreores:silver_ingot"
-	})
-
-	farming.register_hoe(":moreores:hoe_mithril", {
-		description = S("%s Hoe"):format(S("Mithril")),
-		inventory_image = "moreores_tool_mithrilhoe.png",
-		max_uses = 1000,
-		material = "moreores:mithril_ingot"
-	})
-
-	-- Toolranks support
-	if tr then
-
-		local desc = S("%s Hoe"):format(S("Silver"))
-
-		minetest.override_item("moreores:hoe_silver", {
-			original_description = desc,
-			description = toolranks.create_description(desc)})
-
-		desc = S("%s Hoe"):format(S("Mithril"))
-
-		minetest.override_item("moreores:hoe_mithril", {
-			original_description = desc,
-			description = toolranks.create_description(desc)})
-	end]]
 end

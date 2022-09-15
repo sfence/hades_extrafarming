@@ -45,60 +45,63 @@ Optional dependences:
 
 #### Configuration
 
-It reads the configuration values from two places, `minetest.conf` and `farming.conf`, this last
-must be at world path, if you have older place at mod path will be read but must be deprecated.
+If found inside mod or world folder `farming.conf` is loaded set independent values for each crop.
+Also `minetest.conf` contains a setting for crop growth speed.
 
 
-| Configuration        | type  | default | place file   |  Notes about                             |
+| Configuration        | type  | default | file         |  Notes                                   |
 | -------------------- | ----- | ------- | ------------ | ----------------------------------------- |
-| time_speed           | float |    73   | minetest.conf | Speed to grow up the plants on engine (used as base for seed) |
 | farming_stage_length | float |  160.0  | minetest.conf | Contains a value used for speed of crop growth in seconds |
-| farming.rarety       | float |  0.002  | farming.conf | default rarety of crops on map (higher number = more crops) |
-| farming.min_light    |  int  |    12   | farming.conf | default minimum and maximum light levels crops need to grow |
-| farming.max_light    |  int  |    15   | farming.conf | default minimum and maximum light levels crops need to grow |
-| farming.carrot       | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.potato       | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.tomato       | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.cucumber     | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.corn         | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.coffee       | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.melon        | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.pumpkin      | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.cocoa        |  bool |  true   | farming.conf | true or false only |
-| farming.raspberry    | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.blueberry    | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.rhubarb      | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.beans        | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.grapes       | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.barley       |  bool |  true   | farming.conf | true or false only |
-| farming.chili        | float |  0.003  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.hemp         | float |  0.003  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.garlic       | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.onion        | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.pepper       | float |  0.002  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.pineapple    | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.peas         | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.beetroot     | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.mint         | float |  0.005  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.cabbage      | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.blackberry   | float |  0.002  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.lettuce      | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.soy          | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.vanilla      | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.artichoke    | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.parsley      | float |  0.002  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.sunflower    | float |  0.001  | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
-| farming.grains       |  bool |  true   | farming.conf | true or false only |
-| farming.rice         |  bool |  true   | farming.conf | true to enable crop/food in-game and on mapgen set spawn rarety |
+| farming.min_light    |  int  |    12   | farming.conf | default minimum light levels crops need to grow |
+| farming.max_light    |  int  |    15   | farming.conf | default maximum light levels crops need to grow |
+| farming.carrot       | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.potato       | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.tomato       | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.cucumber     | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.corn         | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.coffee       | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.melon        | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.pumpkin      | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.cocoa        |  bool |  true   | farming.conf | true to enable crop/food or false to disable |
+| farming.raspberry    | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.blueberry    | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.rhubarb      | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.beans        | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.grapes       | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.barley       |  bool |  true   | farming.conf | true to enable crop/food, false to disable |
+| farming.chili        | float |  0.003  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.hemp         | float |  0.003  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.garlic       | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.onion        | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.pepper       | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.pineapple    | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.peas         | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.beetroot     | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.mint         | float |  0.005  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.cabbage      | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.blackberry   | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.lettuce      | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.soy          | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.vanilla      | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.artichoke    | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.parsley      | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.sunflower    | float |  0.001  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.grains       |  bool |  true   | farming.conf | true to enable crop/food or false to disable |
+| farming.rice         |  bool |  true   | farming.conf | true to enable crop/food or false to disable |
+| farming.asparagus    | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.eggplant     | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.spinach      | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.strawberryy  | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
 
 #### Nodes and food
 
-This farming mod provides a large featured basic foods production of farming:
+This farming mod provides a large selection of craftable foods:
 
 | Node name               | Description name      |
 | ----------------------- | --------------------- |
 | farming:salt            | Salt                  |
-| farming:salt_crystal    | Salt crystal          |
+| farming:salt_crystal    | Salt Crystal          |
+| farming:chili_powder    | Chili Powder          |
 | farming:rose_water      | Rose Water            |
 | farming:glass_water     | Glass of Water        |
 | farming:sugar           | Sugar                 |

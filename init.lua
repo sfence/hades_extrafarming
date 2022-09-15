@@ -673,7 +673,6 @@ farming.sunflower = 0.001
 farming.strawberry = not minetest.get_modpath("ethereal") and 0.002
 farming.grains = true
 farming.rice = true
-farming.rarety = 0.002
 
 
 -- Load new global settings if found inside mod folder
