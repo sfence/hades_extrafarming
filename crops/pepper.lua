@@ -156,12 +156,15 @@ farming.registered_plants["farming:pepper"] = {
 }
 
 -- mapgen
-local grow_on = farming.mapgen == "v6" and {"default:dirt_with_grass"}
-		or {"default:dirt_with_rainforest_litter"}
+local mg = farming.mapgen == "v6"
+
+def = {
+	grow_on = mg and {"default:dirt_with_grass"} or {"default:dirt_with_rainforest_litter"}
+}
 
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = grow_on,
+	place_on = def.grow_on,
 	sidelen = 16,
 	noise_params = {
 		offset = 0,

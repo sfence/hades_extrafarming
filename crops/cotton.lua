@@ -187,14 +187,17 @@ farming.register_plant("farming:cotton", {
 })]]
 
 -- mapgen
-local grow_on = farming.mapgen == "v6" and {"default:dirt_with_grass"}
-		or {"default:dry_dirt_with_dry_grass"}
-local biome = farming.mapgen == "v6" and {"jungle"} or {"savanna"}
+local mg = farming.mapgen == "v6"
+
+def = {
+	grow_on = mg and {"default:dirt_with_grass"} or {"default:dry_dirt_with_dry_grass"},
+	biome = mg and {"jungle"} or {"savanna"}
+}
 
 minetest.register_decoration({
 	name = "farming:cotton_wild",
 	deco_type = "simple",
-	place_on = grow_on,
+	place_on = def.grow_on,
 	sidelen = 16,
 	noise_params = {
 		offset = -0.1,
@@ -204,7 +207,7 @@ minetest.register_decoration({
 		octaves = 3,
 		persist = 0.7
 	},
-	biomes = biome,
+	biomes = def.biome,
 	y_max = 31000,
 	y_min = 1,
 	decoration = "farming:cotton_wild"
