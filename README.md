@@ -84,7 +84,7 @@ farming mod folder or the world folder.  Also `minetest.conf` contains a setting
 | farming.asparagus    | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
 | farming.eggplant     | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
 | farming.spinach      | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
-| farming.strawberryy  | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
+| farming.strawberry   | float |  0.002  | farming.conf | rarety value to enable crop/food in-game, false to disable |
 
 #### Nodes and food
 
@@ -152,9 +152,10 @@ This farming mod provides a large selection of craftable foods:
 This mod is also a direct replacement for the older Farming Plus mod and will replace all
 of it's nodes and items with one's found within Farming Redo.
 
-#### AMB
+#### ABM
 
-There is one abm for new group `group:growing`.
+The ABM checks every 5 minutes to make sure crops in `group:growing` that were planted
+on an older map are enabled and growing properly.
 
 ### Changelog:
 
