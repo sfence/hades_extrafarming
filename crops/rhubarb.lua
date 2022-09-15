@@ -55,9 +55,14 @@ minetest.register_node("farming:rhubarb_1", table.copy(def))
 def.tiles = {"farming_rhubarb_2.png"}
 minetest.register_node("farming:rhubarb_2", table.copy(def))
 
--- stage 3 (final)
+-- stage3
 def.tiles = {"farming_rhubarb_3.png"}
+minetest.register_node("farming:rhubarb_3", table.copy(def))
+
+-- stage 4 (final)
+def.tiles = {"farming_rhubarb_4.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 	{items = {"farming:rhubarb 2"}, rarity = 1},
@@ -65,7 +70,7 @@ def.drop = {
 		{items = {"farming:rhubarb"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:rhubarb_3", table.copy(def))
+minetest.register_node("farming:rhubarb_4", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:rhubarb"] = {
@@ -73,7 +78,7 @@ farming.registered_plants["farming:rhubarb"] = {
 	seed = "farming:rhubarb",
 	minlight = 10,
 	maxlight = 12,
-	steps = 3
+	steps = 4
 }
 
 -- mapgen

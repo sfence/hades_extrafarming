@@ -50,6 +50,7 @@ minetest.register_node("farming:spinach_3", table.copy(def))
 -- stage 4
 def.tiles = {"farming_spinach_4.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"farming:spinach 2"}, rarity = 1},

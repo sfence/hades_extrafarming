@@ -7,11 +7,15 @@
 
 farming = {
 	mod = "redo",
-	version = "20220913",
+	version = "20220915",
 	path = minetest.get_modpath("farming"),
 	select = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
+	},
+	select_final = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -2.5/16, 0.5}
 	},
 	registered_plants = {},
 	min_light = 12,
@@ -575,13 +579,16 @@ farming.register_plant = function(name, def)
 			}
 		}
 
+		local sel = farming.select
 		local g = {
 			snappy = 3, flammable = 2, plant = 1, growing = 1,
 			attached_node = 1, not_in_creative_inventory = 1,
 		}
 
 		-- Last step doesn't need growing=1 so Abm never has to check these
+		-- also increase selection box for visual indication plant has matured
 		if i == def.steps then
+			sel = farming.select_final
 			g.growing = 0
 		end
 
@@ -604,7 +611,7 @@ farming.register_plant = function(name, def)
 			buildable_to = true,
 			sunlight_propagates = true,
 			drop = drop,
-			selection_box = farming.select,
+			selection_box = sel,
 			groups = g,
 			sounds = default.node_sound_leaves_defaults(),
 			minlight = def.minlight,

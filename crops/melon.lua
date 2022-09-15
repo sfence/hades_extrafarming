@@ -79,7 +79,7 @@ minetest.register_node("farming:melon_8", {
 		"farming_melon_side.png"
 	},
 	groups = {
-		food_melon = 1, snappy = 2, oddly_breakable_by_hand = 1,
+		food_melon = 1, snappy = 3, choppy = 3, oddly_breakable_by_hand = 2,
 		flammable = 2, plant = 1
 	},
 	drop = "farming:melon_8",

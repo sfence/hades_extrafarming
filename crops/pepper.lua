@@ -113,6 +113,7 @@ minetest.register_node("farming:pepper_4", table.copy(def))
 
 -- stage 5 (green pepper)
 def.tiles = {"crops_pepper_plant_5.png"}
+def.selection_box = farming.select_final
 def.drop = {
 	max_items = 2, items = {
 		{items = {"farming:pepper 2"}, rarity = 1},

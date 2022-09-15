@@ -39,7 +39,7 @@ minetest.register_node("farming:jackolantern", {
 		"farming_pumpkin_side.png", "farming_pumpkin_face_off.png"
 	},
 	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 	on_punch = function(pos, node, puncher)
 		local name = puncher:get_player_name() or ""
@@ -58,7 +58,7 @@ minetest.register_node("farming:jackolantern_on", {
 	light_source = default.LIGHT_MAX - 1,
 	paramtype2 = "facedir",
 	groups = {
-		choppy = 1, oddly_breakable_by_hand = 1, flammable = 2,
+		snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2,
 		not_in_creative_inventory = 1
 	},
 	sounds = default.node_sound_wood_defaults(),
@@ -187,7 +187,7 @@ minetest.register_node("farming:pumpkin_8", {
 		"farming_pumpkin_side.png"
 	},
 	groups = {
-		food_pumpkin = 1, choppy = 2, oddly_breakable_by_hand = 1,
+		food_pumpkin = 1, snappy = 3, choppy = 3, oddly_breakable_by_hand = 2,
 		flammable = 2, plant = 1
 	},
 	drop = "farming:pumpkin_8",
