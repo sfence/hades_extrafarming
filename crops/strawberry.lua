@@ -2,7 +2,7 @@
 local S = farming.intllib
 
 -- Strawberry (can also be planted as seed)
-minetest.register_craftitem("farming:strawberry", {
+minetest.register_craftitem(":ethereal:strawberry", {
 	description = S("Strawberry"),
 	inventory_image = "ethereal_strawberry.png",
 	groups = {seed = 2, food_strawberry = 1, food_berry = 1, flammable = 2},
@@ -11,10 +11,6 @@ minetest.register_craftitem("farming:strawberry", {
 	end,
 	on_use = minetest.item_eat(1)
 })
-
--- weird engine bug stops us from using on_place for ethereal: item when mod not active
--- so instead use farming:strawberry and do quick alias for compatibility.
-minetest.register_alias("farming:strawberry", "ethereal:strawberry")
 
 -- Define Strawberry Bush growth stages
 local def = {
@@ -60,8 +56,8 @@ minetest.register_node(":ethereal:strawberry_5", table.copy(def))
 def.tiles = {"ethereal_strawberry_6.png"}
 def.drop = {
 	items = {
-		{items = {"farming:strawberry 1"}, rarity = 2},
-		{items = {"farming:strawberry 2"}, rarity = 3}
+		{items = {"ethereal:strawberry 1"}, rarity = 2},
+		{items = {"ethereal:strawberry 2"}, rarity = 3}
 	}
 }
 minetest.register_node(":ethereal:strawberry_6", table.copy(def))
@@ -70,8 +66,8 @@ minetest.register_node(":ethereal:strawberry_6", table.copy(def))
 def.tiles = {"ethereal_strawberry_7.png"}
 def.drop = {
 	items = {
-		{items = {"farming:strawberry 1"}, rarity = 1},
-		{items = {"farming:strawberry 2"}, rarity = 3}
+		{items = {"ethereal:strawberry 1"}, rarity = 1},
+		{items = {"ethereal:strawberry 2"}, rarity = 3}
 	}
 }
 minetest.register_node(":ethereal:strawberry_7", table.copy(def))
@@ -82,16 +78,16 @@ def.groups.growing = nil
 def.selection_box = farming.select_final
 def.drop = {
 	items = {
-		{items = {"farming:strawberry 2"}, rarity = 1},
-		{items = {"farming:strawberry 3"}, rarity = 3}
+		{items = {"ethereal:strawberry 2"}, rarity = 1},
+		{items = {"ethereal:strawberry 3"}, rarity = 3}
 	}
 }
 minetest.register_node(":ethereal:strawberry_8", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["ethereal:strawberry"] = {
-	crop = "farming:strawberry",
-	seed = "farming:strawberry",
+	crop = "ethereal:strawberry",
+	seed = "ethereal:strawberry",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
