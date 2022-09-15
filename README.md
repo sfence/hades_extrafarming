@@ -1,27 +1,20 @@
-minetest mod Farming Redo
-=========================
-
-This mod improves all food and farming related content
+Farming Redo mod for Minetest
+=============================
 
 Information
 -----------
 
-This mod must be named `farming` a simplified but improved version of the built-in farming
-mod in minetest but with more foods, it comes with wheat, cotton, carrot, cucumber,
-potato, melon, cotton, cocoa, corn, better pumpkin and tomato to start out with which
-spawn throughout the map...
-
-It also features that foods can be planted on tilled soil so for those then no seeds are required,
-original wheat and cotton will require seeds which are found inside normal and jungle grass...
+This mod replaces the default `farming` mod with a fully compatible API that allows
+players to grow crops even when they are not nearby.  It also includes many new foods
+and crops which can be planted directly onto tilled soil without seeds.  Crops that do
+require seeds like wheat and cotton are found when digging in long grasses.
 
 ![screenshot.png](screenshot.png)
 
 Tech information
 ----------------
 
-Farming Redo is a simplified version of the built-in farming mod in minetest and comes with wheat, cotton, carrot, cucumber, potato and tomato to start out with which spawn throughout the map... new foods need only be planted on tilled soil so no seeds are required, original wheat and cotton will require seeds which are found inside normal and jungle grass...
-
-This mod works by adding your new plant to the {growing=1} group and numbering the stages from _1 to as many stages as you like, but the underscore MUST be used only once in the node name to separate plant from stage number e.g.
+Crops grow by adding your new plant to the {growing = 1} group and numbering the stages from _1 to as many stages as you like, but the underscore MUST be used only once in the node name to separate plant from stage number e.g.
 
 * "farming:cotton_1"      through to   "farming:cotton_8"
 * "farming:wheat_1"       through to   "farming:wheat_8"
@@ -45,8 +38,8 @@ Optional dependences:
 
 #### Configuration
 
-If found inside mod or world folder `farming.conf` is loaded set independent values for each crop.
-Also `minetest.conf` contains a setting for crop growth speed.
+`farming.conf` is used to load custom settings for each crop and can be found in either the
+farming mod folder or the world folder.  Also `minetest.conf` contains a setting for crop growth speed.
 
 
 | Configuration        | type  | default | file         |  Notes                                   |
@@ -134,7 +127,7 @@ This farming mod provides a large selection of craftable foods:
 
 | node name               | Description           |
 | ----------------------- | --------------------- |
-| farming:scythe_mithril  | Mithril Scythe (Use to harvest and replant crops)        |
+| farming:scythe_mithril  | Mithril Scythe (Use to harvest and replant crops) |
 | farming:hoe_bomb        | Hoe Bomb (use or throw on grassy areas to hoe land) |
 | farming:hoe_wood        | Wooden Hoe            |
 | farming:hoe_stone       | Stone Hoe             |
@@ -156,9 +149,8 @@ This farming mod provides a large selection of craftable foods:
 
 #### Nodes and Aliasing
 
-This mod is a direct replacement for the old Farming Plus mod and
-replaces all of it's nodes and items with one's found within
-Farming Redo.
+This mod is also a direct replacement for the older Farming Plus mod and will replace all
+of it's nodes and items with one's found within Farming Redo.
 
 #### AMB
 
@@ -221,5 +213,3 @@ options, onion soup added (thanks edcrypt), Added apple pie, added wild cotton t
 - 0.2 - Fixed check for wet soil
 - 0.1 - Fixed growing bug
 - 0.0 - Initial release
-
-### Lucky Blocks: 41
