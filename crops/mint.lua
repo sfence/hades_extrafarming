@@ -102,9 +102,9 @@ minetest.register_decoration({
 		octaves = 3,
 		persist = 0.6
 	},
-	y_min = 1,
+	y_min = 0,
 	y_max = 75,
 	decoration = "farming:mint_4",
-	spawn_by = "group:water",
+	spawn_by = {"group:water", "group:sand"},
 	num_spawn_by = 1
 })

@@ -147,7 +147,7 @@ local mg = farming.mapgen == "v6"
 def = {
 	grow_on = mg and {"default:dirt_with_grass"} or {"default:dirt_with_dry_grass",
 			"default:dry_dirt_with_dry_grass"},
-	grow_near = mg and "default:desert_sand" or nil,
+	grow_near = mg and "group:sand" or nil,
 	num = mg and 1 or -1
 }
 
@@ -163,7 +163,7 @@ minetest.register_decoration({
 		octaves = 3,
 		persist = 0.6
 	},
-	y_min = 18,
+	y_min = 11,
 	y_max = 30,
 	decoration = {"farming:pineapple_8"},
 	spawn_by = def.grow_near,
