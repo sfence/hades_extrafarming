@@ -191,28 +191,28 @@ farming.register_hoe(":farming:hoe_diamond", {
 if tr then
 
 	minetest.override_item("farming:hoe_wood", {
-		original_description = "Wood Hoe",
-		description = toolranks.create_description("Wood Hoe")})
+		original_description = S("Wood Hoe"),
+		description = toolranks.create_description(S("Wood Hoe"))})
 
 	minetest.override_item("farming:hoe_stone", {
-		original_description = "Stone Hoe",
-		description = toolranks.create_description("Stone Hoe")})
+		original_description = S("Stone Hoe"),
+		description = toolranks.create_description(S("Stone Hoe"))})
 
 	minetest.override_item("farming:hoe_steel", {
-		original_description = "Steel Hoe",
-		description = toolranks.create_description("Steel Hoe")})
+		original_description = S("Steel Hoe"),
+		description = toolranks.create_description(S("Steel Hoe"))})
 
 	minetest.override_item("farming:hoe_bronze", {
-		original_description = "Bronze Hoe",
-		description = toolranks.create_description("Bronze Hoe")})
+		original_description = S("Bronze Hoe"),
+		description = toolranks.create_description(S("Bronze Hoe"))})
 
 	minetest.override_item("farming:hoe_mese", {
-		original_description = "Mese Hoe",
-		description = toolranks.create_description("Mese Hoe")})
+		original_description = S("Mese Hoe"),
+		description = toolranks.create_description(S("Mese Hoe"))})
 
 	minetest.override_item("farming:hoe_diamond", {
-		original_description = "Diamond Hoe",
-		description = toolranks.create_description("Diamond Hoe")})
+		original_description = S("Diamond Hoe"),
+		description = toolranks.create_description(S("Diamond Hoe"))})
 end
 
 
