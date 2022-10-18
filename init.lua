@@ -7,15 +7,20 @@
 
 farming = {
 	mod = "redo",
-	version = "20211116",
+	version = "20220915",
 	path = minetest.get_modpath(minetest.get_current_modname()),
 	select = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 	},
+	select_final = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -2.5/16, 0.5}
+	},
 	registered_plants = {},
 	min_light = 12,
-	max_light = 15
+	max_light = 15,
+	mapgen = minetest.get_mapgen_setting("mg_name")
 }
 
 
@@ -29,8 +34,27 @@ end
 local statistics = dofile(farming.path .. "/statistics.lua")
 
 -- Intllib
-local S = minetest.get_translator and minetest.get_translator("farming") or
-		dofile(farming.path .. "/intllib.lua")
+local S
+if minetest.get_translator ~= nil then
+	S = minetest.get_translator("farming") -- 5.x translation function
+else
+	if minetest.get_modpath("intllib") then
+		dofile(minetest.get_modpath("intllib") .. "/init.lua")
+		if intllib.make_gettext_pair then
+			gettext, ngettext = intllib.make_gettext_pair() -- new gettext method
+		else
+			gettext = intllib.Getter() -- old text file method
+		end
+		S = gettext
+	else -- boilerplate function
+		S = function(str, ...)
+			local args = {...}
+			return str:gsub("@%d+", function(match)
+				return args[tonumber(match:sub(2))]
+			end)
+		end
+	end
+end
 
 farming.intllib = S
 
@@ -84,7 +108,7 @@ end
 
 -- Growth Logic
 local STAGE_LENGTH_AVG = tonumber(
-		minetest.settings:get("farming_stage_length")) or 200 -- 160
+		minetest.settings:get("farming_stage_length")) or 200
 local STAGE_LENGTH_DEV = STAGE_LENGTH_AVG / 6
 
 
@@ -347,8 +371,8 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 
 		growth = 1
 	else
-		local night_light  = (minetest.get_node_light(light_pos, 0) or 0)
-		local day_light    = (minetest.get_node_light(light_pos, 0.5) or 0)
+		local night_light = (minetest.get_node_light(light_pos, 0) or 0)
+		local day_light = (minetest.get_node_light(light_pos, 0.5) or 0)
 		local night_growth = night_light >= MIN_LIGHT and night_light <= MAX_LIGHT
 		local day_growth = day_light >= MIN_LIGHT and day_light <= MAX_LIGHT
 
@@ -388,11 +412,15 @@ end
 -- refill placed plant by crabman (26/08/2015) updated by TenPlus1
 function farming.refill_plant(player, plantname, index)
 
+	if not player then return end
+
 	local inv = player:get_inventory()
-  if inv==nil then
-    minetest.log("error", "Refill plant missing player inventory.")
-    return
-  end
+
+	if inv==nil then
+		minetest.log("error", "Refill plant missing player inventory.")
+		return
+	end
+
 	local old_stack = inv:get_stack("main", index)
 
 	if old_stack:get_name() ~= "" then
@@ -478,7 +506,7 @@ function farming.place_seed(itemstack, placer, pointed_thing, plantname)
 			-- check for refill
 			if itemstack:get_count() == 0 then
 
-				minetest.after(0.10,
+				minetest.after(0.2,
 					farming.refill_plant,
 					placer,
 					name,
@@ -528,7 +556,7 @@ farming.register_plant = function(name, def)
 		on_place = function(itemstack, placer, pointed_thing)
 			return farming.place_seed(itemstack, placer,
 				pointed_thing, mname .. ":" .. pname .. "_1")
-		end,
+		end
 	})
   
   -- tile_prefix for Hades Revisited
@@ -560,13 +588,16 @@ farming.register_plant = function(name, def)
 			}
 		}
 
+		local sel = farming.select
 		local g = {
 			snappy = 3, flammable = 2, plant = 1, growing = 1,
 			attached_node = 1, not_in_creative_inventory = 1,
 		}
 
 		-- Last step doesn't need growing=1 so Abm never has to check these
+		-- also increase selection box for visual indication plant has matured
 		if i == def.steps then
+			sel = farming.select_final
 			g.growing = 0
 		end
 
@@ -589,7 +620,7 @@ farming.register_plant = function(name, def)
 			buildable_to = true,
 			sunlight_propagates = true,
 			drop = drop,
-			selection_box = farming.select,
+			selection_box = sel,
 			groups = g,
 			sounds = hades_sounds.node_sound_leaves_defaults(),
 			minlight = def.minlight,
@@ -613,6 +644,9 @@ end
 
 
 -- default settings
+farming.asparagus = 0.002
+farming.eggplant = 0.002
+farming.spinach = 0.002
 farming.carrot = 0.001
 farming.potato = 0.001
 farming.tomato = 0.001
@@ -645,8 +679,9 @@ farming.lettuce = 0.001
 farming.artichoke = 0.001
 farming.parsley = 0.002
 farming.sunflower = 0.001
+farming.strawberry = not minetest.get_modpath("ethereal") and 0.002
 farming.grains = true
-farming.rarety = 0.002
+farming.rice = true
 
 
 -- Load new global settings if found inside mod folder
@@ -709,6 +744,7 @@ ddoo("peas.lua", farming.peas)
 ddoo("beetroot.lua", farming.beetroot)
 ddoo("chili.lua", farming.chili)
 ddoo("ryeoatrice.lua", farming.grains)
+ddoo("rice.lua", farming.rice)
 ddoo("mint.lua", farming.mint)
 ddoo("cabbage.lua", farming.cabbage)
 ddoo("blackberry.lua", farming.blackberry)
@@ -718,11 +754,18 @@ ddoo("lettuce.lua", farming.lettuce)
 ddoo("artichoke.lua", farming.artichoke)
 ddoo("parsley.lua", farming.parsley)
 ddoo("sunflower.lua", farming.sunflower)
+ddoo("strawberry.lua", farming.strawberry)
+ddoo("asparagus.lua", farming.asparagus)
+ddoo("eggplant.lua", farming.eggplant)
+ddoo("spinach.lua", farming.eggplant)
 
 dofile(farming.path .. "/food.lua")
---dofile(farming.path .. "/mapgen.lua") -- not aviable via mapgen, decorations
 dofile(farming.path .. "/compatibility.lua") -- Farming Plus compatibility
-dofile(farming.path .. "/lucky_block.lua")
+
+if minetest.get_modpath("lucky_block") then
+	dofile(farming.path .. "/lucky_block.lua")
+end
 
 dofile(farming.path .. "/hades.lua") -- hades compatibility
 
+print("[MOD] Farming Redo loaded")

@@ -44,9 +44,8 @@ minetest.register_craftitem("hades_extrafarming:garlic", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "hades_extrafarming:garlic_clove 8",
-	recipe = {"hades_extrafarming:garlic"}
+	recipe = {{"hades_extrafarming:garlic"}}
 })
 
 minetest.register_craft({
@@ -136,6 +135,7 @@ minetest.register_node("hades_extrafarming:garlic_4", table.copy(def))
 -- stage 5
 def.tiles = {"crops_garlic_plant_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:garlic 3"}, rarity = 1},
@@ -154,3 +154,23 @@ farming.registered_plants["hades_extrafarming:garlic"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.garlic,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 467,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 3,
+	y_max = 35,
+	decoration = "farming:garlic_5",
+	spawn_by = "group:tree",
+	num_spawn_by = 1
+})

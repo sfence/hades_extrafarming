@@ -89,10 +89,25 @@ minetest.register_craft({
 })
 
 -- cocoa beans
+minetest.register_craftitem("hades_extrafarming:cocoa_beans_raw", {
+	description = S("Raw Cocoa Beans"),
+	inventory_image = "farming_cocoa_beans.png^[brighten",
+	groups = {seed = 1, flammable = 2},
+	on_place = function(itemstack, placer, pointed_thing)
+		return place_cocoa(itemstack, placer, pointed_thing, "hades_extrafarming:cocoa_1")
+	end
+})
+
 minetest.register_craftitem("hades_extrafarming:cocoa_beans", {
 	description = S("Cocoa Beans"),
 	inventory_image = "farming_cocoa_beans.png",
 	groups = {food_cocoa = 1, flammable = 2},
+
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 5,
+	output = "hades_extrafarming:cocoa_beans",
+	recipe = "hades_extrafarming:cocoa_beans_raw"
 })
 
 minetest.register_craft( {
@@ -192,7 +207,7 @@ minetest.register_node("hades_extrafarming:cocoa_2", table.copy(def))
 def.tiles = {"farming_cocoa_3.png"}
 def.drop = {
 	items = {
-		{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 1}
+		{items = {"hades_extrafarming:cocoa_beans_raw 1"}, rarity = 1}
 	}
 }
 minetest.register_node("hades_extrafarming:cocoa_3", table.copy(def))
@@ -203,21 +218,25 @@ def.groups.growing = nil
 def.growth_check = nil
 def.drop = {
 	items = {
-		{items = {"hades_extrafarming:cocoa_beans 2"}, rarity = 1},
-		{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 2},
-		{items = {"hades_extrafarming:cocoa_beans 1"}, rarity = 4}
+		{items = {"hades_extrafarming:cocoa_beans_raw 2"}, rarity = 1},
+		{items = {"hades_extrafarming:cocoa_beans_raw 1"}, rarity = 2},
+		{items = {"hades_extrafarming:cocoa_beans_raw 1"}, rarity = 4}
 	}
 }
 minetest.register_node("hades_extrafarming:cocoa_4", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:cocoa_beans"] = {
+	trellis = "hades_trees:jungletree",
 	crop = "hades_extrafarming:cocoa",
 	seed = "hades_extrafarming:seed_cocoa",
 	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 4
 }
+
+-- localize math.random for speed
+local random = math.random
 
 -- add random cocoa pods to jungle tree's
 minetest.register_on_generated(function(minp, maxp)
@@ -236,7 +255,7 @@ minetest.register_on_generated(function(minp, maxp)
 		if minetest.find_node_near(pos, 1,
 			{"default:jungleleaves", "moretrees:jungletree_leaves_green"}) then
 
-			dir = math.random(1, 80)
+			dir = random(80)
 
 			    if dir == 1 then pos.x = pos.x + 1
 			elseif dir == 2 then pos.x = pos.x - 1

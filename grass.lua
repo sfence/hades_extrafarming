@@ -38,9 +38,9 @@ minetest.override_item("hades_core:junglegrass", {
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {"hades_extrafarming:seed_cotton"}, rarity = 8},
-			{items = {"hades_extrafarming:seed_rice"},rarity = 8},
-			{items = {"hades_core:junglegrass"}}
+			{items = {"farming:seed_cotton"}, rarity = 8},
+			{items = {"farming:rice"},rarity = 8},
+			{items = {"default:junglegrass"}}
 		}
 	}
 })

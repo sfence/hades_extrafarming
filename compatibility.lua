@@ -116,31 +116,12 @@ alias("farming_plus:rhubarb", "hades_extrafarming:rhubarb_3")
 alias("farming_plus:rhubarb_item", "hades_extrafarming:rhubarb")
 
 -- Strawberry
-if eth then
-	alias("farming_plus:strawberry_item", "ethereal:strawberry")
-	alias("farming_plus:strawberry_seed", "ethereal:strawberry")
-	alias("farming_plus:strawberry_1", "ethereal:strawberry_1")
-	alias("farming_plus:strawberry_2", "ethereal:strawberry_3")
-	alias("farming_plus:strawberry_3", "ethereal:strawberry_5")
-	alias("farming_plus:strawberry", "ethereal:strawberry_7")
-else
-	--[[
-	minetest.register_craftitem(":ethereal:strawberry", {
-		description = S("Strawberry"),
-		inventory_image = "farming_strawberry.png",
-		wield_image = "farming_strawberry.png",
-		groups = {food_strawberry = 1, flammable = 2},
-		on_use = minetest.item_eat(1)
-	})
-	--]]
-
-	alias("farming_plus:strawberry_item", "hades_farming:strawberry")
-	alias("farming_plus:strawberry_seed", "hades_farming:seed_strawberry")
-	alias("farming_plus:strawberry_1", "hades_farming:strawberry_1")
-	alias("farming_plus:strawberry_2", "hades_farming:strawberry_2")
-	alias("farming_plus:strawberry_3", "hades_farming:strawberry_3")
-	alias("farming_plus:strawberry", "hades_farming:strawberry")
-end
+alias("farming_plus:strawberry_item", "ethereal:strawberry")
+alias("farming_plus:strawberry_seed", "ethereal:strawberry")
+alias("farming_plus:strawberry_1", "ethereal:strawberry_1")
+alias("farming_plus:strawberry_2", "ethereal:strawberry_3")
+alias("farming_plus:strawberry_3", "ethereal:strawberry_5")
+alias("farming_plus:strawberry", "ethereal:strawberry_7")
 
 -- Tomato
 alias("farming_plus:tomato_seed", "hades_extrafarming:tomato")

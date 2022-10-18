@@ -2,6 +2,7 @@
 local S = farming.intllib
 
 --= filter sea water into river water
+
 minetest.register_craft({
 	output = "hades_bucket:bucket_river_water",
 	recipe = {
@@ -39,6 +40,19 @@ minetest.register_craft({
 	replacements = {{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"}}
 })
 
+if minetest.get_modpath("bucket_wooden") then
+
+	minetest.register_craft({
+		output = "farming:glass_water 4",
+		recipe = {
+			{"vessels:drinking_glass", "vessels:drinking_glass"},
+			{"vessels:drinking_glass", "vessels:drinking_glass"},
+			{"group:water_bucket_wooden", "farming:hemp_fibre"}
+		},
+		replacements = {{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"}}
+	})
+end
+
 --= Sugar
 
 --[[
@@ -60,7 +74,7 @@ minetest.register_craft({
 
 minetest.register_craftitem("hades_extrafarming:caramel", {
 	description = S("Caramel"),
-	inventory_image = "farming_caramel.png",
+	inventory_image = "farming_caramel.png"
 })
 
 minetest.register_craft({
@@ -156,10 +170,10 @@ minetest.register_node("hades_extrafarming:salt_crystal", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
-	},
+	}
 })
+
 minetest.register_craft({
---	type = "shapeless",
 	output = "hades_extrafarming:salt 9",
 	recipe = {
 		{"hades_extrafarming:salt_crystal", "hades_extrafarming:mortar_pestle"}
@@ -200,28 +214,13 @@ minetest.register_craft({
 	recipe = {
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
-		{"group:water_bucket", "group:food_pot", "hades_vessels:glass_bottle"}
+		{"group:food_water_glass", "group:food_pot", "hades_vessels:glass_bottle"}
 	},
 	replacements = {
-		{"group:water_bucket", "hades_bucket:bucket_empty"},
+		{"group:food_water_glass", "hades_vessels:drinking_glass"},
 		{"group:food_pot", "hades_extrafarming:pot"}
 	}
 })
-
-if minetest.get_modpath("bucket_wooden") then
-	minetest.register_craft({
-		output = "hades_extrafarming:rose_water",
-		recipe = {
-			{"flowers:rose", "flowers:rose", "flowers:rose"},
-			{"flowers:rose", "flowers:rose", "flowers:rose"},
-			{"group:water_bucket_wooden", "group:food_pot", "hades_vessels:glass_bottle"}
-		},
-		replacements = {
-			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},
-			{"group:food_pot", "hades_extrafarming:pot"}
-		}
-	})
-end
 
 --= Turkish Delight
 
@@ -255,7 +254,6 @@ minetest.register_craftitem("hades_extrafarming:garlic_bread", {
 })
 
 minetest.register_craft({
-	--type = "shapeless",
 	output = "hades_extrafarming:garlic_bread",
 	recipe = {
 		{"group:food_toast", "group:food_garlic_clove", "group:food_garlic_clove"}
@@ -341,8 +339,7 @@ minetest.register_craftitem("hades_extrafarming:jaffa_cake", {
 })
 
 minetest.register_craft({
-	--type = "shapeless",
-	output = "hades_extrafarming:jaffa_cake",
+	output = "hades_extrafarming:jaffa_cake 3",
 	recipe = {
 		{"hades_extrafarming:baking_tray", "group:food_egg", "group:food_sugar"},
 		{"group:food_flour", "group:food_cocoa", "group:food_orange"},
@@ -351,6 +348,8 @@ minetest.register_craft({
 	replacements = {
 		{"hades_extrafarming:baking_tray", "hades_extrafarming:baking_tray"},
 		{"mobs:bucket_milk", "hades_bucket:bucket_empty"}
+		{"mobs:wooden_bucket_milk", "wooden_bucket:bucket_wood_empty"},
+		{"hades_extrafarming:soy_milk", "hades_vessels:drinking_glass"}
 	}
 })
 
@@ -381,13 +380,9 @@ minetest.register_craftitem("hades_extrafarming:cactus_juice", {
 	groups = {vessel = 1, drink = 1, food = 3, eatable = 2},
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
-			if math.random(5) == 1 then
-				return minetest.do_item_eat(-1, "hades_vessels:drinking_glass",
-						itemstack, user, pointed_thing)
-			else
-				return minetest.do_item_eat(2, "hades_vessels:drinking_glass",
-						itemstack, user, pointed_thing)
-			end
+			local num = math.random(5) == 1 and -1 or 2
+			return minetest.do_item_eat(num, "hades_vessels:drinking_glass",
+					itemstack, user, pointed_thing)
 		end
 	end
 })
@@ -428,6 +423,21 @@ minetest.register_craft({
 	replacements = {
 		{"group:food_mixing_bowl", "hades_extrafarming:mixing_bowl"},
 		{"group:food_oil", "hades_vessels:glass_bottle"}
+	}
+})
+
+-- Mac & Cheese
+
+minetest.register_craftitem("farming:mac_and_cheese", {
+	description = S("Mac & Cheese"),
+	inventory_image = "farming_mac_and_cheese.png",
+	on_use = minetest.item_eat(6, "farming:bowl")
+})
+
+minetest.register_craft({
+	output = "farming:mac_and_cheese",
+	recipe = {
+		{"group:food_pasta", "group:food_cheese", "group:food_bowl"}
 	}
 })
 
@@ -611,7 +621,8 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"cucina_vegana:soy_milk", "hades_vessels:drinking_glass"},
-		{"group:food_milk", "hades_bucket:bucket_empty"},
+		{"mobs:bucket_milk", "hades_bucket:bucket_empty"},
+		{"mobs:wooden_bucket_milk", "wooden_bucket:bucket_wood_empty"},
 		{"hades_extrafarming:vanilla_extract", "hades_vessels:glass_bottle"}
 	}
 })

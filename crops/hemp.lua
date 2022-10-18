@@ -101,7 +101,8 @@ minetest.register_node("hades_extrafarming:hemp_block", {
 	description = S("Hemp Block"),
 	tiles = {"farming_hemp_block.png"},
 	paramtype = "light",
-	groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 2}
+	groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds =  default.node_sound_leaves_defaults()
 })
 
 minetest.register_craft( {
@@ -244,6 +245,7 @@ minetest.register_node("hades_extrafarming:hemp_7", table.copy(def))
 -- stage 8 (final)
 def.tiles = {"farming_hemp_8.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:hemp_leaf 2"}, rarity = 1},
@@ -258,7 +260,27 @@ minetest.register_node("hades_extrafarming:hemp_8", table.copy(def))
 farming.registered_plants["hades_extrafarming:hemp"] = {
 	crop = "hades_extrafarming:hemp",
 	seed = "hades_extrafarming:seed_hemp",
-	mminlight = farming.min_light,
+	minlight = farming.min_light,
 	maxlight = farming.max_light,
 	steps = 8
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.hemp,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 420,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 3,
+	y_max = 45,
+	decoration = "farming:hemp_7",
+	spawn_by = "group:tree",
+	num_spawn_by = 1
+})

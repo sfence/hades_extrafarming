@@ -70,11 +70,11 @@ minetest.register_node("hades_extrafarming:vanilla_extract", {
 minetest.register_craft( {
 	output = "hades_extrafarming:vanilla_extract",
 	recipe = {
-		{ "group:food_vanilla", "group:food_vanilla", "group:food_vanilla"},
-		{ "group:food_vanilla", "hades_extrafarming:bottle_ethanol", "hades_bucket:bucket_water"},
+		{"group:food_vanilla", "group:food_vanilla", "group:food_vanilla"},
+		{"group:food_vanilla", "hades_extrafarming:bottle_ethanol", "group:food_water_glass"},
 	},
 	replacements = {
-		{"hades_bucket:bucket_water", "hades_bucket:bucket_empty"},
+		{"group:food_water_glass", "vessels:drinking_glass"}
 	}
 })
 
@@ -123,6 +123,7 @@ minetest.register_node("hades_extrafarming:vanilla_7", table.copy(def))
 -- stage 8 (final)
 def.tiles = {"farming_vanilla_8.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {'hades_extrafarming:vanilla 2'}, rarity = 1},
@@ -141,3 +142,21 @@ farming.registered_plants["hades_extrafarming:vanilla"] = {
 	maxlight = farming.max_light,
 	steps = 8
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.vanilla,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 476,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 5,
+	y_max = 35,
+	decoration = "farming:vanilla_7"
+})

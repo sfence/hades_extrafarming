@@ -84,6 +84,7 @@ minetest.register_node("hades_extrafarming:beetroot_4", table.copy(def))
 -- stage 5
 def.tiles = {"farming_beetroot_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	max_items = 5, items = {
 		{items = {"hades_extrafarming:beetroot"}, rarity = 1},
@@ -104,3 +105,21 @@ farming.registered_plants["hades_extrafarming:beetroot"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.beetroot,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 456,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 1,
+	y_max = 20,
+	decoration = "farming:beetroot_5"
+})

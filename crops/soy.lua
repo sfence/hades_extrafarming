@@ -14,9 +14,12 @@ minetest.register_node("hades_extrafarming:seed_soy", {
 	walkable = false,
 	sunlight_propagates = true,
 	selection_box = farming.select,
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:soy_1")
-	end,
+-- soy pod
+minetest.register_craftitem("hades_extrafarming:soy_pod", {
+	description = S("Soy Pod"),
+	inventory_image = "farming_soy_pod.png",
+	groups = {food_soy_pod = 1, food_soy, flammable = 2, food = 2, eatable = 1},
+	on_use = minetest.item_eat(1)
 })
 
 minetest.register_craft({
@@ -25,24 +28,8 @@ minetest.register_craft({
 	recipe = {"hades_extrafarming:soy_beans"},
 })
 
--- soy pod
-minetest.register_craftitem("hades_extrafarming:soy_pod", {
-	description = S("Soy Pod"),
-	inventory_image = "farming_soy_pod.png",
-	groups = {food_soy_pod = 1, flammable = 2},
-})
-
-minetest.register_craftitem("hades_extrafarming:soy_beans", {
-	description = S("Soy Beans"),
-	inventory_image = "farming_soy_beans.png",
-	groups = {food_soy = 1, flammable = 2, food = 2, eatable = 1},
-	on_use = minetest.item_eat(1)
-})
-
-minetest.register_craft({
-	output = "hades_extrafarming:soy_beans",
-	recipe = {{"hades_extrafarming:soy_pod"}}
-})
+-- replacement for soy beans that was removed
+minetest.register_alias("hades_extrafarming:soy_beans", "hades_extrafarming:soy_pod")
 
 -- soy sauce
 minetest.register_node("hades_extrafarming:soy_sauce", {
@@ -62,7 +49,6 @@ minetest.register_node("hades_extrafarming:soy_sauce", {
 	},
 	sounds = hades_sounds.node_sound_glass_defaults()
 })
-
 
 -- soy sauce recipe
 minetest.register_craft( {
@@ -202,6 +188,7 @@ minetest.register_node("hades_extrafarming:soy_6", table.copy(def))
 -- stage 7
 def.tiles = {"farming_soy_7.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	max_items = 5, items = {
 		{items = {'hades_extrafarming:soy_pod'}, rarity = 1},
@@ -221,3 +208,28 @@ farming.registered_plants["hades_extrafarming:soy_pod"] = {
 	maxlight = farming.max_light,
 	steps = 7
 }
+
+-- mapgen
+local mg = farming.mapgen == "v6"
+
+def = {
+	spawn_on = mg and {"default:dirt_with_grass"} or {"default:dirt_with_dry_grass",
+			"default:dirt_with_rainforest_litter", "default:dry_dirt_with_dry_grass"}
+}
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = def.spawn_on,
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.soy,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 809,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 20,
+	y_max = 50,
+	decoration = "farming:soy_6"
+})

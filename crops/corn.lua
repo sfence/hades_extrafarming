@@ -76,7 +76,7 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:cornstarch", {
 	description = S("Cornstarch"),
 	inventory_image = "farming_cornstarch.png",
-	groups = {food_cornstarch = 1, food_gelatin = 1, food_flammable = 2}
+	groups = {food_cornstarch = 1, food_gelatin = 1, flammable = 2}
 })
 
 minetest.register_craft({
@@ -180,6 +180,7 @@ minetest.register_node("hades_extrafarming:corn_7", table.copy(def))
 -- stage 8 (final)
 def.tiles = {"farming_corn_8.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:corn 2"}, rarity = 1},
@@ -197,3 +198,21 @@ farming.registered_plants["hades_extrafarming:corn"] = {
 	maxlight = farming.max_light,
 	steps = 8
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.corn,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 134,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 12,
+	y_max = 25,
+	decoration = "farming:corn_7"
+})

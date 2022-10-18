@@ -92,6 +92,7 @@ minetest.register_node("hades_extrafarming:onion_4", table.copy(def))
 -- stage 5
 def.tiles = {"crops_onion_plant_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	max_items = 5, items = {
 		{items = {"hades_extrafarming:onion"}, rarity = 1},
@@ -111,3 +112,21 @@ farming.registered_plants["hades_extrafarming:onion"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.onion,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 912,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 5,
+	y_max = 28,
+	decoration = "farming:onion_5"
+})

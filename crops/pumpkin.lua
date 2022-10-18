@@ -60,7 +60,7 @@ minetest.register_node("hades_extrafarming:jackolantern", {
 		"farming_pumpkin_side.png", "farming_pumpkin_face_off.png"
 	},
 	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_punch = function(pos, node, puncher)
 		local name = puncher:get_player_name() or ""
@@ -79,7 +79,7 @@ minetest.register_node("hades_extrafarming:jackolantern_on", {
 	light_source = minetest.LIGHT_MAX - 1,
 	paramtype2 = "facedir",
 	groups = {
-		choppy = 1, oddly_breakable_by_hand = 1, flammable = 2,
+		snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2,
 		not_in_creative_inventory = 1
 	},
 	sounds = hades_sounds.node_sound_wood_defaults(),
@@ -208,7 +208,7 @@ minetest.register_node("hades_extrafarming:pumpkin_8", {
 		"farming_pumpkin_side.png"
 	},
 	groups = {
-		food_pumpkin = 1, choppy = 2, oddly_breakable_by_hand = 1,
+		food_pumpkin = 1, snappy = 3, choppy = 3, oddly_breakable_by_hand = 2,
 		flammable = 2, plant = 1
 	},
 	drop = "hades_extrafarming:pumpkin_8",
@@ -227,3 +227,31 @@ farming.registered_plants["hades_extrafarming:pumpkin"] = {
 	maxlight = farming.max_light,
 	steps = 8
 }
+
+-- mapgen
+local mg = farming.mapgen == "v6"
+
+def = {
+	y_max = mg and 20 or 6,
+	near = mg and "group:water" or nil,
+	num = mg and 1 or -1,
+}
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.pumpkin,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 576,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 1,
+	y_max = def.y_max,
+	decoration = "farming:pumpkin_8",
+	spawn_by = def.near,
+	num_spawn_by = def.num
+})

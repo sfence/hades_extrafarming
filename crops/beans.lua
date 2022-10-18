@@ -230,6 +230,7 @@ minetest.register_node("hades_extrafarming:beanpole_4", table.copy(def))
 -- stage 5 (final)
 def.tiles = {"farming_beanpole_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:beanpole"}, rarity = 1},
@@ -242,6 +243,7 @@ minetest.register_node("hades_extrafarming:beanpole_5", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:beans"] = {
+	trellis = "hades_extrafarming:beanpole",
 	crop = "hades_extrafarming:beanpole",
 	seed = "hades_extrafarming:beans",
 	minlight = farming.min_light,
@@ -271,4 +273,22 @@ minetest.register_node("hades_extrafarming:beanbush", {
 		not_in_creative_inventory = 1
 	},
 	sounds = hades_sounds.node_sound_leaves_defaults()
+})
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.beans,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 345,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 18,
+	y_max = 38,
+	decoration = "farming:beanbush"
 })

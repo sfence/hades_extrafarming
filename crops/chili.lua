@@ -51,6 +51,22 @@ minetest.register_craft({
   replacements = {{"hades_extrafarming:chili_pepper", "hades_extrafarming:seed_chili"}},
 })
 
+-- chili powder
+minetest.register_craftitem("farming:chili_powder", {
+	description = S("Chili Powder"),
+	on_use = minetest.item_eat(-1),
+	inventory_image = "farming_chili_powder.png"
+})
+
+minetest.register_craft({
+	output = "farming:chili_powder",
+	recipe = {
+		{"farming:chili_pepper", "farming:mortar_pestle"}
+	},
+	replacements = {{"farming:mortar_pestle", "farming:mortar_pestle"}}
+})
+
+
 -- chili definition
 local def = {
 	drawtype = "plantlike",
@@ -98,6 +114,7 @@ minetest.register_node("hades_extrafarming:chili_7", table.copy(def))
 -- stage 8 (final)
 def.tiles = {"farming_chili_8.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:chili_pepper 3"}, rarity = 1},
@@ -114,3 +131,23 @@ farming.registered_plants["hades_extrafarming:chili_pepper"] = {
 	maxlight = farming.max_light,
 	steps = 8
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.chili,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 901,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 5,
+	y_max = 35,
+	decoration = {"farming:chili_8"},
+	spawn_by = "group:tree",
+	num_spawn_by = 1
+})

@@ -31,20 +31,11 @@ minetest.register_craft({
 minetest.register_craftitem("hades_extrafarming:pea_pod", {
 	description = S("Pea Pod"),
 	inventory_image = "farming_pea_pod.png",
-	groups = {food_pea_pod = 1, flammable = 2},
-})
-
-minetest.register_craftitem("hades_extrafarming:peas", {
-	description = S("Peas"),
-	inventory_image = "farming_pea_peas.png",
-	groups = {food_peas = 1, flammable = 2, food = 2, eatable = 1},
+	groups = {food_pea_pod = 1, food_peas = 1, flammable = 2, food = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 
-minetest.register_craft({
-	output = "hades_extrafarming:peas",
-	recipe = {{"hades_extrafarming:pea_pod"}}
-})
+minetest.register_alias("hades_extrafarming:peas", "hades_extrafarming:pea_pod")
 
 -- pea soup
 minetest.register_craftitem("hades_extrafarming:pea_soup", {
@@ -100,6 +91,7 @@ minetest.register_node("hades_extrafarming:pea_4", table.copy(def))
 -- stage 5
 def.tiles = {"farming_pea_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	max_items = 5, items = {
 		{items = {"hades_extrafarming:pea_pod"}, rarity = 1},
@@ -118,3 +110,21 @@ farming.registered_plants["hades_extrafarming:pea_pod"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.peas,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 132,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 25,
+	y_max = 55,
+	decoration = "farming:pea_5"
+})

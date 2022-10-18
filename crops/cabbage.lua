@@ -72,6 +72,7 @@ minetest.register_node("hades_extrafarming:cabbage_5", table.copy(def))
 -- stage 6
 def.tiles = {"farming_cabbage_6.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	max_items = 2, items = {
 		{items = {"hades_extrafarming:cabbage 2"}, rarity = 1},
@@ -88,3 +89,21 @@ farming.registered_plants["hades_extrafarming:cabbage"] = {
 	maxlight = farming.max_light,
 	steps = 6
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.cabbage,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 789,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 2,
+	y_max = 15,
+	decoration = "farming:cabbage_6"
+})

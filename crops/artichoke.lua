@@ -39,7 +39,7 @@ local def = {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	drop =  "",
+	drop = "",
 	selection_box = farming.select,
 	groups = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
@@ -66,6 +66,7 @@ minetest.register_node("hades_extrafarming:artichoke_4", table.copy(def))
 -- stage 5 (final)
 def.tiles = {"farming_artichoke_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:artichoke 2"}, rarity = 1},
@@ -82,3 +83,23 @@ farming.registered_plants["hades_extrafarming:artichoke"] = {
 	maxlight = 15,
 	steps = 5
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.artichoke,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 123,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 1,
+	y_max = 13,
+	decoration = {"farming:artichoke_5"},
+	spawn_by = "group:tree",
+	num_spawn_by = 1
+})

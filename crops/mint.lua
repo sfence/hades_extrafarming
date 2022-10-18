@@ -31,27 +31,12 @@ minetest.register_craft({
 	output = "hades_extrafarming:mint_tea",
 	recipe = {
 		{"group:food_mint", "group:food_mint", "group:food_mint"},
-		{"group:water_bucket", "hades_extrafarming:juicer", "hades_vessels:drinking_glass"}
+		{"group:food_water_glass", "hades_extrafarming:juicer", ""}
 	},
 	replacements = {
-		{"group:food_juicer", "hades_extrafarming:juicer"},
-		{"group:water_bucket", "hades_bucket:bucket_empty"}
+		{"group:food_juicer", "hades_extrafarming:juicer"}
 	}
 })
-
-if minetest.get_modpath("bucket_wooden") then
-	minetest.register_craft({
-		output = "hades_extrafarming:mint_tea",
-		recipe = {
-			{"group:food_mint", "group:food_mint", "group:food_mint"},
-			{"group:water_bucket_wooden", "hades_extrafarming:juicer", "hades_vessels:drinking_glass"}
-		},
-		replacements = {
-			{"group:food_juicer", "hades_extrafarming:juicer"},
-			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"}
-		}
-	})
-end
 
 -- mint definition
 local def = {
@@ -83,6 +68,7 @@ minetest.register_node("hades_extrafarming:mint_3", table.copy(def))
 -- stage 4 (final)
 def.tiles = {"farming_mint_4.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:mint_leaf 2"}, rarity = 1},
@@ -101,3 +87,23 @@ farming.registered_plants["hades_extrafarming:mint"] = {
 	maxlight = farming.max_light,
 	steps = 4
 }
+
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.mint,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 801,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 0,
+	y_max = 75,
+	decoration = "farming:mint_4",
+	spawn_by = {"group:water", "group:sand"},
+	num_spawn_by = 1
+})

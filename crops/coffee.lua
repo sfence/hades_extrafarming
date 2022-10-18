@@ -59,29 +59,12 @@ minetest.register_alias("hades_extrafarming:drinking_cup", "hades_vessels:drinki
 minetest.register_craft( {
 	output = "hades_extrafarming:coffee_cup",
 	recipe = {
-		{"group:food_saucepan", "group:food_coffee", "group:water_bucket"},
-		{"", "hades_vessels:drinking_glass", ""}
+		{"group:food_saucepan", "group:food_coffee", "group:food_water_glass"}
 	},
 	replacements = {
-		{"group:water_bucket", "hades_bucket:bucket_empty"},
 		{"group:food_saucepan", "hades_extrafarming:saucepan"}
 	}
 })
-
-if minetest.get_modpath("bucket_wooden") then
-	minetest.register_craft( {
-		output = "hades_extrafarming:coffee_cup",
-		output = "farming:coffee_cup",
-		recipe = {
-			{"group:food_saucepan", "group:food_coffee", "group:water_bucket_wooden"},
-			{"", "hades_vessels:drinking_glass", ""}
-		},
-		replacements = {
-			{"group:water_bucket_wooden", "bucket_wooden:bucket_empty"},
-			{"group:food_saucepan", "hades_extrafarming:saucepan"}
-		}
-	})
-end
 
 -- coffee definition
 local def = {
@@ -118,6 +101,7 @@ minetest.register_node("hades_extrafarming:coffee_4", table.copy(def))
 -- stage 5 (final)
 def.tiles = {"farming_coffee_5.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 		{items = {"hades_extrafarming:seed_coffee 2"}, rarity = 1},
@@ -135,3 +119,29 @@ farming.registered_plants["hades_extrafarming:coffee"] = {
 	maxlight = farming.max_light,
 	steps = 5
 }
+
+-- mapgen
+local mg = farming.mapgen == "v6"
+
+def = {
+	y_max = mg and 50 or 55,
+	spawn_on = mg and {"default:dirt_with_grass"} or {"default:dirt_with_dry_grass",
+			"default:dirt_with_rainforest_litter", "default:dry_dirt_with_dry_grass"}
+}
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = def.spawn_on,
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.coffee,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 12,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 20,
+	y_max = def.y_max,
+	decoration = "farming:coffee_5"
+})

@@ -71,9 +71,14 @@ minetest.register_node("hades_extrafarming:rhubarb_1", table.copy(def))
 def.tiles = {"farming_rhubarb_2.png"}
 minetest.register_node("hades_extrafarming:rhubarb_2", table.copy(def))
 
--- stage 3 (final)
+-- stage3
 def.tiles = {"farming_rhubarb_3.png"}
+minetest.register_node("farming:rhubarb_3", table.copy(def))
+
+-- stage 4 (final)
+def.tiles = {"farming_rhubarb_4.png"}
 def.groups.growing = nil
+def.selection_box = farming.select_final
 def.drop = {
 	items = {
 	{items = {"hades_extrafarming:rhubarb", "hades_extrafarming:seed_rhubarb"}, rarity = 1},
@@ -81,7 +86,7 @@ def.drop = {
 		{items = {"hades_extrafarming:seed_rhubarb"}, rarity = 3}
 	}
 }
-minetest.register_node("hades_extrafarming:rhubarb_3", table.copy(def))
+minetest.register_node("hades_extrafarming:rhubarb_4", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["hades_extrafarming:rhubarb"] = {
@@ -89,6 +94,25 @@ farming.registered_plants["hades_extrafarming:rhubarb"] = {
 	seed = "hades_extrafarming:seed_rhubarb",
 	minlight = 10,
 	maxlight = 12,
-	steps = 3
+	steps = 4
 }
 
+--[[
+-- mapgen
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 16,
+	noise_params = {
+		offset = 0,
+		scale = farming.rhubarb,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 798,
+		octaves = 3,
+		persist = 0.6
+	},
+	y_min = 3,
+	y_max = 20,
+	decoration = "farming:rhubarb_3"
+})
+--]]
