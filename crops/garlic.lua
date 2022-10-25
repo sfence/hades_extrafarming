@@ -156,6 +156,7 @@ farming.registered_plants["hades_extrafarming:garlic"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
@@ -174,3 +175,4 @@ minetest.register_decoration({
 	spawn_by = "group:tree",
 	num_spawn_by = 1
 })
+--]]

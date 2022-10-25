@@ -73,7 +73,7 @@ minetest.register_node("hades_extrafarming:rhubarb_2", table.copy(def))
 
 -- stage3
 def.tiles = {"farming_rhubarb_3.png"}
-minetest.register_node("farming:rhubarb_3", table.copy(def))
+minetest.register_node("hades_extrafarming:rhubarb_3", table.copy(def))
 
 -- stage 4 (final)
 def.tiles = {"farming_rhubarb_4.png"}

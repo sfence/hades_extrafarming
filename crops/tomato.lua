@@ -107,6 +107,7 @@ farming.registered_plants["hades_extrafarming:tomato"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
@@ -123,3 +124,4 @@ minetest.register_decoration({
 	y_max = 25,
 	decoration = "farming:tomato_7"
 })
+--]]

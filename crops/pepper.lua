@@ -156,6 +156,7 @@ farming.registered_plants["hades_extrafarming:pepper"] = {
 }
 
 -- mapgen
+--[[
 local mg = farming.mapgen == "v6"
 
 def = {
@@ -180,3 +181,4 @@ minetest.register_decoration({
 	spawn_by = "group:tree",
 	num_spawn_by = 1
 })
+--]]

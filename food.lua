@@ -347,7 +347,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"hades_extrafarming:baking_tray", "hades_extrafarming:baking_tray"},
-		{"mobs:bucket_milk", "hades_bucket:bucket_empty"}
+		{"mobs:bucket_milk", "hades_bucket:bucket_empty"},
 		{"mobs:wooden_bucket_milk", "wooden_bucket:bucket_wood_empty"},
 		{"hades_extrafarming:soy_milk", "hades_vessels:drinking_glass"}
 	}
@@ -428,14 +428,15 @@ minetest.register_craft({
 
 -- Mac & Cheese
 
-minetest.register_craftitem("farming:mac_and_cheese", {
+minetest.register_craftitem("hades_extrafarming:mac_and_cheese", {
 	description = S("Mac & Cheese"),
 	inventory_image = "farming_mac_and_cheese.png",
-	on_use = minetest.item_eat(6, "farming:bowl")
+  groups = {food = 2, eatable = 6},
+	on_use = minetest.item_eat(6, "hades_extrafarming:bowl")
 })
 
 minetest.register_craft({
-	output = "farming:mac_and_cheese",
+	output = "hades_extrafarming:mac_and_cheese",
 	recipe = {
 		{"group:food_pasta", "group:food_cheese", "group:food_bowl"}
 	}

@@ -175,6 +175,7 @@ Created by Auke Kok (License: CC BY-SA 3.0)
    crops_pumpkin_seed.png
 
 Created by SFENCE (license: CC BY-SA 4.0)
+   farming_artichoke_seed.png
    farming_beetroot_seed.png
    farming_blackberry_seed.png
    farming_blueberry_seed.png
@@ -188,6 +189,7 @@ Created by SFENCE (license: CC BY-SA 4.0)
    farming_grapes_seed.png
    farming_lettuce_seed.png
    farming_onion_seed.png
+   farming_parsley_seed.png
    farming_pea_seed.png
    farming_pineapple_seed.png
    farming_raspberry_seed.png

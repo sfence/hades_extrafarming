@@ -30,7 +30,7 @@ local def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	sounds = default.node_sound_leaves_defaults()
+	sounds = hades_sounds.node_sound_leaves_defaults()
 }
 
 --stage 1
@@ -94,6 +94,7 @@ farming.registered_plants["ethereal:strawberry"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
@@ -110,3 +111,4 @@ minetest.register_decoration({
 	y_max = 55,
 	decoration = "ethereal:strawberry_7"
 })
+--]]

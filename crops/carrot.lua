@@ -148,6 +148,7 @@ def = {
 	num = mg and 1 or -1,
 }
 
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
@@ -166,3 +167,4 @@ minetest.register_decoration({
 	spawn_by = def.near,
 	num_spawn_by = def.num
 })
+--]]

@@ -89,6 +89,7 @@ farming.registered_plants["hades_extrafarming:mint"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter"},
@@ -107,3 +108,4 @@ minetest.register_decoration({
 	spawn_by = {"group:water", "group:sand"},
 	num_spawn_by = 1
 })
+--]]

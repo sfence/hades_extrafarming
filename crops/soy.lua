@@ -14,6 +14,10 @@ minetest.register_node("hades_extrafarming:seed_soy", {
 	walkable = false,
 	sunlight_propagates = true,
 	selection_box = farming.select,
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "hades_extrafarming:soy_1")
+	end
+})
 -- soy pod
 minetest.register_craftitem("hades_extrafarming:soy_pod", {
 	description = S("Soy Pod"),
@@ -210,6 +214,7 @@ farming.registered_plants["hades_extrafarming:soy_pod"] = {
 }
 
 -- mapgen
+--[[
 local mg = farming.mapgen == "v6"
 
 def = {
@@ -233,3 +238,4 @@ minetest.register_decoration({
 	y_max = 50,
 	decoration = "farming:soy_6"
 })
+--]]

@@ -52,18 +52,18 @@ minetest.register_craft({
 })
 
 -- chili powder
-minetest.register_craftitem("farming:chili_powder", {
+minetest.register_craftitem("hades_extrafarming:chili_powder", {
 	description = S("Chili Powder"),
 	on_use = minetest.item_eat(-1),
 	inventory_image = "farming_chili_powder.png"
 })
 
 minetest.register_craft({
-	output = "farming:chili_powder",
+	output = "hades_extrafarming:chili_powder",
 	recipe = {
-		{"farming:chili_pepper", "farming:mortar_pestle"}
+		{"hades_extrafarming:chili_pepper", "hades_extrafarming:mortar_pestle"}
 	},
-	replacements = {{"farming:mortar_pestle", "farming:mortar_pestle"}}
+	replacements = {{"hades_extrafarming:mortar_pestle", "hades_extrafarming:mortar_pestle"}}
 })
 
 
@@ -133,6 +133,7 @@ farming.registered_plants["hades_extrafarming:chili_pepper"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
@@ -151,3 +152,4 @@ minetest.register_decoration({
 	spawn_by = "group:tree",
 	num_spawn_by = 1
 })
+--]]

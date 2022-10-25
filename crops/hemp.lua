@@ -102,7 +102,7 @@ minetest.register_node("hades_extrafarming:hemp_block", {
 	tiles = {"farming_hemp_block.png"},
 	paramtype = "light",
 	groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds =  default.node_sound_leaves_defaults()
+	sounds =  hades_sounds.node_sound_leaves_defaults()
 })
 
 minetest.register_craft( {
@@ -266,6 +266,7 @@ farming.registered_plants["hades_extrafarming:hemp"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
@@ -284,3 +285,4 @@ minetest.register_decoration({
 	spawn_by = "group:tree",
 	num_spawn_by = 1
 })
+--]]

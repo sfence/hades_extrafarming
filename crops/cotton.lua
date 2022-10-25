@@ -218,6 +218,7 @@ farming.register_plant("hades_extrafarming:cotton", {
 })]]
 
 -- mapgen
+--[[
 local mg = farming.mapgen == "v6"
 
 def = {
@@ -243,3 +244,4 @@ minetest.register_decoration({
 	y_min = 1,
 	decoration = "farming:cotton_wild"
 })
+--]]

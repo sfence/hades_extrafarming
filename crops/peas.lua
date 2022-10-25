@@ -112,6 +112,7 @@ farming.registered_plants["hades_extrafarming:pea_pod"] = {
 }
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
@@ -128,3 +129,4 @@ minetest.register_decoration({
 	y_max = 55,
 	decoration = "farming:pea_5"
 })
+--]]

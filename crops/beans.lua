@@ -276,6 +276,7 @@ minetest.register_node("hades_extrafarming:beanbush", {
 })
 
 -- mapgen
+--[[
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
@@ -292,3 +293,4 @@ minetest.register_decoration({
 	y_max = 38,
 	decoration = "farming:beanbush"
 })
+--]]

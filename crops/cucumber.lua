@@ -87,6 +87,7 @@ farming.registered_plants["hades_extrafarming:cucumber"] = {
 }
 
 -- mapgen
+--[[
 local mg = farming.mapgen == "v6"
 
 def = {
@@ -112,3 +113,4 @@ minetest.register_decoration({
 	spawn_by = def.near,
 	num_spawn_by = def.num
 })
+--]]

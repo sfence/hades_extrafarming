@@ -160,6 +160,7 @@ farming.registered_plants["hades_extrafarming:pineapple"] = {
 }
 
 -- mapgen
+--[[
 local mg = farming.mapgen == "v6"
 
 def = {
@@ -187,3 +188,4 @@ minetest.register_decoration({
 	spawn_by = def.grow_near,
 	num_spawn_by = def.num
 })
+--]]
