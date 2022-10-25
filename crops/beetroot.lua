@@ -45,7 +45,7 @@ minetest.register_craft({
 
 -- red dye
 minetest.register_craft({
-	output = "dye:red",
+	output = "hades_dye:red",
 	recipe = {{"group:food_beetroot"}}
 })
 

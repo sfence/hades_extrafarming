@@ -46,7 +46,7 @@ minetest.register_craft({
 
 -- chili can be used for red dye
 minetest.register_craft({
-	output = "dye:red",
+	output = "hades_dye:red",
 	recipe = {{"hades_extrafarming:chili_pepper"}},
   replacements = {{"hades_extrafarming:chili_pepper", "hades_extrafarming:seed_chili"}},
 })

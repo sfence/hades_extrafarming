@@ -68,8 +68,8 @@ minetest.register_craft({
 
 -- Blue Dye
 minetest.register_craft({
-	output = "dye:blue",
-	recipe = {{"farming:blueberries"}}
+	output = "hades_dye:blue",
+	recipe = {{"hades_extrafarming:blueberries"}}
 })
 
 -- blueberry definition

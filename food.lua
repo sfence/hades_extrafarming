@@ -236,7 +236,7 @@ minetest.register_craft({
 	recipe = {
 		{"group:food_gelatin", "group:food_sugar", "group:food_gelatin"},
 		{"group:food_sugar", "group:food_rose_water", "group:food_sugar"},
-		{"group:food_sugar", "dye:pink", "group:food_sugar"}
+		{"group:food_sugar", "hades_dye:pink", "group:food_sugar"}
 	},
 	replacements = {
 		{"group:food_cornstarch", "hades_extrafarming:bowl"},
@@ -599,7 +599,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "hades_extrafarming:paella",
 	recipe = {
-		"group:food_rice", "dye:orange", "hades_extrafarming:pepper_red",
+		"group:food_rice", "hades_dye:orange", "hades_extrafarming:pepper_red",
 		"group:food_peas", "group:food_chicken", "group:food_bowl", "group:food_skillet"
 	},
 	replacements = {{"group:food_skillet", "hades_extrafarming:skillet"}}

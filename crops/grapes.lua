@@ -90,7 +90,7 @@ minetest.register_craftitem("hades_extrafarming:grapes", {
 
 -- grapes can be used for violet dye
 minetest.register_craft({
-	output = "dye:violet",
+	output = "hades_dye:violet",
 	recipe = {{"hades_extrafarming:grapes"}}
 })
 

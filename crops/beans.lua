@@ -100,7 +100,7 @@ minetest.register_craftitem("hades_extrafarming:beans", {
 
 -- beans can be used for green dye
 minetest.register_craft({
-	output = "dye:green",
+	output = "hades_dye:green",
 	recipe = {{"hades_extrafarming:seed_bean"}}
 })
 

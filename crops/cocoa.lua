@@ -111,7 +111,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft( {
-	output = "dye:brown 2",
+	output = "hades_dye:brown 2",
 	recipe = {{"hades_extrafarming:cocoa_beans"}}
 })
 --]]
